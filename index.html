@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mappa dei concetti: moto rettilineo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#B8C4CE;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#A4B2BE;--line:#4A5C6C;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#A4B2BE;--line:#4A5C6C;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.5 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:38rem;margin:0 auto;padding:1.5rem 1.1rem 3rem}
+h1{font-size:clamp(1.7rem,5.5vw,2.4rem);line-height:1.12;margin:.3rem 0 .8rem;letter-spacing:-.015em}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+.lead{max-width:62ch;margin:0 0 .4rem}
+#wrap{margin-top:1.2rem}
+svg{display:block;width:100%;height:auto;font-family:inherit}
+.box{fill:var(--surface);stroke:var(--blue);stroke-width:2.5}
+a.nd{cursor:pointer}
+a.nd:hover .box{fill:var(--blue-soft)}
+a.nd:focus-visible{outline:none}
+a.nd:focus-visible .box{stroke:var(--ink);stroke-width:4}
+.badge{fill:var(--blue)}.bn{fill:var(--on-blue);font-size:14px;font-weight:700}
+.tagbg{fill:var(--blue)}.tagt{fill:var(--on-blue);font-size:12px;font-weight:700}
+.seen .box{stroke:var(--ok)}.seen .badge{fill:var(--ok)}
+.t{font-size:16px;font-weight:700;fill:var(--ink)}.s{font-size:14px;fill:var(--muted)}
+.edge{stroke:var(--muted);stroke-width:2;fill:none}
+.elbg{fill:var(--surface);stroke:var(--line);stroke-width:1.5}
+.el{font-size:15px;fill:var(--ink)}
+details{margin-top:1.6rem;color:var(--muted)}summary{cursor:pointer}
+details ol{margin:.5rem 0 0;padding-left:1.3rem}details a{color:var(--blue)}
+:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+</style>
+</head>
+<body>
+<main>
+<p class="meta">Fisica · liceo scientifico, classe seconda</p>
+<h1>Moto rettilineo: come si collegano i concetti</h1>
+<p class="lead">Segui le frecce dall’alto: la parola su ogni freccia dice come sono legati due concetti. Clicca i riquadri blu per aprire la scheda. Il percorso va dal moto a velocità costante, passa per l’accelerazione e arriva alla caduta libera.</p>
+<p class="meta" id="count"></p>
+<div id="wrap"></div>
+<details><summary>Versione a elenco</summary><ol>
+<li><a href="scheda1.html">MRU: legge oraria e ritardo</a></li>
+<li><a href="scheda2.html">Incontro e inseguimento</a></li>
+<li><a href="scheda3.html">Accelerazione e segno</a></li>
+<li><a href="scheda4.html">v(t) = v₀ + a·t: il treno che frena</a></li>
+<li><a href="scheda5.html">Lo spazio nel MRUA</a></li>
+<li><a href="scheda6.html">Tempo e spazio di frenata</a></li>
+<li><a href="scheda7.html">Caduta libera</a></li></ol></details>
+</main>
+<script>
+(()=>{
+const NS='http://www.w3.org/2000/svg',KEY='mappa-moto-aperte',$=id=>document.getElementById(id),wrap=$('wrap'),cnt=$('count');
+const LINK={1:'scheda1.html',2:'scheda2.html',3:'scheda3.html',4:'scheda4.html',5:'scheda5.html',6:'scheda6.html',7:'scheda7.html'};
+const C={1:{t:['MRU: legge oraria e ritardo'],s:['s = s0 + v (t − t0)','il ritardo si toglie al tempo'],tag:'inizia da qui'},
+2:{t:['Incontro e inseguimento'],s:['stessa posizione, stesso istante','s1(t) = s2(t)']},
+3:{t:['Accelerazione e segno'],s:['a = Δv / Δt','se a = 0 il moto è un MRU']},
+4:{t:['Velocità nel MRUA'],s:['v = v0 + a t','vale finché a è costante']},
+5:{t:['Spazio nel MRUA'],s:['s = s0 + v0 t + ½ a t²','area sotto il grafico v-t']},
+6:{t:['Tempo e spazio di frenata'],s:['v² = v0² + 2 a Δs','una formula senza il tempo']},
+7:{t:['Caduta libera'],s:['a = −g = −9,8 m/s²','v = 0 non vuol dire a = 0']}};
+const Y=[14,150,290,430,570,710,850];
+const E=[[1,2,'per due corpi'],[2,3,'se la velocità cambia'],[3,4,'con a costante'],[4,5,'area sotto v-t'],[5,6,'eliminando il tempo'],[6,7,'con a = −g']];
+const W=440,H=950,NW=320,NH=86,X0=60;
+let seen={};try{seen=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){seen={}}
+const el=(n,a,t)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e};
+function build(){
+const svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'group','aria-label':'Mappa concettuale del moto rettilineo'});
+const d=el('defs',{}),mk=el('marker',{id:'ah',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:8,markerHeight:8,orient:'auto'});mk.appendChild(el('path',{d:'M0 0L10 5L0 10z',style:'fill:var(--muted)'}));d.appendChild(mk);svg.appendChild(d);
+E.forEach(([a,b,t])=>{const y1=Y[a-1]+NH,y2=Y[b-1];svg.appendChild(el('line',{x1:220,y1,x2:220,y2,class:'edge','marker-end':'url(#ah)'}));svg.appendChild(el('text',{x:220,y:(y1+y2)/2,class:'el','text-anchor':'middle','dominant-baseline':'central'},t))});
+for(let n=1;n<=7;n++){const c=C[n],y=Y[n-1],a=el('a',{href:LINK[n],class:'nd','data-id':n,'aria-label':'Scheda '+n+': '+c.t[0]});
+a.appendChild(el('rect',{x:X0,y,width:NW,height:NH,rx:14,class:'box'}));a.appendChild(el('circle',{cx:X0+24,cy:y+NH/2,r:14,class:'badge'}));a.appendChild(el('text',{x:X0+24,y:y+NH/2+5,class:'bn','text-anchor':'middle'},String(n)));
+const rows=[['t',c.t[0]],...c.s.map(s=>['s',s])],y0=y+(NH-rows.length*20)/2+15;rows.forEach(([k,t],i)=>a.appendChild(el('text',{x:X0+48,y:y0+i*20,class:k,'text-anchor':'start'},t)));
+if(c.tag){a.appendChild(el('rect',{x:X0+NW-108,y:y+10,width:96,height:22,rx:11,class:'tagbg'}));a.appendChild(el('text',{x:X0+NW-60,y:y+25,class:'tagt','text-anchor':'middle'},c.tag))}
+a.addEventListener('click',()=>{seen[n]=1;try{localStorage.setItem(KEY,JSON.stringify(seen))}catch(e){}paint()});svg.appendChild(a)}
+wrap.replaceChildren(svg);
+svg.querySelectorAll('text.el').forEach(t=>{const b=t.getBBox();svg.insertBefore(el('rect',{x:b.x-9,y:b.y-3,width:b.width+18,height:b.height+6,rx:8,class:'elbg'}),t)});
+paint()}
+function paint(){wrap.querySelectorAll('a.nd').forEach(a=>{const s=!!seen[a.dataset.id];a.classList.toggle('seen',s);a.querySelector('.bn').textContent=s?'✓':a.dataset.id});
+cnt.textContent='Schede aperte: '+Object.keys(seen).filter(k=>LINK[k]).length+' su 7'}
+build();if(document.fonts)document.fonts.ready.then(build);
+})();
+</script>
+</body>
+</html>

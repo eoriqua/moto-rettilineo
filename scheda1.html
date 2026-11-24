@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MRU: legge oraria e ritardo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:44rem;margin:0 auto;padding:1.25rem 1.1rem 3rem}
+h1{font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.17;margin:.4rem 0 1.6rem;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem}
+p{margin:.5rem 0;max-width:62ch}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+button,summary{font:inherit}
+button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;min-height:44px}
+button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-weight:700}
+button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--ink);font-weight:700}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q{font-weight:700;margin:1.1rem 0 0}
+.choices{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0}
+.choices button{min-width:7rem}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem}
+canvas{display:block;width:100%;height:352px}
+.ctrl{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.ctrl label{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.ctrl input{width:1.1rem;height:1.1rem}
+.verdict{padding:.8rem 1rem;border-radius:8px;border-left:5px solid}
+.verdict.ok{background:var(--ok-soft);border-color:var(--ok)}
+.verdict.no{background:var(--warn-soft);border-color:var(--warn)}
+.formula{background:var(--blue-soft);border-radius:8px;padding:.9rem 1rem;margin:1rem 0;font-size:1.1rem}
+.deriv ol{margin:.5rem 0 0;padding-left:1.3rem}.deriv li{margin:.4rem 0}.deriv p{margin:0}
+ul.find{padding-left:1.2rem;max-width:62ch}ul.find li{margin:.5rem 0}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;margin:.8rem 0}
+details.step{border-left:4px solid var(--line);margin:.7rem 0;padding:.1rem 0 .1rem .9rem}
+details.step[open]{border-color:var(--blue)}
+details.step summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+details.step div{padding:.2rem 0 .5rem}
+details.note{margin-top:2.4rem;color:var(--muted);font-size:.97rem}
+details.note summary{cursor:pointer}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.back{display:inline-block;margin:0 0 .5rem;padding:.4rem 0;color:var(--blue);font-weight:700;text-decoration:none}.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← Torna alla mappa</a>
+<p class="meta">Moto rettilineo · scheda 1 di 7</p>
+<h1>Anna parte subito, Bruno parte 10 s dopo. Dov’è Bruno quando Anna è a 60 m?</h1>
+
+<h2>Prima di guardare, prevedi</h2>
+<p>Anna parte dal punto 0 e corre a 4,0 m/s costanti. Bruno parte dallo stesso punto, nello stesso verso e alla stessa velocità, ma 10 s dopo.</p>
+<p class="q">Quando Anna è a 60 m, Bruno si trova a:</p>
+<div class="choices" role="group" aria-label="Previsione sulla posizione di Bruno" data-g="a">
+<button data-v="20" aria-pressed="false">20 m</button><button data-v="40" aria-pressed="false">40 m</button><button data-v="60" aria-pressed="false">60 m</button>
+</div>
+<p class="q">Dopo la partenza di Bruno, la distanza tra i due:</p>
+<div class="choices" role="group" aria-label="Previsione sulla distanza" data-g="b">
+<button data-v="A" aria-pressed="false">Aumenta</button><button data-v="C" aria-pressed="false">Resta costante</button><button data-v="D" aria-pressed="false">Diminuisce</button>
+</div>
+
+<h2>Ora verifica</h2>
+<div class="scene">
+<canvas id="scena" role="img" aria-label="Anna e Bruno corrono alla stessa velocità, Bruno parte 10 secondi dopo. In alto le posizioni sulla pista, in basso il grafico spazio-tempo con due rette parallele, una spostata di 10 secondi verso destra."></canvas>
+<div class="ctrl">
+<button id="go" class="primary" disabled>Via!</button>
+<label><input type="checkbox" id="slow"> Rallenta</label>
+<label><input type="checkbox" id="gk" checked> Mostra distanza e ritardo</label>
+</div>
+</div>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Il grafico mostra la posizione in funzione del tempo.</p>
+
+<section id="res" hidden aria-live="polite">
+<h2>Cosa hai visto</h2>
+<p id="verdict" class="verdict"></p>
+<ul class="find">
+<li><b>Anna è a 60 m quando t = 15 s.</b> In quell’istante Bruno corre da soli 5 s (15 s − 10 s), quindi ha fatto 4,0 m/s · 5 s = 20 m.</li>
+<li><b>Il ritardo si toglie al tempo, non alla posizione.</b> Nella legge oraria di Bruno compare (t − 10 s): è il tempo trascorso dalla sua partenza.</li>
+<li><b>La retta di Bruno è quella di Anna spostata di 10 s verso destra.</b> Stessa velocità, stessa pendenza: le due rette sono parallele, e il ritardo è lo spostamento orizzontale tra le due.</li>
+<li><b>La distanza resta costante: 40 m.</b> È lo spazio che Anna ha già percorso quando Bruno parte (4,0 m/s · 10 s).</li>
+<li><b>Il motivo.</b> Si ricava dalla definizione di velocità:</li>
+</ul>
+<div class="formula deriv"><ol>
+<li>Anna parte da 0 a t = 0: s<sub>A</sub>(t) = v · t.</li>
+<li>Bruno resta fermo in 0 fino all’istante t<sub>0</sub>. Poi percorre lo spazio v · (t − t<sub>0</sub>), dove (t − t<sub>0</sub>) è il tempo trascorso dalla sua partenza.</li>
+<li>Per t ≥ t<sub>0</sub>: <b>s<sub>B</sub>(t) = v · (t − t<sub>0</sub>)</b>. Controllo: per t = t<sub>0</sub> si ottiene s<sub>B</sub> = 0, cioè la posizione di partenza.</li>
+<li>Se il corpo parte (o passa) da una posizione s<sub>0</sub> all’istante t<sub>0</sub>: <b>s(t) = s<sub>0</sub> + v · (t − t<sub>0</sub>)</b>, per t ≥ t<sub>0</sub>.</li>
+<li>La distanza tra i due è s<sub>A</sub> − s<sub>B</sub> = v t − v (t − t<sub>0</sub>) = v · t<sub>0</sub>: non dipende da t.</li></ol></div>
+
+<h2>Un problema tipico, passo per passo</h2>
+<div class="problem">Un’auto passa davanti al cartello dei 120 m all’istante t<sub>0</sub> = 8,0 s e prosegue a velocità costante di 15 m/s. Scrivi la legge oraria. Dove si trova a t = 20 s? Quando passa davanti al cartello dei 420 m?</div>
+<p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
+<details class="step"><summary>1. Che cosa succede, e che cos’è l’istante t<sub>0</sub>?</summary><div>L’auto è già in moto. L’istante t<sub>0</sub> = 8,0 s non è quello della partenza: è l’istante in cui passa davanti al cartello dei 120 m.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse lungo la strada, verso positivo nel verso del moto, con i cartelli che misurano la posizione da quell’origine. Dati: s<sub>0</sub> = 120 m, t<sub>0</sub> = 8,0 s, v = 15 m/s costante.</div></details>
+<details class="step"><summary>3. Quale modello scegli, e perché?</summary><div>Moto rettilineo uniforme, perché la velocità è costante. La legge vale solo per t ≥ t<sub>0</sub>.</div></details>
+<details class="step"><summary>4. Scrivi la legge oraria</summary><div>s(t) = s<sub>0</sub> + v · (t − t<sub>0</sub>) = 120 m + 15 m/s · (t − 8,0 s).</div></details>
+<details class="step"><summary>5. Dove si trova a t = 20 s?</summary><div>Il tempo trascorso dal passaggio è 20 s − 8,0 s = 12 s. Quindi s = 120 m + 15 m/s · 12 s = 120 m + 180 m = <b>300 m</b>. Errore da evitare: 120 m + 15 m/s · 20 s = 420 m, che varrebbe se l’auto fosse passata dal cartello a t = 0.</div></details>
+<details class="step"><summary>6. Quando passa davanti al cartello dei 420 m?</summary><div>420 m = 120 m + 15 m/s · (t − 8,0 s), quindi t − 8,0 s = 300 m / 15 m/s = 20 s e <b>t = 28 s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>15 m/s sono 54 km/h, una velocità plausibile. A 20 s l’auto è davanti al cartello dei 120 m da 12 s e ha percorso 180 m. Verifica finale: all’istante t = 28 s, s = 120 m + 15 m/s · 20 s = 420 m, come richiesto.</div></details>
+</section>
+
+<details class="note"><summary>Note per il docente</summary>
+<p>Dati della scena: v = 4,0 m/s, ritardo 10 s, osservazione a t = 15 s. Il nodo critico è distinguere s<sub>0</sub> (posizione) da t<sub>0</sub> (istante): il grafico mostra che il ritardo sposta la retta orizzontalmente, la posizione iniziale verticalmente. Errori tipici: s = v · t senza ritardo, s = s<sub>0</sub> + v · t<sub>0</sub> + v · t, sottrarre il ritardo alla posizione. Il problema guidato mostra l’ordine del ragionamento: situazione, riferimento, modello, formula, calcolo, controllo.</p></details>
+</main>
+<script>
+(()=>{
+const V=4,T0=10,TM=20,F='13px "Atkinson Hyperlegible",system-ui,sans-serif',FB='bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2='12px "Atkinson Hyperlegible",system-ui,sans-serif';
+const sA=t=>V*t,sB=t=>t<T0?0:V*(t-T0);
+const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),gk=$('gk'),res=$('res'),hint=$('hint');
+const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={a:null,b:null};
+let tau=0,running=false;
+const fm=(n,d)=>n.toFixed(d).replace('.',',');
+function size(){const d=devicePixelRatio||1;cv.width=cv.clientWidth*d;cv.height=352*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+function arrow2(x1,y1,x2,y2,col){ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})}
+function dot(x,y,col,l,c,dim){ctx.globalAlpha=dim?.4:1;ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();ctx.globalAlpha=1;ctx.fillStyle=c('--on-blue');ctx.font=FB;ctx.textAlign='center';ctx.fillText(l,x,y+5)}
+let c=()=>'';
+function draw(){
+const W=cv.clientWidth,cs=getComputedStyle(document.documentElement);c=n=>cs.getPropertyValue(n).trim();const t=tau*TM,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),po=c('--pot');
+ctx.clearRect(0,0,W,352);ctx.font=F;
+const tx0=28,tx1=W-28,TX=s=>tx0+s/80*(tx1-tx0);
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;[26,72].forEach(y=>{ctx.beginPath();ctx.moveTo(tx0,y);ctx.lineTo(tx1,y);ctx.stroke()});
+ctx.fillStyle=mu;ctx.textAlign='center';ctx.font=F2;[0,20,40,60,80].forEach(s=>{ctx.beginPath();ctx.moveTo(TX(s),90);ctx.lineTo(TX(s),95);ctx.stroke();ctx.fillText(s+' m',TX(s),108)});
+const a=sA(t),b=sB(t);
+if(gk.checked&&t>=T0){arrow2(TX(b),49,TX(a),49,ink);ctx.fillStyle=ink;ctx.font=FB;ctx.textAlign='center';ctx.fillText(fm(a-b,0)+' m',(TX(a)+TX(b))/2,44)}
+dot(TX(a),26,bl,'A',c,false);dot(TX(b),72,po,'B',c,t<T0);
+if(t<T0){ctx.fillStyle=mu;ctx.font=F2;ctx.textAlign='left';ctx.fillText('Bruno non è ancora partito',TX(0)+18,76)}
+const gx0=54,gx1=W-16,gy0=300,gy1=134,X=s=>gx0+s/TM*(gx1-gx0),Y=m=>gy0-m/80*(gy0-gy1);
+ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(gx0,gy1-8);ctx.lineTo(gx0,gy0);ctx.lineTo(gx1,gy0);ctx.stroke();ctx.font=F2;
+ctx.textAlign='right';[0,20,40,60,80].forEach(m=>ctx.fillText(m+'',gx0-6,Y(m)+4));ctx.textAlign='left';ctx.fillText('s (m)',gx0+6,gy1-10);
+ctx.textAlign='center';[0,5,10,15,20].forEach(s=>ctx.fillText(s+'',X(s),gy0+16));ctx.fillText('t (s)',(gx0+gx1)/2,gy0+32);
+ctx.lineWidth=3;ctx.strokeStyle=bl;ctx.beginPath();ctx.moveTo(X(0),Y(0));ctx.lineTo(X(t),Y(a));ctx.stroke();
+if(t>=T0){ctx.strokeStyle=po;ctx.beginPath();ctx.moveTo(X(T0),Y(0));ctx.lineTo(X(t),Y(b));ctx.stroke();ctx.fillStyle=po;ctx.beginPath();ctx.arc(X(T0),Y(0),4,0,7);ctx.fill()}
+ctx.fillStyle=bl;ctx.beginPath();ctx.arc(X(t),Y(a),5,0,7);ctx.fill();if(t>=T0){ctx.fillStyle=po;ctx.beginPath();ctx.arc(X(t),Y(b),5,0,7);ctx.fill()}
+if(gk.checked&&t>=T0){arrow2(X(t),Y(b),X(t),Y(a),ink)}
+if(t>=15){ctx.fillStyle=ink;ctx.font=FB;ctx.textAlign='left';ctx.beginPath();ctx.arc(X(15),Y(60),4,0,7);ctx.fill();ctx.beginPath();ctx.arc(X(15),Y(20),4,0,7);ctx.fill();ctx.fillText('Anna: 60 m',X(15)+8,Y(60)+4);ctx.fillText('Bruno: 20 m',X(15)+8,Y(20)+4)}
+if(gk.checked&&t>=TM-.01){arrow2(X(10),Y(40),X(20),Y(40),ink);ctx.fillStyle=ink;ctx.font=FB;ctx.textAlign='center';ctx.fillText('ritardo 10 s',X(15),Y(40)-7)}
+ctx.font=F;ctx.textAlign='left';ctx.fillStyle=ink;ctx.fillText('t = '+fm(t,1)+' s',10,330);ctx.fillStyle=bl;ctx.fillRect(86,320,10,10);ctx.fillStyle=ink;ctx.fillText('Anna s = '+fm(a,0)+' m',100,330);ctx.fillStyle=po;ctx.fillRect(210,320,10,10);ctx.fillStyle=ink;ctx.fillText('Bruno s = '+fm(b,0)+' m',224,330)}
+function finish(){running=false;go.textContent='Riguarda la corsa';go.disabled=false;
+const oka=ch.a==='20',okb=ch.b==='C',v=$('verdict');v.className='verdict '+(oka&&okb?'ok':'no');
+v.innerHTML='<b>Posizione di Bruno: '+(oka?'previsione corretta.':'non era così.')+'</b> Quando Anna è a 60 m (t = 15 s), Bruno è a 4,0 · (15 − 10) = 20 m. <b>Distanza: '+(okb?'previsione corretta.':'non era così.')+'</b> Resta costante, 40 m.';
+if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
+function run(){if(running||!ch.a||!ch.b)return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));tau=0;
+if(reduce.matches){tau=1;draw();finish();return}
+running=true;go.disabled=true;let last=performance.now();
+const step=n=>{tau+=(n-last)/1000/(slow.checked?12:6);last=n;if(tau>=1){tau=1;draw();finish();return}draw();requestAnimationFrame(step)};
+requestAnimationFrame(step)}
+groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{ch[g.dataset.g]=b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));if(ch.a&&ch.b){go.disabled=false;hint.textContent='Previsioni registrate. Ora guarda cosa succede.'}}));
+go.onclick=run;gk.onchange=draw;addEventListener('resize',size);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+if(document.fonts)document.fonts.ready.then(draw);
+size();
+})();
+</script>
+</body>
+</html>

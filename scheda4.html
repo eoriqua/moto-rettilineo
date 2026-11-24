@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>v(t) = v₀ + a·t: il treno che frena</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:44rem;margin:0 auto;padding:1.25rem 1.1rem 3rem}
+h1{font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.17;margin:.4rem 0 1.6rem;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem}
+p{margin:.5rem 0;max-width:62ch}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+button,summary{font:inherit}
+button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;min-height:44px}
+button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-weight:700}
+button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--ink);font-weight:700}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q{font-weight:700;margin:1.1rem 0 0}
+.choices{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0}
+.choices button{min-width:7rem}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem}
+canvas{display:block;width:100%}
+.ctrl{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.ctrl label{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.ctrl input{width:1.1rem;height:1.1rem}
+.verdict{padding:.8rem 1rem;border-radius:8px;border-left:5px solid}
+.verdict.ok{background:var(--ok-soft);border-color:var(--ok)}
+.verdict.no{background:var(--warn-soft);border-color:var(--warn)}
+.formula{background:var(--blue-soft);border-radius:8px;padding:.9rem 1rem;margin:1rem 0;font-size:1.1rem}
+.deriv ol{margin:.5rem 0 0;padding-left:1.3rem}.deriv li{margin:.4rem 0}.deriv p{margin:0}
+ul.find{padding-left:1.2rem;max-width:62ch}ul.find li{margin:.5rem 0}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;margin:.8rem 0}
+details.step{border-left:4px solid var(--line);margin:.7rem 0;padding:.1rem 0 .1rem .9rem}
+details.step[open]{border-color:var(--blue)}
+details.step summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+details.step div{padding:.2rem 0 .5rem}
+details.note{margin-top:2.4rem;color:var(--muted);font-size:.97rem}
+details.note summary{cursor:pointer}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.back{display:inline-block;margin:0 0 .5rem;padding:.4rem 0;color:var(--blue);font-weight:700;text-decoration:none}.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← Torna alla mappa</a>
+<p class="meta">Moto rettilineo · scheda 4 di 7</p>
+<h1>Un treno viaggia a 30 m/s e frena con a = −2,0 m/s². Dopo 20 s la formula dà v = −10 m/s: il treno torna indietro?</h1>
+<h2>Prima di guardare, prevedi</h2>
+<p>Un treno viaggia a 30 m/s lungo un binario rettilineo (asse positivo nel verso del moto). Frena con accelerazione costante a = −2,0 m/s².</p>
+<p class="q">Dopo 20 s la velocità del treno è:</p><div class="choices" role="group" aria-label="Dopo 20 s la velocità del treno è:" data-g="a"><button data-v="-10" aria-pressed="false">−10 m/s (torna indietro)</button><button data-v="0" aria-pressed="false">0 m/s (è fermo)</button><button data-v="10" aria-pressed="false">+10 m/s</button></div>
+<p class="q">Il treno si ferma dopo:</p><div class="choices" role="group" aria-label="Il treno si ferma dopo:" data-g="b"><button data-v="10" aria-pressed="false">10 s</button><button data-v="15" aria-pressed="false">15 s</button><button data-v="20" aria-pressed="false">20 s</button></div>
+
+<h2>Ora verifica</h2>
+<div class="scene">
+<canvas id="scena" role="img" aria-label="Un treno frena da 30 m/s. Il grafico velocità-tempo mostra la retta della formula, che scende sotto zero, e il moto reale, che si ferma a 15 secondi e resta a zero."></canvas>
+<div class="ctrl">
+<button id="go" class="primary" disabled>Fai frenare il treno</button>
+<label><input type="checkbox" id="slow"> Rallenta</label>
+<label><input type="checkbox" id="fk" checked> Mostra cosa darebbe la formula</label>
+</div>
+</div>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La linea tratteggiata è ciò che dà la formula, quella blu è il moto reale.</p>
+<section id="res" hidden aria-live="polite">
+<h2>Cosa hai visto</h2>
+<p id="verdict" class="verdict"></p>
+<ul class="find">
+<li><b>Il treno si ferma a t = 15 s e resta fermo.</b> Dopo i 15 s la velocità vale 0 m/s, non −10 m/s.</li>
+<li><b>La formula ha un campo di validità.</b> v = v<sub>0</sub> + a · t vale finché l’accelerazione è quella assunta. Dopo l’arresto i freni non agiscono più su un treno fermo: a = 0.</li>
+<li><b>Un risultato negativo va interpretato.</b> Qui −10 m/s direbbe che il treno retrocede, ma frenare non può far invertire il moto.</li>
+<li><b>Il motivo.</b> Segue dalla definizione di accelerazione:</li>
+</ul>
+<div class="formula deriv"><ol>
+<li>a = Δv / Δt, quindi con a costante v(t) = v<sub>0</sub> + a · t (retta di pendenza a).</li>
+<li>Il treno si ferma quando v = 0: t<sub>stop</sub> = −v<sub>0</sub> / a = −30 / (−2,0) = 15 s.</li>
+<li>Per t &gt; t<sub>stop</sub> la formula darebbe v &lt; 0: a 20 s, v = 30 − 2,0 · 20 = −10 m/s.</li>
+<li>Ma i freni possono solo togliere velocità: per t ≥ 15 s il treno è fermo, con v = 0 e a = 0.</li>
+<li>Quindi, prima di fidarsi di un risultato, bisogna controllare che il modello valga in quell’intervallo di tempo.</li>
+</ol></div>
+<h2>Un problema tipico, passo per passo</h2>
+<div class="problem">Un’auto viaggia a 25 m/s (90 km/h) e frena con accelerazione costante a = −5,0 m/s². Calcola la velocità dopo 3,0 s, il tempo di arresto e la velocità dopo 8,0 s.</div>
+<p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
+<details class="step"><summary>1. Che cosa succede?</summary><div>L’auto frena fino a fermarsi: il modulo della velocità diminuisce.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto: v<sub>0</sub> = +25 m/s, a = −5,0 m/s² (negativa perché la velocità diminuisce).</div></details>
+<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato: v(t) = v<sub>0</sub> + a · t, finché l’auto si muove.</div></details>
+<details class="step"><summary>4. Velocità dopo 3,0 s</summary><div>v = 25 m/s + (−5,0 m/s²) · 3,0 s = 25 m/s − 15 m/s = <b>10 m/s</b> (36 km/h).</div></details>
+<details class="step"><summary>5. Tempo di arresto</summary><div>v = 0, quindi t = −v<sub>0</sub> / a = −25 m/s / (−5,0 m/s²) = <b>5,0 s</b>.</div></details>
+<details class="step"><summary>6. Velocità dopo 8,0 s</summary><div>La formula darebbe 25 m/s − 5,0 m/s² · 8,0 s = −15 m/s, che non ha senso: dopo 5,0 s l’auto è ferma. Risposta: <b>v = 0 m/s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>A 3,0 s la velocità (10 m/s) è compresa tra 25 m/s e 0, coerente con il tempo di arresto di 5,0 s, che è maggiore di 3,0 s.</div></details>
+</section>
+<details class="note"><summary>Note per il docente</summary>
+<p>Dati della scena: v<sub>0</sub> = 30 m/s, a = −2,0 m/s², t di arresto 15 s, spazio di arresto 225 m. È la scheda sul «campo di validità» di una formula: lo studente deve riconoscere che un risultato aritmeticamente corretto può essere fisicamente impossibile. Errori tipici: applicare v = v<sub>0</sub> + a · t oltre l’arresto, interpretare −10 m/s come retromarcia.</p></details>
+</main>
+<script>
+
+const CFG={H:348,dur:[8,16],keys:['a','b'],again:'Riguarda la frenata',
+verdict:ch=>{const a=ch.a==='0',b=ch.b==='15';return{ok:a&&b,html:'<b>Velocità dopo 20 s: '+(a?'previsione corretta.':'non era così.')+'</b> Il treno è fermo (0 m/s), non torna indietro. <b>Tempo di arresto: '+(b?'previsione corretta.':'non era così.')+'</b> Si ferma dopo 15 s.'}},
+draw:(ctx,W,tau,U)=>{
+const t=tau*20,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),fk=U.on('fk'),vF=30-2*t,vR=t<15?30-2*t:0,s=t<15?30*t-t*t:225;
+const tx0=28,tx1=W-40,TX=m=>tx0+m/240*(tx1-tx0);
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('Treno: v = '+U.sg(vR,1)+' m/s,  a = '+(t<15?'−2,0':'0,0')+' m/s²',10,18);
+if(fk){ctx.font=U.F;ctx.fillStyle=mu;ctx.fillText('La formula darebbe: v = '+U.sg(vF,1)+' m/s',10,36)}
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(tx0,84);ctx.lineTo(tx1,84);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,100,200].forEach(m=>{ctx.beginPath();ctx.moveTo(TX(m),84);ctx.lineTo(TX(m),89);ctx.stroke();ctx.fillText(m+' m',TX(m),102)});
+ctx.fillStyle=bl;ctx.beginPath();ctx.roundRect(TX(s)-22,56,44,22,5);ctx.fill();ctx.fillStyle=c('--on-blue');ctx.fillRect(TX(s)-16,60,10,7);ctx.fillRect(TX(s)-2,60,10,7);ctx.fillRect(TX(s)+12,60,6,7);
+const gx0=54,gx1=W-16,Y=v=>140+(32-v)/44*160,X=u=>gx0+u/20*(gx1-gx0);
+ctx.strokeStyle=mu;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(gx0,128);ctx.lineTo(gx0,Y(-12));ctx.stroke();ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(gx0,Y(0));ctx.lineTo(gx1,Y(0));ctx.stroke();ctx.setLineDash([]);
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='right';[30,20,10,0,-10].forEach(v=>ctx.fillText(v+'',gx0-6,Y(v)+4));ctx.textAlign='left';ctx.fillText('v (m/s)',gx0+6,124);
+ctx.textAlign='center';[0,5,10,15,20].forEach(u=>ctx.fillText(u+'',X(u),Y(-12)+16));ctx.fillText('t (s)',(gx0+gx1)/2,Y(-12)+32);
+if(fk){ctx.save();ctx.setLineDash([6,4]);ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(X(0),Y(30));ctx.lineTo(X(t),Y(vF));ctx.stroke();ctx.restore();ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.arc(X(t),Y(vF),5,0,7);ctx.stroke()}
+const tm=Math.min(t,15);ctx.strokeStyle=bl;ctx.lineWidth=3.5;ctx.beginPath();ctx.moveTo(X(0),Y(30));ctx.lineTo(X(tm),Y(30-2*tm));if(t>15)ctx.lineTo(X(t),Y(0));ctx.stroke();ctx.fillStyle=bl;ctx.beginPath();ctx.arc(X(t),Y(vR),5,0,7);ctx.fill();
+if(t>=15){ctx.fillStyle=ink;ctx.beginPath();ctx.arc(X(15),Y(0),4,0,7);ctx.fill();ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('15 s: fermo',X(15)+8,Y(0)-8)}
+if(fk&&t>=19.9){ctx.fillStyle=ink;ctx.font=U.F2;ctx.textAlign='right';ctx.fillText('la formula dà −10 m/s',X(20)-8,Y(-10)-8)}}};
+
+
+(()=>{
+const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),res=$('res'),hint=$('hint');
+const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={};
+let tau=0,running=false;
+const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
+U.fm=(n,d)=>n.toFixed(d).replace('.',',');
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.on=id=>$(id)&&$(id).checked;
+U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
+U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};
+U.dot=(x,y,col,l,dim)=>{ctx.globalAlpha=dim?.4:1;ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();ctx.globalAlpha=1;ctx.fillStyle=U.c('--on-blue');ctx.font=U.FB;ctx.textAlign='center';ctx.fillText(l,x,y+5)};
+function size(){const d=devicePixelRatio||1,W=cv.clientWidth;cv.style.height=CFG.H+'px';cv.width=W*d;cv.height=CFG.H*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+function draw(){const W=cv.clientWidth,cs=getComputedStyle(document.documentElement);U.c=n=>cs.getPropertyValue(n).trim();ctx.clearRect(0,0,W,CFG.H);ctx.font=U.F;ctx.textAlign='left';CFG.draw(ctx,W,tau,U)}
+function finish(){running=false;go.textContent=CFG.again;go.disabled=false;const r=CFG.verdict(ch),v=$('verdict');v.className='verdict '+(r.ok?'ok':'no');v.innerHTML=r.html;if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
+function run(){if(running||!CFG.keys.every(k=>ch[k]))return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));tau=0;if(reduce.matches){tau=1;draw();finish();return}running=true;go.disabled=true;let last=performance.now();const step=n=>{tau+=(n-last)/1000/(slow.checked?CFG.dur[1]:CFG.dur[0]);last=n;if(tau>=1){tau=1;draw();finish();return}draw();requestAnimationFrame(step)};requestAnimationFrame(step)}
+groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{ch[g.dataset.g]=b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));if(CFG.keys.every(k=>ch[k])){go.disabled=false;hint.textContent='Previsioni registrate. Ora guarda cosa succede.'}}));
+go.onclick=run;document.querySelectorAll('.ctrl input').forEach(i=>i.onchange=draw);addEventListener('resize',size);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);if(document.fonts)document.fonts.ready.then(draw);size();
+})();
+
+</script>
+</body>
+</html>

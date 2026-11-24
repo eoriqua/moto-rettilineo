@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Accelerazione e segno: a negativa vuol dire che rallenta?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:44rem;margin:0 auto;padding:1.25rem 1.1rem 3rem}
+h1{font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.17;margin:.4rem 0 1.6rem;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem}
+p{margin:.5rem 0;max-width:62ch}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+button,summary{font:inherit}
+button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;min-height:44px}
+button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-weight:700}
+button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--ink);font-weight:700}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q{font-weight:700;margin:1.1rem 0 0}
+.choices{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0}
+.choices button{min-width:7rem}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem}
+canvas{display:block;width:100%;height:440px}
+.ctrl{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.ctrl label{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.ctrl input{width:1.1rem;height:1.1rem}
+.verdict{padding:.8rem 1rem;border-radius:8px;border-left:5px solid}
+.verdict.ok{background:var(--ok-soft);border-color:var(--ok)}
+.verdict.no{background:var(--warn-soft);border-color:var(--warn)}
+.formula{background:var(--blue-soft);border-radius:8px;padding:.9rem 1rem;margin:1rem 0;font-size:1.1rem}
+.deriv ol{margin:.5rem 0 0;padding-left:1.3rem}.deriv li{margin:.4rem 0}.deriv p{margin:0}
+ul.find{padding-left:1.2rem;max-width:62ch}ul.find li{margin:.5rem 0}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;margin:.8rem 0}
+details.step{border-left:4px solid var(--line);margin:.7rem 0;padding:.1rem 0 .1rem .9rem}
+details.step[open]{border-color:var(--blue)}
+details.step summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+details.step div{padding:.2rem 0 .5rem}
+details.note{margin-top:2.4rem;color:var(--muted);font-size:.97rem}
+details.note summary{cursor:pointer}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+.back{display:inline-block;margin:0 0 .5rem;padding:.4rem 0;color:var(--blue);font-weight:700;text-decoration:none}.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="index.html">← Torna alla mappa</a>
+<p class="meta">Moto rettilineo · scheda 3 di 7</p>
+<h1>Un’auto ha accelerazione negativa: sta rallentando?</h1>
+
+<h2>Prima di guardare, prevedi</h2>
+<p>Su una strada rettilinea l’asse è orientato verso destra. Due auto hanno la stessa accelerazione, a = −2,0 m/s². L’auto A viaggia verso destra a 6,0 m/s, l’auto B verso sinistra a 6,0 m/s.</p>
+<p class="q">Nei primi istanti l’auto A sta:</p>
+<div class="choices" role="group" aria-label="Previsione sull’auto A" data-g="a">
+<button data-v="R" aria-pressed="false">Rallentando</button><button data-v="A" aria-pressed="false">Accelerando</button>
+</div>
+<p class="q">Nei primi istanti l’auto B sta:</p>
+<div class="choices" role="group" aria-label="Previsione sull’auto B" data-g="b">
+<button data-v="R" aria-pressed="false">Rallentando</button><button data-v="A" aria-pressed="false">Accelerando</button>
+</div>
+
+<h2>Ora verifica</h2>
+<div class="scene">
+<canvas id="scena" role="img" aria-label="Due auto con la stessa accelerazione negativa. L’auto A, che va a destra, rallenta, si ferma e torna indietro; l’auto B, che va a sinistra, accelera. Sotto, il grafico velocità-tempo con due rette parallele."></canvas>
+<div class="ctrl">
+<button id="go" class="primary" disabled>Fai partire le auto</button>
+<label><input type="checkbox" id="slow"> Rallenta</label>
+<label><input type="checkbox" id="ak" checked> Mostra le frecce di v e a</label>
+</div>
+</div>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La freccia scura è la velocità, quella verde l’accelerazione.</p>
+
+<section id="res" hidden aria-live="polite">
+<h2>Cosa hai visto</h2>
+<p id="verdict" class="verdict"></p>
+<ul class="find">
+<li><b>Stessa accelerazione, comportamenti opposti.</b> L’auto A rallenta, l’auto B accelera, anche se tutte e due hanno a = −2,0 m/s².</li>
+<li><b>Conta il confronto tra i segni di v e di a.</b> Se hanno segno opposto il modulo della velocità diminuisce (A). Se hanno lo stesso segno aumenta (B).</li>
+<li><b>Stessa pendenza nel grafico v-t.</b> Le due rette sono parallele, con pendenza −2,0 m/s². La retta di A scende verso lo zero, quella di B si allontana dallo zero.</li>
+<li><b>A si ferma e poi torna indietro.</b> A t = 3,0 s la velocità di A è zero, ma l’accelerazione vale ancora −2,0 m/s²: l’accelerazione non è la velocità. Subito dopo anche A accelera, verso sinistra.</li>
+<li><b>Il motivo.</b> Segue dalla definizione di accelerazione:</li>
+</ul>
+<div class="formula deriv"><ol>
+<li>Accelerazione: a = Δv / Δt, con il segno. Misura come cambia la velocità, non se il corpo va più o meno veloce.</li>
+<li>Con a costante: v(t) = v<sub>0</sub> + a · t, una retta di pendenza a nel grafico v-t.</li>
+<li>Auto A: v<sub>0</sub> = +6,0 m/s e a = −2,0 m/s². Dopo 1,0 s: v = +4,0 m/s. Il modulo della velocità diminuisce.</li>
+<li>Auto B: v<sub>0</sub> = −6,0 m/s e a = −2,0 m/s². Dopo 1,0 s: v = −8,0 m/s. Il modulo della velocità aumenta.</li>
+<li>Quindi «rallentare» e «a &lt; 0» sono cose diverse: il segno di a indica il verso in cui cambia v, non se |v| cala.</li></ol></div>
+
+<h2>Un problema tipico, passo per passo</h2>
+<div class="problem">Su una strada rettilinea, con asse positivo verso est, un ciclista viaggia verso ovest a 4,0 m/s. In 8,0 s la sua velocità diventa 12 m/s sempre verso ovest. Calcola l’accelerazione media e dì se sta accelerando o rallentando. Poi rifai il calcolo per un secondo ciclista che va verso est: da 10 m/s a 4,0 m/s in 5,0 s.</div>
+<p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
+<details class="step"><summary>1. Che cosa succede?</summary><div>Il primo ciclista va verso ovest e il suo modulo di velocità aumenta, da 4,0 m/s a 12 m/s.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Est positivo, quindi ovest negativo. v<sub>i</sub> = −4,0 m/s, v<sub>f</sub> = −12 m/s, Δt = 8,0 s.</div></details>
+<details class="step"><summary>3. Quale grandezza serve?</summary><div>L’accelerazione media: a = Δv / Δt = (v<sub>f</sub> − v<sub>i</sub>) / Δt.</div></details>
+<details class="step"><summary>4. Calcola l’accelerazione del primo ciclista</summary><div>a = (−12 m/s − (−4,0 m/s)) / 8,0 s = −8,0 m/s / 8,0 s = <b>−1,0 m/s²</b>.</div></details>
+<details class="step"><summary>5. Sta accelerando o rallentando?</summary><div>Sia v sia a sono negativi: stesso segno, quindi sta <b>accelerando</b>, anche se a è negativa.</div></details>
+<details class="step"><summary>6. E il secondo ciclista?</summary><div>v<sub>i</sub> = +10 m/s, v<sub>f</sub> = +4,0 m/s, Δt = 5,0 s. a = (4,0 m/s − 10 m/s) / 5,0 s = <b>−1,2 m/s²</b>. Qui v è positiva e a negativa: segni opposti, quindi <b>rallenta</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>Le due accelerazioni hanno lo stesso segno ma i comportamenti sono opposti. Nel primo caso |v| passa da 4,0 a 12 m/s (aumenta), nel secondo da 10 a 4,0 m/s (diminuisce): coerente con la regola dei segni.</div></details>
+</section>
+
+<details class="note"><summary>Note per il docente</summary>
+<p>Dati della scena: v<sub>0</sub> = ±6,0 m/s, a = −2,0 m/s², t da 0 a 6 s. Le due piste hanno scale diverse (A tra −6 e 12 m, B tra −90 e 12 m) per tenere tutto visibile; ogni pista ha il suo righello. Errori tipici: «a &lt; 0 vuol dire che rallenta», «a = 0 se v = 0», confondere a con v. L’ultimo punto prepara la caduta libera: nel punto più alto del lancio v = 0 ma a = −g.</p></details>
+</main>
+<script>
+(()=>{
+const V0=6,A=-2,TM=6,F='13px "Atkinson Hyperlegible",system-ui,sans-serif',FB='bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2='12px "Atkinson Hyperlegible",system-ui,sans-serif';
+const vf=[t=>V0+A*t,t=>-V0+A*t],sf=[t=>V0*t+.5*A*t*t,t=>-V0*t+.5*A*t*t];
+const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),ak=$('ak'),res=$('res'),hint=$('hint');
+const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={a:null,b:null};
+let tau=0,running=false;
+const fm=(n,d)=>n.toFixed(d).replace('.',','),sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+fm(Math.abs(n),d);
+function size(){const d=devicePixelRatio||1;cv.width=cv.clientWidth*d;cv.height=440*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+function arrow(x,y,len,col){if(Math.abs(len)<3)return;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+len,y);ctx.stroke();const s=len>0?1:-1;ctx.beginPath();ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5);ctx.closePath();ctx.fill()}
+function draw(){
+const W=cv.clientWidth,cs=getComputedStyle(document.documentElement),c=n=>cs.getPropertyValue(n).trim(),t=tau*TM,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),po=c('--pot'),ok=c('--ok');
+ctx.clearRect(0,0,W,440);
+const L=[{n:'Auto A',y0:0,col:bl,lo:-6,hi:12,tk:[0,5,10]},{n:'Auto B',y0:112,col:po,lo:-90,hi:12,tk:[-80,-60,-40,-20,0]}],tx0=24,tx1=W-24;
+L.forEach((l,i)=>{const v=vf[i](t),s=sf[i](t),X=m=>tx0+(m-l.lo)/(l.hi-l.lo)*(tx1-tx0),x=X(s),y=l.y0,st=Math.abs(v)<.05?'fermo per un istante':v*A<0?'rallenta':'accelera';
+ctx.textAlign='left';ctx.font=FB;ctx.fillStyle=ink;ctx.fillText(l.n+': '+st,10,y+16);ctx.font=F;ctx.fillText('v = '+sg(v,1)+' m/s     a = '+sg(A,1)+' m/s²',10,y+34);
+if(ak.checked){arrow(x,y+52,v*4,ink);arrow(x,y+64,A*14,ok);ctx.font=F2;ctx.fillStyle=ink;ctx.textAlign='right';ctx.fillText('v',tx1,y+55);ctx.fillStyle=ok;ctx.fillText('a',tx1,y+67)}
+ctx.fillStyle=l.col;ctx.beginPath();ctx.roundRect(x-18,y+72,36,16,4);ctx.fill();
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(tx0,y+93);ctx.lineTo(tx1,y+93);ctx.stroke();ctx.fillStyle=mu;ctx.font=F2;ctx.textAlign='center';l.tk.forEach(m=>{ctx.beginPath();ctx.moveTo(X(m),y+93);ctx.lineTo(X(m),y+98);ctx.stroke();ctx.fillText(m+' m',X(m),y+110)})});
+const gx0=54,gx1=W-16,gy0=250,gy1=410,X=s=>gx0+s/TM*(gx1-gx0),Y=v=>gy0+(8-v)/28*(gy1-gy0);
+ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(gx0,gy0-8);ctx.lineTo(gx0,gy1);ctx.stroke();ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(gx0,Y(0));ctx.lineTo(gx1,Y(0));ctx.stroke();ctx.setLineDash([]);
+ctx.font=F2;ctx.textAlign='right';[6,0,-6,-12,-18].forEach(v=>ctx.fillText(v+'',gx0-6,Y(v)+4));ctx.textAlign='left';ctx.fillText('v (m/s)',gx0+6,gy0-10);
+ctx.textAlign='center';[0,1,2,3,4,5,6].forEach(s=>ctx.fillText(s+'',X(s),gy1+16));ctx.fillText('t (s)',(gx0+gx1)/2,gy1+32);
+[[0,bl,'A'],[1,po,'B']].forEach(([i,col,n])=>{ctx.strokeStyle=col;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(X(0),Y(vf[i](0)));ctx.lineTo(X(t),Y(vf[i](t)));ctx.stroke();ctx.fillStyle=col;ctx.beginPath();ctx.arc(X(t),Y(vf[i](t)),5,0,7);ctx.fill();ctx.fillStyle=ink;ctx.font=FB;ctx.textAlign='left';ctx.fillText(n,X(0)+6,Y(vf[i](0))+(i?16:-6))});
+if(t>=3){ctx.fillStyle=ink;ctx.beginPath();ctx.arc(X(3),Y(0),4,0,7);ctx.fill();ctx.font=F2;ctx.textAlign='left';ctx.fillText('v = 0 ma a ≠ 0',X(3)+8,Y(0)-8)}}
+function finish(){running=false;go.textContent='Riguarda il moto';go.disabled=false;
+const oka=ch.a==='R',okb=ch.b==='A',v=$('verdict');v.className='verdict '+(oka&&okb?'ok':'no');
+v.innerHTML='<b>Auto A: '+(oka?'previsione corretta.':'non era così.')+'</b> Rallenta, perché v è positiva e a negativa. <b>Auto B: '+(okb?'previsione corretta.':'non era così.')+'</b> Accelera, perché v e a sono entrambe negative.';
+if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
+function run(){if(running||!ch.a||!ch.b)return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));tau=0;
+if(reduce.matches){tau=1;draw();finish();return}
+running=true;go.disabled=true;let last=performance.now();
+const step=n=>{tau+=(n-last)/1000/(slow.checked?14:7);last=n;if(tau>=1){tau=1;draw();finish();return}draw();requestAnimationFrame(step)};
+requestAnimationFrame(step)}
+groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{ch[g.dataset.g]=b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));if(ch.a&&ch.b){go.disabled=false;hint.textContent='Previsioni registrate. Ora guarda cosa succede.'}}));
+go.onclick=run;ak.onchange=draw;addEventListener('resize',size);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);
+if(document.fonts)document.fonts.ready.then(draw);
+size();
+})();
+</script>
+</body>
+</html>
