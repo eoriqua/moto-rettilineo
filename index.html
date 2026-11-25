@@ -36,6 +36,7 @@ a.nd:focus-visible .box{stroke:var(--ink);stroke-width:4}
 details{margin-top:1.6rem;color:var(--muted)}summary{cursor:pointer}
 details ol{margin:.5rem 0 0;padding-left:1.3rem}details a{color:var(--blue)}
 :focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.tg{cursor:pointer}.tg:focus-visible{outline:none}.tg:focus-visible rect{stroke:var(--blue);stroke-width:3}
 </style>
 </head>
 <body>
@@ -46,40 +47,57 @@ details ol{margin:.5rem 0 0;padding-left:1.3rem}details a{color:var(--blue)}
 <p class="meta" id="count"></p>
 <div id="wrap"></div>
 <details><summary>Versione a elenco</summary><ol>
-<li><a href="scheda1.html">Legge oraria e ritardo</a></li>
-<li><a href="scheda2.html">Incontro e inseguimento</a></li>
-<li><a href="scheda3.html">Accelerazione e segno</a></li>
-<li><a href="scheda4.html">Velocità nel tempo</a></li>
-<li><a href="scheda5.html">Spazio percorso</a></li>
-<li><a href="scheda6.html">Tempo e spazio di frenata</a></li>
-<li><a href="scheda7.html">Caduta libera</a></li></ol></details>
+<li><a href="scheda1.html" rel="noopener">Legge oraria e ritardo</a></li>
+<li><a href="scheda2.html" rel="noopener">Incontro e inseguimento</a></li>
+<li><a href="scheda3.html" rel="noopener">Accelerazione e segno</a></li>
+<li><a href="scheda4.html" rel="noopener">Velocità nel tempo</a></li>
+<li><a href="scheda5.html" rel="noopener">Spazio percorso</a></li>
+<li><a href="scheda6.html" rel="noopener">Tempo e spazio di frenata</a></li>
+<li><a href="scheda7.html" rel="noopener">Caduta libera</a></li><li><a href="scheda8.html" rel="noopener">Leggere un grafico s-t a tratti</a></li><li><a href="scheda9.html" rel="noopener">Incontro e sorpasso</a></li><li><a href="scheda10.html" rel="noopener">Pendenza e area nel grafico v-t</a></li><li><a href="scheda11.html" rel="noopener">Legge oraria a tratti</a></li></ol></details>
 </main>
 <script>
 (()=>{
 const NS='http://www.w3.org/2000/svg',KEY='mappa-moto-aperte',$=id=>document.getElementById(id),wrap=$('wrap'),cnt=$('count');
-const LINK={1:'scheda1.html',2:'scheda2.html',3:'scheda3.html',4:'scheda4.html',5:'scheda5.html',6:'scheda6.html',7:'scheda7.html'};
-const W=440,H=640;
-const N=[
-{k:'root',x:140,y:8,w:160,h:40,t:['Moto rettilineo']},
+const LINK={1:'scheda1.html',2:'scheda2.html',3:'scheda3.html',4:'scheda4.html',5:'scheda5.html',6:'scheda6.html',7:'scheda7.html',8:'scheda8.html',9:'scheda9.html',10:'scheda10.html',11:'scheda11.html'};
+const W=460;
+const open={st:false,vt:false};
+function layout(){
+const N=[{k:'root',x:140,y:8,w:160,h:40,t:['Moto rettilineo']},
 {k:'ctx',x:24,y:100,w:180,h:40,t:['MRU']},{k:'ctx',x:246,y:100,w:180,h:40,t:['MRUA']},
 {k:'l',n:1,x:24,y:196,w:180,h:62,t:['Legge oraria','e ritardo'],tag:'inizia da qui'},{k:'l',n:2,x:24,y:300,w:180,h:62,t:['Incontro e','inseguimento']},
-{k:'ctx',x:24,y:410,w:180,h:40,t:['Grafico s-t']},{k:'ctx',x:24,y:500,w:180,h:40,t:['Grafico v-t']},
-{k:'l',n:3,x:246,y:196,w:180,h:62,t:['Accelerazione','e segno']},{k:'l',n:4,x:246,y:286,w:180,h:62,t:['Velocità','nel tempo']},
-{k:'l',n:5,x:246,y:376,w:180,h:62,t:['Spazio','percorso']},{k:'l',n:6,x:246,y:466,w:180,h:62,t:['Tempo e spazio','di frenata']},{k:'l',n:7,x:246,y:556,w:180,h:62,t:['Caduta','libera']}];
-const E=[
-[[[170,48],[120,100]],'v costante',[145,74]],[[[270,48],[330,100]],'a costante',[300,74]],
+{k:'ctx',tog:'st',x:24,y:410,w:180,h:40,t:['Grafico s-t']}];
+const E=[[[[170,48],[120,100]],'v costante',[145,74]],[[[270,48],[330,100]],'a costante',[300,74]],
 [[[114,140],[114,196]],'si descrive con',[114,168]],[[[24,120],[12,120],[12,331],[24,331]],null],
-[[[336,140],[336,196]],'si definisce con',[336,168]],
-[[[426,120],[438,120],[438,587]],null,null,0],[[[438,317],[426,317]],null],[[[438,407],[426,407]],null],[[[438,497],[426,497]],null],[[[438,587],[426,587]],null],
-[[[246,215],[204,128]],'a = 0',[225,171]],[[[114,410],[114,362]],'incrocio',[114,386]],[[[204,512],[246,430]],'area',[225,471]]];
+[[[336,140],[336,196]],'si definisce con',[336,168]],[[[246,215],[204,128]],'a = 0',[225,171]],[[[114,410],[114,362]],'incrocio',[114,386]]];
+let y=500;
+if(open.st){N.push({k:'l',n:8,x:24,y:480,w:180,h:62,t:['Leggere s-t','a tratti']},{k:'l',n:9,x:24,y:570,w:180,h:62,t:['Incontro','e sorpasso']});
+E.push([[[24,430],[12,430],[12,601]],null,null,0],[[[12,511],[24,511]],null],[[[12,601],[24,601]],null]);y=660}
+const vy=y;N.push({k:'ctx',tog:'vt',x:24,y:vy,w:180,h:40,t:['Grafico v-t']});
+let bottom=vy+40;
+if(open.vt){N.push({k:'l',n:10,x:24,y:vy+70,w:180,h:62,t:['Pendenza e area','nel grafico v-t']},{k:'l',n:11,x:24,y:vy+160,w:180,h:62,t:['Legge oraria','a tratti']});
+E.push([[[24,vy+20],[12,vy+20],[12,vy+191]],null,null,0],[[[12,vy+101],[24,vy+101]],null],[[[12,vy+191],[24,vy+191]],null]);bottom=vy+222}
+N.push({k:'l',n:3,x:246,y:196,w:180,h:62,t:['Accelerazione','e segno']},
+{k:'l',n:4,x:246,y:300,w:180,h:62,t:['Velocità','nel tempo']},
+{k:'ctx',x:246,y:vy,w:180,h:40,t:['Legge oraria MRUA']},
+{k:'l',n:5,x:246,y:vy+70,w:180,h:62,t:['Spazio','percorso']},{k:'l',n:6,x:246,y:vy+160,w:180,h:62,t:['Tempo e spazio','di frenata']},
+{k:'l',n:7,x:246,y:vy+270,w:180,h:62,t:['Caduta','libera'],tag:'applicazione'});
+E.push([[[336,258],[336,300]],'da cui',[336,279]],[[[336,362],[336,vy]],'ricavare s',[336,(362+vy)/2]],
+[[[204,vy+20],[246,vy+20]],'area',[225,vy+20]],
+[[[426,vy+20],[438,vy+20],[438,vy+191]],null,null,0],[[[438,vy+101],[426,vy+101]],null],[[[438,vy+191],[426,vy+191]],null],
+[[[426,120],[450,120],[450,vy+301],[426,vy+301]],null,null,undefined,1]);
+return{N,E,H:Math.max(bottom,vy+332)+30}}
 let seen={};try{seen=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){seen={}}
 const el=(n,a,t)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e};
 function build(){
+const L=layout(),N=L.N,E=L.E,H=L.H;
 const svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'group','aria-label':'Mappa concettuale del moto rettilineo'});
 const d=el('defs',{}),mk=el('marker',{id:'ah',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:8,markerHeight:8,orient:'auto'});mk.appendChild(el('path',{d:'M0 0L10 5L0 10z',style:'fill:var(--muted)'}));d.appendChild(mk);svg.appendChild(d);
-E.forEach(([p,t,lp,ar])=>{const o={d:'M'+p.map(q=>q.join(' ')).join('L'),class:'edge'};if(ar!==0)o['marker-end']='url(#ah)';svg.appendChild(el('path',o));if(t)svg.appendChild(el('text',{x:lp[0],y:lp[1],class:'el','text-anchor':'middle','dominant-baseline':'central'},t))});
-N.filter(n=>n.k!=='l').forEach(n=>{const g=el('g',{});g.appendChild(el('rect',{x:n.x,y:n.y,width:n.w,height:n.h,rx:n.k==='root'?20:14,class:n.k}));g.appendChild(el('text',{x:n.x+n.w/2,y:n.y+n.h/2,class:n.k==='root'?'rt':'c','text-anchor':'middle','dominant-baseline':'central'},n.t[0]));svg.appendChild(g)});
-N.filter(n=>n.k==='l').forEach(n=>{const a=el('a',{href:LINK[n.n],class:'nd','data-id':n.n,'aria-label':'Scheda '+n.n+': '+n.t.join(' ')});
+E.forEach(([p,t,lp,ar,ds])=>{const o={d:'M'+p.map(q=>q.join(' ')).join('L'),class:'edge'};if(ds)o['stroke-dasharray']='6 4';if(ar!==0)o['marker-end']='url(#ah)';svg.appendChild(el('path',o));if(t)svg.appendChild(el('text',{x:lp[0],y:lp[1],class:'el','text-anchor':'middle','dominant-baseline':'central'},t))});
+N.filter(n=>n.k!=='l').forEach(n=>{const g=el('g',n.tog?{class:'tg',role:'button',tabindex:'0','aria-expanded':String(open[n.tog]),'aria-label':n.t[0]+': '+(open[n.tog]?'nascondi':'mostra')+' le schede'}:{});g.appendChild(el('rect',{x:n.x,y:n.y,width:n.w,height:n.h,rx:n.k==='root'?20:14,class:n.k}));g.appendChild(el('text',{x:n.x+n.w/2-(n.tog?10:0),y:n.y+n.h/2,class:n.k==='root'?'rt':'c','text-anchor':'middle','dominant-baseline':'central'},n.t[0]));
+if(n.tog){g.appendChild(el('circle',{cx:n.x+n.w-24,cy:n.y+n.h/2,r:11,style:'fill:var(--surface);stroke:var(--muted);stroke-width:1.5'}));g.appendChild(el('text',{x:n.x+n.w-24,y:n.y+n.h/2,'text-anchor':'middle','dominant-baseline':'central',style:'fill:var(--ink);font-weight:700;font-size:16px'},open[n.tog]?'−':'+'));
+const f=()=>{open[n.tog]=!open[n.tog];build()};g.addEventListener('click',f);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}})}
+svg.appendChild(g)});
+N.filter(n=>n.k==='l').forEach(n=>{const a=el('a',{href:LINK[n.n],rel:'noopener',class:'nd','data-id':n.n,'aria-label':'Scheda '+n.n+': '+n.t.join(' ')});
 a.appendChild(el('rect',{x:n.x,y:n.y,width:n.w,height:n.h,rx:14,class:'box'}));a.appendChild(el('circle',{cx:n.x+24,cy:n.y+n.h/2,r:14,class:'badge'}));a.appendChild(el('text',{x:n.x+24,y:n.y+n.h/2+5,class:'bn','text-anchor':'middle'},String(n.n)));
 const y0=n.y+(n.h-n.t.length*20)/2+15;n.t.forEach((s,i)=>a.appendChild(el('text',{x:n.x+46,y:y0+i*20,class:'t','text-anchor':'start'},s)));
 if(n.tag){a.appendChild(el('rect',{x:n.x+n.w-100,y:n.y-11,width:96,height:22,rx:11,class:'tagbg'}));a.appendChild(el('text',{x:n.x+n.w-52,y:n.y+4,class:'tagt','text-anchor':'middle'},n.tag))}
@@ -88,7 +106,7 @@ wrap.replaceChildren(svg);
 svg.querySelectorAll('text.el').forEach(t=>{const b=t.getBBox();svg.insertBefore(el('rect',{x:b.x-8,y:b.y-3,width:b.width+16,height:b.height+6,rx:8,class:'elbg'}),t)});
 paint()}
 function paint(){wrap.querySelectorAll('a.nd').forEach(a=>{const s=!!seen[a.dataset.id];a.classList.toggle('seen',s);a.querySelector('.bn').textContent=s?'✓':a.dataset.id});
-cnt.textContent='Schede aperte: '+Object.keys(seen).filter(k=>LINK[k]).length+' su 7'}
+cnt.textContent='Schede aperte: '+Object.keys(seen).filter(k=>LINK[k]).length+' su 11'}
 build();if(document.fonts)document.fonts.ready.then(build);
 })();
 </script>

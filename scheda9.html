@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Incontro e sorpasso sul grafico posizione-tempo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:44rem;margin:0 auto;padding:1.25rem 1.1rem 3rem}
+h1{font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.17;margin:.4rem 0 1.6rem;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem}
+p{margin:.5rem 0;max-width:62ch}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+button,summary{font:inherit}
+button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;min-height:44px}
+button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-weight:700}
+button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--ink);font-weight:700}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q{font-weight:700;margin:1.1rem 0 0}
+.choices{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0}
+.choices button{min-width:7rem}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem}
+canvas{display:block;width:100%}
+.ctrl{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.ctrl label{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.ctrl input{width:1.1rem;height:1.1rem}
+.verdict{padding:.8rem 1rem;border-radius:8px;border-left:5px solid}
+.verdict.ok{background:var(--ok-soft);border-color:var(--ok)}
+.verdict.no{background:var(--warn-soft);border-color:var(--warn)}
+.formula{background:var(--blue-soft);border-radius:8px;padding:.9rem 1rem;margin:1rem 0;font-size:1.1rem}
+.deriv ol{margin:.5rem 0 0;padding-left:1.3rem}.deriv li{margin:.4rem 0}.deriv p{margin:0}
+ul.find{padding-left:1.2rem;max-width:62ch}ul.find li{margin:.5rem 0}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;margin:.8rem 0}
+details.step{border-left:4px solid var(--line);margin:.7rem 0;padding:.1rem 0 .1rem .9rem}
+details.step[open]{border-color:var(--blue)}
+details.step summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+details.step div{padding:.2rem 0 .5rem}
+details.note{margin-top:2.4rem;color:var(--muted);font-size:.97rem}
+details.note summary{cursor:pointer}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px}
+.curlab{font-weight:700}
+.back{display:inline-block;margin:0 0 .5rem;padding:.4rem 0;color:var(--blue);font-weight:700;text-decoration:none}.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<body>
+<main>
+<a class="back" href="index.html">← Torna alla mappa</a>
+<p class="meta">Moto rettilineo · grafici · scheda 2 di 4</p>
+<h1>Anna e Bruno camminano uno verso l’altro, ma Bruno parte dopo. Dove e quando si incontrano?</h1>
+<h2>Prima di guardare, prevedi</h2>
+<p>Su un sentiero rettilineo lungo 100 m, Anna parte da un’estremità (s = 0 m) a t = 0 s e cammina verso l’altra a 2,0 m/s. Bruno è all’altra estremità (s = 100 m) e cammina verso Anna a 3,0 m/s, ma parte solo a t = 10 s.</p>
+<p class="q">I due si incontrano a:</p><div class="choices" role="group" aria-label="I due si incontrano a:" data-g="a"><button data-v="20" aria-pressed="false">t = 20 s</button><button data-v="26" aria-pressed="false">t = 26 s</button><button data-v="30" aria-pressed="false">t = 30 s</button></div>
+<p class="q">Nell’istante dell’incontro Anna e Bruno hanno la stessa:</p><div class="choices" role="group" aria-label="Nell’istante dell’incontro Anna e Bruno hanno la stessa:" data-g="b"><button data-v="pos" aria-pressed="false">posizione</button><button data-v="vel" aria-pressed="false">velocità</button><button data-v="dist" aria-pressed="false">distanza percorsa</button></div>
+
+<h2>Ora verifica</h2>
+<div class="scene">
+<canvas id="scena" role="img" aria-label="Grafico posizione-tempo con due linee. Anna, in blu, sale da 0 metri con pendenza 2. Bruno, in arancione, resta a 100 metri fino a 10 secondi e poi scende con pendenza 3. Le linee si incrociano a 26 secondi, a 52 metri. Sopra, una striscia mostra i due sul sentiero."></canvas>
+<div class="ctrl">
+<button id="go" class="primary" disabled>Fai partire i due</button>
+<label><input type="checkbox" id="slow"> Rallenta</label>
+</div>
+<div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
+</div>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Linea blu: Anna. Linea arancione: Bruno. Il cursore li legge entrambi.</p>
+<section id="res" hidden aria-live="polite">
+<h2>Cosa hai visto</h2>
+<p id="verdict" class="verdict"></p>
+<ul class="find">
+<li><b>L’incontro è il punto in cui i grafici s-t si incrociano.</b> Stesso tempo e stessa posizione: la condizione è una sola, s<sub>A</sub> = s<sub>B</sub>.</li>
+<li><b>Non hanno la stessa velocità né la stessa distanza percorsa.</b> Anna ha camminato 52 m, Bruno 48 m; le velocità sono +2,0 e −3,0 m/s.</li>
+<li><b>Il ritardo si vede nel grafico.</b> Bruno resta a 100 m, fermo, fino a t = 10 s. La sua legge oraria usa (t − 10 s), non t.</li>
+<li><b>Senza il ritardo si sbaglia.</b> Se Bruno partisse a t = 0 si incontrerebbero a 20 s. Ma quando Bruno parte, Anna ha già fatto 20 m.</li>
+<li><b>Il sorpasso è la stessa idea.</b> Se due corpi vanno nello stesso verso, le due linee si incrociano ancora: nel punto di incrocio il più veloce raggiunge l’altro e poi passa davanti.</li>
+<li><b>Il motivo.</b> Si scrivono le due leggi orarie e si impone la stessa posizione:</li>
+</ul>
+<div class="formula deriv"><ol>
+<li>Anna: s<sub>A</sub> = 2,0 · t.</li>
+<li>Bruno: per t ≥ 10 s, s<sub>B</sub> = 100 − 3,0 · (t − 10) = 130 − 3,0 · t. Per t &lt; 10 s resta a s<sub>B</sub> = 100.</li>
+<li>Incontro: s<sub>A</sub> = s<sub>B</sub>, quindi 2,0 · t = 130 − 3,0 · t.</li>
+<li>5,0 · t = 130, quindi t = 26 s. È maggiore di 10 s, quindi la soluzione è valida.</li>
+<li>Posizione: s = 2,0 · 26 = 52 m. Controllo con Bruno: 100 − 3,0 · (26 − 10) = 100 − 48 = 52 m.</li>
+</ol></div>
+<h2>Un problema tipico, passo per passo</h2>
+<div class="problem">Un’auto viaggia a 20 m/s e a t = 0 s si trova in s = 0 m. Un camion viaggia nello stesso verso a 15 m/s e a t = 0 s è 100 m più avanti. Quando e dove l’auto sorpassa il camion?</div>
+<p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
+<details class="step"><summary>1. Che cosa succede?</summary><div>L’auto, più veloce, raggiunge il camion. Il sorpasso avviene quando i due hanno la stessa posizione.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine dove si trova l’auto a t = 0 s, asse nel verso del moto. Auto: s<sub>0</sub> = 0 m, v = 20 m/s. Camion: s<sub>0</sub> = 100 m, v = 15 m/s.</div></details>
+<details class="step"><summary>3. Quale modello?</summary><div>Due moti rettilinei uniformi: s = s<sub>0</sub> + v · t.</div></details>
+<details class="step"><summary>4. Leggi orarie</summary><div>Auto: s<sub>A</sub> = 20 m/s · t.<br>Camion: s<sub>C</sub> = 100 m + 15 m/s · t.</div></details>
+<details class="step"><summary>5. Condizione di sorpasso</summary><div>s<sub>A</sub> = s<sub>C</sub>: 20 m/s · t = 100 m + 15 m/s · t.<br>(20 − 15) m/s · t = 100 m, quindi t = 100 m / 5,0 m/s = <b>20 s</b>.</div></details>
+<details class="step"><summary>6. Posizione del sorpasso</summary><div>s = 20 m/s · 20 s = <b>400 m</b>. Controllo con il camion: 100 m + 15 m/s · 20 s = 400 m.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>L’auto recupera 5,0 m ogni secondo e deve recuperare 100 m: 100 / 5,0 = 20 s. Nel grafico s-t la retta dell’auto parte più in basso ma è più inclinata, quindi taglia quella del camion.</div></details>
+</section>
+<details class="note"><summary>Note per il docente</summary>
+<p>Dati della scena: Anna s = 2,0 t; Bruno fermo a 100 m fino a 10 s, poi s = 130 − 3,0 t; incontro a t = 26 s, s = 52 m. Il distrattore «20 s» corrisponde al calcolo 100 / (2,0 + 3,0) che ignora il ritardo: è l’errore sul ritardo della verifica. Il sorpasso è trattato nel problema guidato; stessa condizione, velocità con lo stesso segno.</p></details>
+</main>
+<script>
+
+function mkG(ctx,U,x0,y0,x1,y1,tm,yb,xt,yt,xl,yl){
+const X=t=>x0+t/tm*(x1-x0),Y=v=>y1-v/yb*(y1-y0),mu=U.c('--muted'),ln=U.c('--line');
+ctx.lineWidth=1;ctx.strokeStyle=ln;ctx.beginPath();
+xt.forEach(t=>{ctx.moveTo(X(t),y0);ctx.lineTo(X(t),y1)});yt.forEach(v=>{ctx.moveTo(x0,Y(v));ctx.lineTo(x1,Y(v))});ctx.stroke();
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x0,y1);ctx.lineTo(x1,y1);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='right';yt.forEach(v=>ctx.fillText(v+'',x0-6,Y(v)+4));
+ctx.textAlign='center';xt.forEach(t=>ctx.fillText(t+'',X(t),y1+15));
+if(xl){ctx.textAlign='right';ctx.fillText(xl,x1,y1+30)}ctx.textAlign='left';ctx.fillText(yl,x0+6,y0-6);
+return{X,Y}}
+function path(ctx,f,t,dt,X,Y){ctx.beginPath();ctx.moveTo(X(0),Y(f(0)));for(let k=1;k*dt<t;k++)ctx.lineTo(X(k*dt),Y(f(k*dt)));ctx.lineTo(X(t),Y(f(t)));ctx.stroke()}
+function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyle=U.c('--muted');ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y1);ctx.moveTo(x,y);ctx.lineTo(x0,y);ctx.stroke();ctx.restore()}
+function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
+
+const CFG={H:400,dur:[10,20],keys:['a','b'],again:'Riguarda l’incontro',
+verdict:ch=>{const a=ch.a==='26',b=ch.b==='pos';return{ok:a&&b,html:'<b>Istante dell’incontro: '+(a?'previsione corretta.':'non era così.')+'</b> I due si incontrano a t = 26 s, non a 20 s: Bruno parte in ritardo. <b>Che cosa hanno uguale: '+(b?'previsione corretta.':'non era così.')+'</b> La posizione (52 m), non la velocità né la distanza percorsa.'}},
+draw:(ctx,W,tau,U)=>{
+const t=tau*32,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),or=c('--pot');
+const A=u=>2*u,B=u=>u<=10?100:130-3*u;
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s',10,18);
+ctx.font=U.F;ctx.fillText('distanza tra Anna e Bruno: '+U.fm(Math.abs(B(t)-A(t)),0)+' m',10,38);
+const sx0=34,sx1=W-30,SX=m=>sx0+m/100*(sx1-sx0);
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sx0,80);ctx.lineTo(sx1,80);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,50,100].forEach(m=>{ctx.beginPath();ctx.moveTo(SX(m),80);ctx.lineTo(SX(m),85);ctx.stroke();ctx.fillText(m+' m',SX(m),126)});
+U.dot(SX(A(t)),62,bl,'A');U.dot(SX(B(t)),102,or,'B');
+const g=mkG(ctx,U,50,165,W-16,355,32,104,[0,10,20,30],[0,25,50,75,100],'t (s)','s (m)'),X=g.X,Y=g.Y;
+ctx.lineWidth=3.5;ctx.strokeStyle=bl;path(ctx,A,t,.25,X,Y);ctx.strokeStyle=or;path(ctx,B,t,.25,X,Y);
+U.dot(X(t),Y(A(t)),bl,'A');U.dot(X(t),Y(B(t)),or,'B');
+if(t>=26){guide(ctx,U,X(26),Y(52),50,355);pt(ctx,X(26),Y(52),ink,6);ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='right';ctx.fillText('incontro',X(26)-8,Y(14));ctx.fillText('t = 26 s, s = 52 m',X(26)-8,Y(14)+16)}}};
+(()=>{
+const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),res=$('res'),hint=$('hint');
+const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={};
+let tau=0,running=false;
+const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
+U.fm=(n,d)=>n.toFixed(d).replace('.',',');
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.on=id=>$(id)&&$(id).checked;
+U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
+U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};
+U.dot=(x,y,col,l,dim)=>{ctx.globalAlpha=dim?.4:1;ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();ctx.globalAlpha=1;ctx.fillStyle=U.c('--on-blue');ctx.font=U.FB;ctx.textAlign='center';ctx.fillText(l,x,y+5)};
+function size(){const d=devicePixelRatio||1,W=cv.clientWidth;cv.style.height=CFG.H+'px';cv.width=W*d;cv.height=CFG.H*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+function draw(){const W=cv.clientWidth,cs=getComputedStyle(document.documentElement);U.c=n=>cs.getPropertyValue(n).trim();ctx.clearRect(0,0,W,CFG.H);ctx.font=U.F;ctx.textAlign='left';CFG.draw(ctx,W,tau,U)}
+function finish(){running=false;$('curbox').hidden=false;$('cur').value=1000;go.textContent=CFG.again;go.disabled=false;const r=CFG.verdict(ch),v=$('verdict');v.className='verdict '+(r.ok?'ok':'no');v.innerHTML=r.html;if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
+function run(){if(running||!CFG.keys.every(k=>ch[k]))return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));$('curbox').hidden=true;tau=0;if(reduce.matches){tau=1;draw();finish();return}running=true;go.disabled=true;let last=performance.now();const step=n=>{tau+=(n-last)/1000/(slow.checked?CFG.dur[1]:CFG.dur[0]);last=n;if(tau>=1){tau=1;draw();finish();return}draw();requestAnimationFrame(step)};requestAnimationFrame(step)}
+groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{ch[g.dataset.g]=b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));if(CFG.keys.every(k=>ch[k])){go.disabled=false;hint.textContent='Previsioni registrate. Ora guarda cosa succede.'}}));
+$('cur').oninput=()=>{if(running)return;tau=$('cur').value/1000;draw()};go.onclick=run;document.querySelectorAll('.ctrl input').forEach(i=>i.onchange=draw);addEventListener('resize',size);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);if(document.fonts)document.fonts.ready.then(draw);size();
+})();
+
+
+</script>
+</body>
+</html>

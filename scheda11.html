@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Legge oraria a tratti: costruire s(t)</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:44rem;margin:0 auto;padding:1.25rem 1.1rem 3rem}
+h1{font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.17;margin:.4rem 0 1.6rem;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem}
+p{margin:.5rem 0;max-width:62ch}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+button,summary{font:inherit}
+button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;min-height:44px}
+button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-weight:700}
+button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--ink);font-weight:700}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q{font-weight:700;margin:1.1rem 0 0}
+.choices{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0}
+.choices button{min-width:7rem}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem}
+canvas{display:block;width:100%}
+.ctrl{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.ctrl label{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.ctrl input{width:1.1rem;height:1.1rem}
+.verdict{padding:.8rem 1rem;border-radius:8px;border-left:5px solid}
+.verdict.ok{background:var(--ok-soft);border-color:var(--ok)}
+.verdict.no{background:var(--warn-soft);border-color:var(--warn)}
+.formula{background:var(--blue-soft);border-radius:8px;padding:.9rem 1rem;margin:1rem 0;font-size:1.1rem}
+.deriv ol{margin:.5rem 0 0;padding-left:1.3rem}.deriv li{margin:.4rem 0}.deriv p{margin:0}
+ul.find{padding-left:1.2rem;max-width:62ch}ul.find li{margin:.5rem 0}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;margin:.8rem 0}
+details.step{border-left:4px solid var(--line);margin:.7rem 0;padding:.1rem 0 .1rem .9rem}
+details.step[open]{border-color:var(--blue)}
+details.step summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+details.step div{padding:.2rem 0 .5rem}
+details.note{margin-top:2.4rem;color:var(--muted);font-size:.97rem}
+details.note summary{cursor:pointer}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px}
+.curlab{font-weight:700}
+.back{display:inline-block;margin:0 0 .5rem;padding:.4rem 0;color:var(--blue);font-weight:700;text-decoration:none}.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<body>
+<main>
+<a class="back" href="index.html">← Torna alla mappa</a>
+<p class="meta">Moto rettilineo · grafici · scheda 4 di 4</p>
+<h1>Come si scrive la legge oraria di un moto fatto di tre tratti diversi?</h1>
+<h2>Prima di guardare, prevedi</h2>
+<p>Un treno parte da fermo in s = 0 m e accelera con a = 3,0 m/s² per 4 s. Poi viaggia a velocità costante fino a t = 10 s. Infine frena con a = −2,0 m/s² fino a fermarsi a t = 16 s.</p>
+<p class="q">Nel tratto a velocità costante (da 4 s a 10 s) il grafico posizione-tempo è:</p><div class="choices" role="group" aria-label="Nel tratto a velocità costante (da 4 s a 10 s) il grafico posizione-tempo è:" data-g="a"><button data-v="retta" aria-pressed="false">un segmento inclinato</button><button data-v="parab" aria-pressed="false">un arco di parabola</button><button data-v="oriz" aria-pressed="false">un segmento orizzontale</button></div>
+<p class="q">A t = 7 s la posizione del treno è:</p><div class="choices" role="group" aria-label="A t = 7 s la posizione del treno è:" data-g="b"><button data-v="36" aria-pressed="false">36 m</button><button data-v="60" aria-pressed="false">60 m</button><button data-v="84" aria-pressed="false">84 m</button></div>
+
+<h2>Ora verifica</h2>
+<div class="scene">
+<canvas id="scena" role="img" aria-label="Due grafici con lo stesso asse dei tempi. In alto la velocità: sale a 12 metri al secondo in 4 secondi, resta costante fino a 10 secondi e scende a 0 a 16 secondi. In basso la posizione: un arco di parabola, poi un segmento inclinato, poi un arco di parabola che si appiattisce fino a 132 metri."></canvas>
+<div class="ctrl">
+<button id="go" class="primary" disabled>Fai partire il treno</button>
+<label><input type="checkbox" id="slow"> Rallenta</label>
+</div>
+<div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
+</div>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Sopra la velocità, sotto la posizione. Una riga dice quale legge oraria vale in quel momento.</p>
+<section id="res" hidden aria-live="polite">
+<h2>Cosa hai visto</h2>
+<p id="verdict" class="verdict"></p>
+<ul class="find">
+<li><b>Ogni tratto ha la sua legge oraria</b>, valida solo nel suo intervallo di tempo: parabola, retta, parabola.</li>
+<li><b>Ogni tratto riparte da dove è arrivato il precedente.</b> Posizione e velocità iniziali di un tratto sono i valori finali del tratto prima (24 m e 12 m/s a 4 s).</li>
+<li><b>Si usa il tempo trascorso dall’inizio del tratto</b>, cioè (t − t<sub>i</sub>). È lo stesso «ritardo» della scheda sulla legge oraria.</li>
+<li><b>Il grafico s-t non ha salti né spigoli.</b> La posizione è continua; anche la pendenza (la velocità) lo è, perché la velocità non salta.</li>
+<li><b>Il motivo.</b> Si costruisce un tratto alla volta, usando come punto di partenza la fine del tratto prima:</li>
+</ul>
+<div class="formula deriv"><ol>
+<li>Tratto 1 (0 ≤ t ≤ 4): parte da fermo, quindi s = ½ · 3,0 · t² = 1,5 · t² e v = 3,0 · t. A t = 4: s = 24 m, v = 12 m/s.</li>
+<li>Tratto 2 (4 ≤ t ≤ 10): moto uniforme da s<sub>i</sub> = 24 con v = 12: s = 24 + 12 · (t − 4). A t = 10: s = 24 + 12 · 6 = 96 m.</li>
+<li>Tratto 3 (10 ≤ t ≤ 16): parte da s<sub>i</sub> = 96 con v<sub>i</sub> = 12 e a = −2,0: s = 96 + 12 · (t − 10) + ½ · (−2,0) · (t − 10)² = 96 + 12 · (t − 10) − (t − 10)².</li>
+<li>Raccordi: la formula del tratto 2 in t = 4 dà 24 (come il tratto 1: 1,5 · 16 = 24); in t = 10 la formula del tratto 3 dà 96 (come il tratto 2).</li>
+<li>Controllo finale: s(16) = 96 + 12 · 6 − 36 = 132 m, uguale all’area sotto il grafico v-t: 24 + 72 + 36 = 132 m.</li>
+</ol></div>
+<h2>Un problema tipico, passo per passo</h2>
+<div class="problem">Un’auto parte da ferma in s = 0 m e accelera con a = 2,0 m/s² per 5,0 s. Poi mantiene la velocità raggiunta. Scrivi la legge oraria nei due tratti e calcola la posizione a t = 3,0 s e a t = 12 s.</div>
+<p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
+<details class="step"><summary>1. Che cosa succede?</summary><div>Due fasi: moto uniformemente accelerato per 5,0 s, poi moto uniforme. Nell’istante t = 5,0 s si passa da una legge all’altra.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine nel punto di partenza, asse nel verso del moto, t = 0 s alla partenza. v<sub>0</sub> = 0 m/s, a = 2,0 m/s² per 5,0 s.</div></details>
+<details class="step"><summary>3. Tratto 1 (0 ≤ t ≤ 5,0 s)</summary><div>s = ½ · a · t² = 1,0 m/s² · t².<br>Alla fine: v = 2,0 m/s² · 5,0 s = <b>10 m/s</b> e s = 1,0 m/s² · (5,0 s)² = <b>25 m</b>.</div></details>
+<details class="step"><summary>4. Tratto 2 (t ≥ 5,0 s)</summary><div>Moto uniforme che parte dal punto di raccordo: s = 25 m + 10 m/s · (t − 5,0 s).</div></details>
+<details class="step"><summary>5. Posizione a t = 3,0 s</summary><div>3,0 s appartiene al tratto 1: s = 1,0 m/s² · (3,0 s)² = <b>9,0 m</b>.</div></details>
+<details class="step"><summary>6. Posizione a t = 12 s</summary><div>12 s appartiene al tratto 2: s = 25 m + 10 m/s · (12 s − 5,0 s) = 25 m + 70 m = <b>95 m</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>Un errore tipico è s = 10 m/s · 12 s = 120 m, come se l’auto avesse sempre viaggiato a 10 m/s. Ma nei primi 5,0 s è stata più lenta, quindi 95 m &lt; 120 m. Inoltre 95 m &gt; 25 m, la posizione a 5,0 s.</div></details>
+</section>
+<details class="note"><summary>Note per il docente</summary>
+<p>Dati della scena: tratto 1 a = 3,0 m/s² (s = 1,5 t²), tratto 2 v = 12 m/s (s = 24 + 12 (t − 4)), tratto 3 a = −2,0 m/s² (s = 96 + 12 (t − 10) − (t − 10)²); spazio totale 132 m. Distrattori della previsione: 84 m = 12 · 7 (usa la velocità finale su tutto il tempo), 36 m = 12 · 3 (dimentica i 24 m già percorsi). Sono i due errori sul ritardo e sulla legge oraria. Il cursore mostra quale legge vale in ogni istante.</p></details>
+</main>
+<script>
+
+function mkG(ctx,U,x0,y0,x1,y1,tm,yb,xt,yt,xl,yl){
+const X=t=>x0+t/tm*(x1-x0),Y=v=>y1-v/yb*(y1-y0),mu=U.c('--muted'),ln=U.c('--line');
+ctx.lineWidth=1;ctx.strokeStyle=ln;ctx.beginPath();
+xt.forEach(t=>{ctx.moveTo(X(t),y0);ctx.lineTo(X(t),y1)});yt.forEach(v=>{ctx.moveTo(x0,Y(v));ctx.lineTo(x1,Y(v))});ctx.stroke();
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x0,y1);ctx.lineTo(x1,y1);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='right';yt.forEach(v=>ctx.fillText(v+'',x0-6,Y(v)+4));
+ctx.textAlign='center';xt.forEach(t=>ctx.fillText(t+'',X(t),y1+15));
+if(xl){ctx.textAlign='right';ctx.fillText(xl,x1,y1+30)}ctx.textAlign='left';ctx.fillText(yl,x0+6,y0-6);
+return{X,Y}}
+function path(ctx,f,t,dt,X,Y){ctx.beginPath();ctx.moveTo(X(0),Y(f(0)));for(let k=1;k*dt<t;k++)ctx.lineTo(X(k*dt),Y(f(k*dt)));ctx.lineTo(X(t),Y(f(t)));ctx.stroke()}
+function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyle=U.c('--muted');ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y1);ctx.moveTo(x,y);ctx.lineTo(x0,y);ctx.stroke();ctx.restore()}
+function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
+
+const CFG={H:450,dur:[12,24],keys:['a','b'],again:'Riguarda il treno',
+verdict:ch=>{const a=ch.a==='retta',b=ch.b==='60';return{ok:a&&b,html:'<b>Tratto a velocità costante: '+(a?'previsione corretta.':'non era così.')+'</b> Con v costante il grafico s-t è un segmento inclinato. <b>Posizione a 7 s: '+(b?'previsione corretta.':'non era così.')+'</b> s = 24 + 12 · (7 − 4) = 60 m: si parte dai 24 m già percorsi.'}},
+draw:(ctx,W,tau,U)=>{
+const t=tau*16,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),or=c('--pot');
+const v=u=>u<4?3*u:u<10?12:12-2*(u-10),s=u=>u<4?1.5*u*u:u<10?24+12*(u-4):96+12*(u-10)-(u-10)*(u-10);
+const law=t<4?['Tratto 1','s = 1,5 · t²']:t<10?['Tratto 2','s = 24 + 12 · (t − 4)']:['Tratto 3','s = 96 + 12 · (t − 10) − (t − 10)²'];
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   ·   v = '+U.fm(v(t),1)+' m/s   ·   s = '+U.fm(s(t),0)+' m',10,18);
+ctx.font=U.F;ctx.fillText(law[0]+':   '+law[1],10,38);
+const x0=54,x1=W-16,g1=mkG(ctx,U,x0,78,x1,190,16,14,[0,4,10,16],[0,4,8,12],'','v (m/s)'),g2=mkG(ctx,U,x0,250,x1,400,16,140,[0,4,10,16],[0,40,80,120],'t (s)','s (m)');
+ctx.save();ctx.globalAlpha=.22;ctx.fillStyle=bl;ctx.beginPath();ctx.moveTo(g1.X(0),g1.Y(0));for(let k=1;k*.1<t;k++)ctx.lineTo(g1.X(k*.1),g1.Y(v(k*.1)));ctx.lineTo(g1.X(t),g1.Y(v(t)));ctx.lineTo(g1.X(t),g1.Y(0));ctx.closePath();ctx.fill();ctx.restore();
+ctx.strokeStyle=bl;ctx.lineWidth=3.5;path(ctx,v,t,.1,g1.X,g1.Y);ctx.strokeStyle=or;path(ctx,s,t,.1,g2.X,g2.Y);
+[[4,24],[10,96]].forEach(p=>{if(t>=p[0]-1e-6)pt(ctx,g2.X(p[0]),g2.Y(p[1]),ink,4)});
+ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyle=mu;ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(g1.X(t),78);ctx.lineTo(g1.X(t),400);ctx.stroke();ctx.restore();
+pt(ctx,g1.X(t),g1.Y(v(t)),bl,6);pt(ctx,g2.X(t),g2.Y(s(t)),or,6);
+ctx.fillStyle=ink;ctx.font=U.F2;ctx.textAlign='left';if(t>=4)ctx.fillText('24 m',g2.X(4)+6,g2.Y(24)+14);if(t>=10)ctx.fillText('96 m',g2.X(10)-40,g2.Y(96)-8)}};
+(()=>{
+const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),res=$('res'),hint=$('hint');
+const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={};
+let tau=0,running=false;
+const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
+U.fm=(n,d)=>n.toFixed(d).replace('.',',');
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.on=id=>$(id)&&$(id).checked;
+U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
+U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};
+U.dot=(x,y,col,l,dim)=>{ctx.globalAlpha=dim?.4:1;ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();ctx.globalAlpha=1;ctx.fillStyle=U.c('--on-blue');ctx.font=U.FB;ctx.textAlign='center';ctx.fillText(l,x,y+5)};
+function size(){const d=devicePixelRatio||1,W=cv.clientWidth;cv.style.height=CFG.H+'px';cv.width=W*d;cv.height=CFG.H*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+function draw(){const W=cv.clientWidth,cs=getComputedStyle(document.documentElement);U.c=n=>cs.getPropertyValue(n).trim();ctx.clearRect(0,0,W,CFG.H);ctx.font=U.F;ctx.textAlign='left';CFG.draw(ctx,W,tau,U)}
+function finish(){running=false;$('curbox').hidden=false;$('cur').value=1000;go.textContent=CFG.again;go.disabled=false;const r=CFG.verdict(ch),v=$('verdict');v.className='verdict '+(r.ok?'ok':'no');v.innerHTML=r.html;if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
+function run(){if(running||!CFG.keys.every(k=>ch[k]))return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));$('curbox').hidden=true;tau=0;if(reduce.matches){tau=1;draw();finish();return}running=true;go.disabled=true;let last=performance.now();const step=n=>{tau+=(n-last)/1000/(slow.checked?CFG.dur[1]:CFG.dur[0]);last=n;if(tau>=1){tau=1;draw();finish();return}draw();requestAnimationFrame(step)};requestAnimationFrame(step)}
+groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{ch[g.dataset.g]=b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));if(CFG.keys.every(k=>ch[k])){go.disabled=false;hint.textContent='Previsioni registrate. Ora guarda cosa succede.'}}));
+$('cur').oninput=()=>{if(running)return;tau=$('cur').value/1000;draw()};go.onclick=run;document.querySelectorAll('.ctrl input').forEach(i=>i.onchange=draw);addEventListener('resize',size);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);if(document.fonts)document.fonts.ready.then(draw);size();
+})();
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Grafico velocità-tempo a tratti: accelerazione e spazio</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:44rem;margin:0 auto;padding:1.25rem 1.1rem 3rem}
+h1{font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.17;margin:.4rem 0 1.6rem;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem}
+p{margin:.5rem 0;max-width:62ch}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+button,summary{font:inherit}
+button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;min-height:44px}
+button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-weight:700}
+button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--ink);font-weight:700}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q{font-weight:700;margin:1.1rem 0 0}
+.choices{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0}
+.choices button{min-width:7rem}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem}
+canvas{display:block;width:100%}
+.ctrl{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.ctrl label{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.ctrl input{width:1.1rem;height:1.1rem}
+.verdict{padding:.8rem 1rem;border-radius:8px;border-left:5px solid}
+.verdict.ok{background:var(--ok-soft);border-color:var(--ok)}
+.verdict.no{background:var(--warn-soft);border-color:var(--warn)}
+.formula{background:var(--blue-soft);border-radius:8px;padding:.9rem 1rem;margin:1rem 0;font-size:1.1rem}
+.deriv ol{margin:.5rem 0 0;padding-left:1.3rem}.deriv li{margin:.4rem 0}.deriv p{margin:0}
+ul.find{padding-left:1.2rem;max-width:62ch}ul.find li{margin:.5rem 0}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;margin:.8rem 0}
+details.step{border-left:4px solid var(--line);margin:.7rem 0;padding:.1rem 0 .1rem .9rem}
+details.step[open]{border-color:var(--blue)}
+details.step summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+details.step div{padding:.2rem 0 .5rem}
+details.note{margin-top:2.4rem;color:var(--muted);font-size:.97rem}
+details.note summary{cursor:pointer}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px}
+.curlab{font-weight:700}
+.back{display:inline-block;margin:0 0 .5rem;padding:.4rem 0;color:var(--blue);font-weight:700;text-decoration:none}.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<body>
+<main>
+<a class="back" href="index.html">← Torna alla mappa</a>
+<p class="meta">Moto rettilineo · grafici · scheda 3 di 4</p>
+<h1>Un’auto accelera, viaggia a velocità costante e poi frena. Come si leggono accelerazione e strada percorsa nel grafico velocità-tempo?</h1>
+<h2>Prima di guardare, prevedi</h2>
+<p>Un’auto parte da ferma su una strada rettilinea. Il grafico velocità-tempo ha tre segmenti: da 0 a 6 s la velocità sale fino a 12 m/s; da 6 s a 14 s resta a 12 m/s; da 14 s a 18 s scende fino a 0 m/s.</p>
+<p class="q">Tra 6 s e 14 s l’accelerazione è:</p><div class="choices" role="group" aria-label="Tra 6 s e 14 s l’accelerazione è:" data-g="a"><button data-v="0" aria-pressed="false">0 m/s²</button><button data-v="12" aria-pressed="false">12 m/s²</button><button data-v="2" aria-pressed="false">2 m/s²</button></div>
+<p class="q">Durante la frenata (da 14 s a 18 s) l’auto:</p><div class="choices" role="group" aria-label="Durante la frenata (da 14 s a 18 s) l’auto:" data-g="b"><button data-v="avanti" aria-pressed="false">continua ad andare avanti</button><button data-v="ferma" aria-pressed="false">si ferma subito</button><button data-v="indietro" aria-pressed="false">torna indietro</button></div>
+
+<h2>Ora verifica</h2>
+<div class="scene">
+<canvas id="scena" role="img" aria-label="Grafico velocità-tempo: la velocità sale da 0 a 12 metri al secondo in 6 secondi, resta a 12 fino a 14 secondi, poi scende a 0 a 18 secondi. L’area sotto la linea si colora man mano. Sopra, una striscia mostra l’auto che avanza."></canvas>
+<div class="ctrl">
+<button id="go" class="primary" disabled>Fai partire l’auto</button>
+<label><input type="checkbox" id="slow"> Rallenta</label>
+</div>
+<div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
+</div>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. L’area colorata sotto la linea cresce con il tempo.</p>
+<section id="res" hidden aria-live="polite">
+<h2>Cosa hai visto</h2>
+<p id="verdict" class="verdict"></p>
+<ul class="find">
+<li><b>La pendenza è l’accelerazione.</b> Nei tre tratti vale +2,0 m/s², 0 m/s² e −3,0 m/s².</li>
+<li><b>Un tratto orizzontale non è una sosta.</b> Qui la velocità è costante e vale 12 m/s: l’auto si muove, ma a = 0 m/s².</li>
+<li><b>Frenare non vuol dire tornare indietro.</b> a è negativa, ma v resta positiva fino a 18 s: l’auto va avanti più lentamente fino a fermarsi.</li>
+<li><b>L’area sotto il grafico è lo spazio percorso.</b> 36 m + 96 m + 24 m = 156 m. Il cursore mostra come cresce.</li>
+<li><b>Il motivo.</b> Si usa la definizione di accelerazione e di velocità, tratto per tratto:</li>
+</ul>
+<div class="formula deriv"><ol>
+<li>a = Δv / Δt = pendenza. Tratto 1: (12 − 0) / (6 − 0) = 2,0. Tratto 2: 0. Tratto 3: (0 − 12) / (18 − 14) = −3,0.</li>
+<li>Con v costante, Δs = v · Δt: è l’area di un rettangolo. Tratto 2: 12 · (14 − 6) = 96 m.</li>
+<li>Con v che varia in modo uniforme, vale la velocità media: Δs = v<sub>media</sub> · Δt, cioè l’area di un triangolo o di un trapezio.</li>
+<li>Tratto 1: ½ · 6 · 12 = 36 m. Tratto 3: ½ · 4 · 12 = 24 m.</li>
+<li>Totale: 36 + 96 + 24 = 156 m.</li>
+</ol></div>
+<h2>Un problema tipico, passo per passo</h2>
+<div class="problem">Un ciclista parte da fermo e accelera con a = 1,5 m/s² per 4,0 s. Poi mantiene la velocità raggiunta per 6,0 s e infine frena fino a fermarsi in 3,0 s. Disegna il grafico v-t e calcola la distanza totale e la velocità scalare media.</div>
+<p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
+<details class="step"><summary>1. Che cosa succede?</summary><div>Tre fasi: accelera, va a velocità costante, frena. Non torna mai indietro.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto. v<sub>0</sub> = 0 m/s; a = 1,5 m/s² per 4,0 s; poi 6,0 s a velocità costante; poi frenata in 3,0 s fino a v = 0 m/s.</div></details>
+<details class="step"><summary>3. Valori agli estremi dei tratti</summary><div>Fine tratto 1: v = 1,5 m/s² · 4,0 s = <b>6,0 m/s</b>. Il tratto 2 resta a 6,0 m/s. Il grafico passa per (0 s; 0 m/s), (4,0 s; 6,0 m/s), (10 s; 6,0 m/s), (13 s; 0 m/s).</div></details>
+<details class="step"><summary>4. Spazio in ogni tratto</summary><div>Tratto 1: ½ · 4,0 s · 6,0 m/s = <b>12 m</b>.<br>Tratto 2: 6,0 m/s · 6,0 s = <b>36 m</b>.<br>Tratto 3: ½ · 3,0 s · 6,0 m/s = <b>9,0 m</b>.</div></details>
+<details class="step"><summary>5. Distanza totale</summary><div>12 m + 36 m + 9,0 m = <b>57 m</b>. Controllo con l’area del trapezio: (13 s + 6,0 s) / 2 · 6,0 m/s = 57 m.</div></details>
+<details class="step"><summary>6. Velocità scalare media</summary><div>57 m / 13 s = <b>4,4 m/s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>4,4 m/s è minore della velocità massima (6,0 m/s) e maggiore di 0 m/s: coerente con un moto che parte e finisce da fermo.</div></details>
+</section>
+<details class="note"><summary>Note per il docente</summary>
+<p>Dati della scena: a = +2,0 m/s² per 6 s, v = 12 m/s per 8 s, a = −3,0 m/s² per 4 s; spazio 36 + 96 + 24 = 156 m. Gli studenti conoscono già le velocità a tratti con accelerazione costante: qui si lavora sulla lettura. Errori tipici: orizzontale = fermo, a negativa = retromarcia, confondere pendenza e area. Il cursore rende leggibile la crescita dello spazio.</p></details>
+</main>
+<script>
+
+function mkG(ctx,U,x0,y0,x1,y1,tm,yb,xt,yt,xl,yl){
+const X=t=>x0+t/tm*(x1-x0),Y=v=>y1-v/yb*(y1-y0),mu=U.c('--muted'),ln=U.c('--line');
+ctx.lineWidth=1;ctx.strokeStyle=ln;ctx.beginPath();
+xt.forEach(t=>{ctx.moveTo(X(t),y0);ctx.lineTo(X(t),y1)});yt.forEach(v=>{ctx.moveTo(x0,Y(v));ctx.lineTo(x1,Y(v))});ctx.stroke();
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x0,y1);ctx.lineTo(x1,y1);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='right';yt.forEach(v=>ctx.fillText(v+'',x0-6,Y(v)+4));
+ctx.textAlign='center';xt.forEach(t=>ctx.fillText(t+'',X(t),y1+15));
+if(xl){ctx.textAlign='right';ctx.fillText(xl,x1,y1+30)}ctx.textAlign='left';ctx.fillText(yl,x0+6,y0-6);
+return{X,Y}}
+function path(ctx,f,t,dt,X,Y){ctx.beginPath();ctx.moveTo(X(0),Y(f(0)));for(let k=1;k*dt<t;k++)ctx.lineTo(X(k*dt),Y(f(k*dt)));ctx.lineTo(X(t),Y(f(t)));ctx.stroke()}
+function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyle=U.c('--muted');ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y1);ctx.moveTo(x,y);ctx.lineTo(x0,y);ctx.stroke();ctx.restore()}
+function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
+
+const CFG={H:390,dur:[10,20],keys:['a','b'],again:'Riguarda la corsa',
+verdict:ch=>{const a=ch.a==='0',b=ch.b==='avanti';return{ok:a&&b,html:'<b>Tra 6 s e 14 s: '+(a?'previsione corretta.':'non era così.')+'</b> La velocità è costante, quindi a = 0 m/s². <b>In frenata: '+(b?'previsione corretta.':'non era così.')+'</b> La velocità diminuisce ma resta positiva: l’auto va ancora avanti fino a fermarsi.'}},
+draw:(ctx,W,tau,U)=>{
+const t=tau*18,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue');
+const v=u=>u<6?2*u:u<14?12:12-3*(u-14),a=u=>u<6?2:u<14?0:-3,s=u=>u<6?u*u:u<14?36+12*(u-6):132+12*(u-14)-1.5*(u-14)*(u-14);
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   ·   v = '+U.fm(v(t),1)+' m/s',10,18);
+ctx.font=U.F;ctx.fillText('a = '+U.sg(a(t),1)+' m/s²   ·   spazio percorso = '+U.fm(s(t),0)+' m',10,38);
+const sx0=40,sx1=W-30,SX=m=>sx0+m/160*(sx1-sx0);
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sx0,84);ctx.lineTo(sx1,84);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,40,80,120,160].forEach(m=>{ctx.beginPath();ctx.moveTo(SX(m),84);ctx.lineTo(SX(m),89);ctx.stroke();ctx.fillText(m+' m',SX(m),104)});
+ctx.fillStyle=bl;ctx.beginPath();ctx.roundRect(SX(s(t))-22,58,44,20,5);ctx.fill();ctx.fillStyle=c('--on-blue');ctx.fillRect(SX(s(t))-16,62,10,7);ctx.fillRect(SX(s(t))-2,62,10,7);ctx.fillRect(SX(s(t))+12,62,6,7);
+const g=mkG(ctx,U,50,140,W-16,335,18,14,[0,6,14,18],[0,4,8,12],'t (s)','v (m/s)'),X=g.X,Y=g.Y;
+ctx.save();ctx.globalAlpha=.25;ctx.fillStyle=bl;ctx.beginPath();ctx.moveTo(X(0),Y(0));for(let k=1;k*.1<t;k++)ctx.lineTo(X(k*.1),Y(v(k*.1)));ctx.lineTo(X(t),Y(v(t)));ctx.lineTo(X(t),Y(0));ctx.closePath();ctx.fill();ctx.restore();
+ctx.strokeStyle=bl;ctx.lineWidth=3.5;path(ctx,v,t,.1,X,Y);
+guide(ctx,U,X(t),Y(v(t)),50,335);pt(ctx,X(t),Y(v(t)),bl,6);
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='center';
+if(t>=6)ctx.fillText('36 m',X(4.2),Y(3.2));if(t>=14)ctx.fillText('96 m',X(10),Y(5));if(t>=18)ctx.fillText('24 m',X(15.6),Y(3))}};
+(()=>{
+const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),res=$('res'),hint=$('hint');
+const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={};
+let tau=0,running=false;
+const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
+U.fm=(n,d)=>n.toFixed(d).replace('.',',');
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.on=id=>$(id)&&$(id).checked;
+U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
+U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};
+U.dot=(x,y,col,l,dim)=>{ctx.globalAlpha=dim?.4:1;ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();ctx.globalAlpha=1;ctx.fillStyle=U.c('--on-blue');ctx.font=U.FB;ctx.textAlign='center';ctx.fillText(l,x,y+5)};
+function size(){const d=devicePixelRatio||1,W=cv.clientWidth;cv.style.height=CFG.H+'px';cv.width=W*d;cv.height=CFG.H*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+function draw(){const W=cv.clientWidth,cs=getComputedStyle(document.documentElement);U.c=n=>cs.getPropertyValue(n).trim();ctx.clearRect(0,0,W,CFG.H);ctx.font=U.F;ctx.textAlign='left';CFG.draw(ctx,W,tau,U)}
+function finish(){running=false;$('curbox').hidden=false;$('cur').value=1000;go.textContent=CFG.again;go.disabled=false;const r=CFG.verdict(ch),v=$('verdict');v.className='verdict '+(r.ok?'ok':'no');v.innerHTML=r.html;if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
+function run(){if(running||!CFG.keys.every(k=>ch[k]))return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));$('curbox').hidden=true;tau=0;if(reduce.matches){tau=1;draw();finish();return}running=true;go.disabled=true;let last=performance.now();const step=n=>{tau+=(n-last)/1000/(slow.checked?CFG.dur[1]:CFG.dur[0]);last=n;if(tau>=1){tau=1;draw();finish();return}draw();requestAnimationFrame(step)};requestAnimationFrame(step)}
+groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{ch[g.dataset.g]=b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));if(CFG.keys.every(k=>ch[k])){go.disabled=false;hint.textContent='Previsioni registrate. Ora guarda cosa succede.'}}));
+$('cur').oninput=()=>{if(running)return;tau=$('cur').value/1000;draw()};go.onclick=run;document.querySelectorAll('.ctrl input').forEach(i=>i.onchange=draw);addEventListener('resize',size);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);if(document.fonts)document.fonts.ready.then(draw);size();
+})();
+
+
+</script>
+</body>
+</html>
