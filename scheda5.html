@@ -51,19 +51,19 @@ details.note summary{cursor:pointer}
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · scheda 5 di 7</p>
-<h1>Se raddoppio il tempo, quanto spazio in più percorro partendo da fermo?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; scheda 5</p>
+<h1>Se raddoppio il tempo, quanto spazio in pi&#249; percorro partendo da fermo?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Un’auto parte da ferma con accelerazione costante e in 2,0 s percorre 10 m.</p>
-<p class="q">Dopo 4,0 s (il doppio del tempo) avrà percorso in tutto:</p><div class="choices" role="group" aria-label="Dopo 4,0 s (il doppio del tempo) avrà percorso in tutto:" data-g="a"><button data-v="20" aria-pressed="false">20 m</button><button data-v="30" aria-pressed="false">30 m</button><button data-v="40" aria-pressed="false">40 m</button></div>
+<p>Un&#8217;auto parte da ferma con accelerazione costante e in 2,0 s percorre 10 m.</p>
+<p class="q">Dopo 4,0 s (il doppio del tempo) avr&#224; percorso in tutto:</p><div class="choices" role="group" aria-label="Dopo 4,0 s (il doppio del tempo) avr&#224; percorso in tutto:" data-g="a"><button data-v="20" aria-pressed="false">20 m</button><button data-v="30" aria-pressed="false">30 m</button><button data-v="40" aria-pressed="false">40 m</button></div>
 <p class="q">Nel secondo intervallo, da 2,0 s a 4,0 s, percorre:</p><div class="choices" role="group" aria-label="Nel secondo intervallo, da 2,0 s a 4,0 s, percorre:" data-g="b"><button data-v="10" aria-pressed="false">10 m</button><button data-v="20" aria-pressed="false">20 m</button><button data-v="30" aria-pressed="false">30 m</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Un’auto parte da ferma con accelerazione costante. In alto i segnaposto ogni secondo sulla pista, in basso il grafico spazio-tempo, che è un arco di parabola."></canvas>
+<canvas id="scena" role="img" aria-label="Un&#8217;auto parte da ferma con accelerazione costante. In alto i segnaposto ogni secondo sulla pista, in basso il grafico spazio-tempo, che &#232; un arco di parabola."></canvas>
 <div class="ctrl">
-<button id="go" class="primary" disabled>Fai partire l’auto</button>
+<button id="go" class="primary" disabled>Fai partire l&#8217;auto</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 <label><input type="checkbox" id="sk" checked> Mostra lo spazio di ogni secondo</label>
 </div>
@@ -73,36 +73,36 @@ details.note summary{cursor:pointer}
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>Doppio tempo, quattro volte lo spazio.</b> In 2,0 s l’auto percorre 10 m, in 4,0 s ne percorre 40.</li>
+<li><b>Doppio tempo, quattro volte lo spazio.</b> In 2,0 s l&#8217;auto percorre 10 m, in 4,0 s ne percorre 40.</li>
 <li><b>Gli spazi in intervalli uguali crescono.</b> Ogni secondo percorre 2,5 m, 7,5 m, 12,5 m, 17,5 m: stanno come 1 : 3 : 5 : 7. Tra 2 s e 4 s percorre 30 m, tre volte i primi 10 m.</li>
-<li><b>Il grafico s-t non è una retta.</b> È un arco di parabola: la pendenza, cioè la velocità, cresce nel tempo.</li>
-<li><b>Il motivo.</b> Lo spazio è l’area sotto il grafico v-t:</li>
+<li><b>Il grafico s-t non &#232; una retta.</b> &#200; un arco di parabola: la pendenza, cio&#232; la velocit&#224;, cresce nel tempo.</li>
+<li><b>Il motivo.</b> Lo spazio &#232; l&#8217;area sotto il grafico v-t:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>Da fermo, con a costante: v(t) = a · t.</li>
-<li>Lo spazio è l’area sotto il grafico v-t: un triangolo di base t e altezza a · t, quindi s = ½ · t · (a · t).</li>
-<li><b>s(t) = ½ · a · t²</b>. Con v<sub>0</sub> e posizione iniziale s<sub>0</sub>: s(t) = s<sub>0</sub> + v<sub>0</sub> · t + ½ · a · t².</li>
-<li>Se il moto inizia all’istante t<sub>0</sub>: s(t) = s<sub>0</sub> + v<sub>0</sub> · (t − t<sub>0</sub>) + ½ · a · (t − t<sub>0</sub>)², per t ≥ t<sub>0</sub>.</li>
-<li>Se t raddoppia, t² quadruplica: ½ · a · (2t)² = 4 · ½ · a · t². Qui a = 5,0 m/s².</li>
+<li>Da fermo, con a costante: v(t) = a &#183; t.</li>
+<li>Lo spazio &#232; l&#8217;area sotto il grafico v-t: un triangolo di base t e altezza a &#183; t, quindi s = &#189; &#183; t &#183; (a &#183; t).</li>
+<li><b>s(t) = &#189; &#183; a &#183; t&#178;</b>. Con v<sub>0</sub> e posizione iniziale s<sub>0</sub>: s(t) = s<sub>0</sub> + v<sub>0</sub> &#183; t + &#189; &#183; a &#183; t&#178;.</li>
+<li>Se il moto inizia all&#8217;istante t<sub>0</sub>: s(t) = s<sub>0</sub> + v<sub>0</sub> &#183; (t &#8722; t<sub>0</sub>) + &#189; &#183; a &#183; (t &#8722; t<sub>0</sub>)&#178;, per t &#8805; t<sub>0</sub>.</li>
+<li>Se t raddoppia, t&#178; quadruplica: &#189; &#183; a &#183; (2t)&#178; = 4 &#183; &#189; &#183; a &#183; t&#178;. Qui a = 5,0 m/s&#178;.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un motorino parte da fermo con accelerazione costante a = 1,5 m/s². Calcola lo spazio percorso e la velocità dopo 6,0 s. Quanto varrebbe lo spazio a t = 6,0 s se il motorino iniziasse a muoversi all’istante t<sub>0</sub> = 2,0 s?</div>
+<div class="problem">Un motorino parte da fermo con accelerazione costante a = 1,5 m/s&#178;. Calcola lo spazio percorso e la velocit&#224; dopo 6,0 s. Quanto varrebbe lo spazio a t = 6,0 s se il motorino iniziasse a muoversi all&#8217;istante t<sub>0</sub> = 2,0 s?</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
 <details class="step"><summary>1. Che cosa succede?</summary><div>Il motorino parte da fermo e accelera con a costante.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto, origine nel punto di partenza: s<sub>0</sub> = 0, v<sub>0</sub> = 0, a = 1,5 m/s².</div></details>
-<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato: s(t) = ½ · a · t² (con v<sub>0</sub> = 0 e s<sub>0</sub> = 0).</div></details>
-<details class="step"><summary>4. Spazio percorso in 6,0 s</summary><div>s = ½ · 1,5 m/s² · (6,0 s)² = ½ · 1,5 m/s² · 36 s² = <b>27 m</b>.</div></details>
-<details class="step"><summary>5. Velocità a 6,0 s</summary><div>v = a · t = 1,5 m/s² · 6,0 s = <b>9,0 m/s</b>.</div></details>
-<details class="step"><summary>6. E se il moto iniziasse con 2,0 s di ritardo?</summary><div>Il tempo di moto a t = 6,0 s è t − t<sub>0</sub> = 6,0 s − 2,0 s = 4,0 s. Quindi s = ½ · 1,5 m/s² · (4,0 s)² = <b>12 m</b>, non 27 m.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>Velocità media = 27 m / 6,0 s = 4,5 m/s, cioè la metà di 9,0 m/s, come deve essere partendo da fermo con a costante.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto, origine nel punto di partenza: s<sub>0</sub> = 0, v<sub>0</sub> = 0, a = 1,5 m/s&#178;.</div></details>
+<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato: s(t) = &#189; &#183; a &#183; t&#178; (con v<sub>0</sub> = 0 e s<sub>0</sub> = 0).</div></details>
+<details class="step"><summary>4. Spazio percorso in 6,0 s</summary><div>s = &#189; &#183; 1,5 m/s&#178; &#183; (6,0 s)&#178; = &#189; &#183; 1,5 m/s&#178; &#183; 36 s&#178; = <b>27 m</b>.</div></details>
+<details class="step"><summary>5. Velocit&#224; a 6,0 s</summary><div>v = a &#183; t = 1,5 m/s&#178; &#183; 6,0 s = <b>9,0 m/s</b>.</div></details>
+<details class="step"><summary>6. E se il moto iniziasse con 2,0 s di ritardo?</summary><div>Il tempo di moto a t = 6,0 s &#232; t &#8722; t<sub>0</sub> = 6,0 s &#8722; 2,0 s = 4,0 s. Quindi s = &#189; &#183; 1,5 m/s&#178; &#183; (4,0 s)&#178; = <b>12 m</b>, non 27 m.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>Velocit&#224; media = 27 m / 6,0 s = 4,5 m/s, cio&#232; la met&#224; di 9,0 m/s, come deve essere partendo da fermo con a costante.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: a = 5,0 m/s², t da 0 a 4 s. Il rapporto 1 : 3 : 5 : 7 è la legge di Galileo dei numeri dispari. Il punto critico per la verifica è la forma con il ritardo, s = s<sub>0</sub> + v<sub>0</sub>(t − t<sub>0</sub>) + ½a(t − t<sub>0</sub>)², che estende al MRUA quanto visto nella scheda 1 sul MRU. Errori tipici: pensare che s sia proporzionale a t, usare t al posto di (t − t<sub>0</sub>).</p></details>
+<p>Dati della scena: a = 5,0 m/s&#178;, t da 0 a 4 s. Il rapporto 1 : 3 : 5 : 7 &#232; la legge di Galileo dei numeri dispari. Il punto critico per la verifica &#232; la forma con il ritardo, s = s<sub>0</sub> + v<sub>0</sub>(t &#8722; t<sub>0</sub>) + &#189;a(t &#8722; t<sub>0</sub>)&#178;, che estende al MRUA quanto visto nella scheda 1 sul MRU. Errori tipici: pensare che s sia proporzionale a t, usare t al posto di (t &#8722; t<sub>0</sub>).</p></details>
 </main>
 <script>
 
 const CFG={H:372,dur:[6,13],keys:['a','b'],again:'Riguarda il moto',
-verdict:ch=>{const a=ch.a==='40',b=ch.b==='30';return{ok:a&&b,html:'<b>Spazio totale dopo 4,0 s: '+(a?'previsione corretta.':'non era così.')+'</b> 40 m, il quadruplo di 10 m. <b>Spazio tra 2,0 s e 4,0 s: '+(b?'previsione corretta.':'non era così.')+'</b> 30 m, cioè tre volte il primo tratto.'}},
+verdict:ch=>{const a=ch.a==='40',b=ch.b==='30';return{ok:a&&b,html:'<b>Spazio totale dopo 4,0 s: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> 40 m, il quadruplo di 10 m. <b>Spazio tra 2,0 s e 4,0 s: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> 30 m, cio\u00e8 tre volte il primo tratto.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*4,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),s=2.5*t*t,tx0=28,tx1=W-28,TX=m=>tx0+m/40*(tx1-tx0),P=k=>2.5*k*k;
 ctx.fillStyle=bl;ctx.beginPath();ctx.roundRect(TX(s)-16,8,32,18,4);ctx.fill();
@@ -126,7 +126,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

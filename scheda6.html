@@ -51,59 +51,59 @@ details.note summary{cursor:pointer}
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · scheda 6 di 7</p>
-<h1>Se raddoppio la velocità, quanto cambiano il tempo e lo spazio di frenata?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; scheda 6</p>
+<h1>Se raddoppio la velocit&#224;, quanto cambiano il tempo e lo spazio di frenata?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Due auto frenano con la stessa accelerazione costante, a = −5,0 m/s², fino a fermarsi. La prima parte da 50 km/h (circa 14 m/s), la seconda da 100 km/h (circa 28 m/s).</p>
-<p class="q">Il tempo di frenata della seconda, rispetto alla prima, è:</p><div class="choices" role="group" aria-label="Il tempo di frenata della seconda, rispetto alla prima, è:" data-g="a"><button data-v="2" aria-pressed="false">Doppio</button><button data-v="4" aria-pressed="false">Quadruplo</button><button data-v="1" aria-pressed="false">Uguale</button></div>
-<p class="q">Lo spazio di frenata della seconda, rispetto alla prima, è:</p><div class="choices" role="group" aria-label="Lo spazio di frenata della seconda, rispetto alla prima, è:" data-g="b"><button data-v="2" aria-pressed="false">Doppio</button><button data-v="4" aria-pressed="false">Quadruplo</button><button data-v="8" aria-pressed="false">Otto volte</button></div>
+<p>Due auto frenano con la stessa accelerazione costante, a = &#8722;5,0 m/s&#178;, fino a fermarsi. La prima parte da 50 km/h (circa 14 m/s), la seconda da 100 km/h (circa 28 m/s).</p>
+<p class="q">Il tempo di frenata della seconda, rispetto alla prima, &#232;:</p><div class="choices" role="group" aria-label="Il tempo di frenata della seconda, rispetto alla prima, &#232;:" data-g="a"><button data-v="2" aria-pressed="false">Doppio</button><button data-v="4" aria-pressed="false">Quadruplo</button><button data-v="1" aria-pressed="false">Uguale</button></div>
+<p class="q">Lo spazio di frenata della seconda, rispetto alla prima, &#232;:</p><div class="choices" role="group" aria-label="Lo spazio di frenata della seconda, rispetto alla prima, &#232;:" data-g="b"><button data-v="2" aria-pressed="false">Doppio</button><button data-v="4" aria-pressed="false">Quadruplo</button><button data-v="8" aria-pressed="false">Otto volte</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Due auto frenano con la stessa accelerazione, una da 50 e una da 100 chilometri orari. In alto le posizioni di arresto sulla pista, in basso il grafico velocità-tempo con due triangoli di area diversa."></canvas>
+<canvas id="scena" role="img" aria-label="Due auto frenano con la stessa accelerazione, una da 50 e una da 100 chilometri orari. In alto le posizioni di arresto sulla pista, in basso il grafico velocit&#224;-tempo con due triangoli di area diversa."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Frena!</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 <label><input type="checkbox" id="ak" checked> Mostra le aree</label>
 </div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Nel grafico, l’area sotto la retta è lo spazio percorso.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Nel grafico, l&#8217;area sotto la retta &#232; lo spazio percorso.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>Il tempo raddoppia.</b> t<sub>arresto</sub> = v<sub>0</sub> / |a| passa da 2,8 s a 5,6 s: il tempo è proporzionale alla velocità.</li>
-<li><b>Lo spazio quadruplica.</b> Da 19 m a 77 m: lo spazio non è proporzionale alla velocità ma al suo quadrato.</li>
-<li><b>Lo si vede nel grafico v-t.</b> Ogni area è un triangolo di base t e altezza v<sub>0</sub>: se v<sub>0</sub> raddoppia, raddoppiano sia l’altezza sia la base, e l’area diventa quattro volte.</li>
+<li><b>Il tempo raddoppia.</b> t<sub>arresto</sub> = v<sub>0</sub> / |a| passa da 2,8 s a 5,6 s: il tempo &#232; proporzionale alla velocit&#224;.</li>
+<li><b>Lo spazio quadruplica.</b> Da 19 m a 77 m: lo spazio non &#232; proporzionale alla velocit&#224; ma al suo quadrato.</li>
+<li><b>Lo si vede nel grafico v-t.</b> Ogni area &#232; un triangolo di base t e altezza v<sub>0</sub>: se v<sub>0</sub> raddoppia, raddoppiano sia l&#8217;altezza sia la base, e l&#8217;area diventa quattro volte.</li>
 <li><b>Il motivo.</b> Si ricava una formula che non contiene il tempo:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>Da v = v<sub>0</sub> + a · t ricavo t = (v − v<sub>0</sub>) / a.</li>
-<li>Sostituisco in Δs = v<sub>0</sub> · t + ½ · a · t² e semplifico: Δs = (v² − v<sub>0</sub>²) / (2a).</li>
-<li><b>v² = v<sub>0</sub>² + 2 · a · Δs</b>: lega velocità e spazio senza il tempo.</li>
-<li>Frenata fino a fermarsi (v = 0): Δs = −v<sub>0</sub>² / (2a) = v<sub>0</sub>² / (2 · |a|).</li>
-<li>Con |a| fissata, Δs è proporzionale a v<sub>0</sub>²: se v<sub>0</sub> raddoppia, Δs quadruplica.</li>
+<li>Da v = v<sub>0</sub> + a &#183; t ricavo t = (v &#8722; v<sub>0</sub>) / a.</li>
+<li>Sostituisco in &#916;s = v<sub>0</sub> &#183; t + &#189; &#183; a &#183; t&#178; e semplifico: &#916;s = (v&#178; &#8722; v<sub>0</sub>&#178;) / (2a).</li>
+<li><b>v&#178; = v<sub>0</sub>&#178; + 2 &#183; a &#183; &#916;s</b>: lega velocit&#224; e spazio senza il tempo.</li>
+<li>Frenata fino a fermarsi (v = 0): &#916;s = &#8722;v<sub>0</sub>&#178; / (2a) = v<sub>0</sub>&#178; / (2 &#183; |a|).</li>
+<li>Con |a| fissata, &#916;s &#232; proporzionale a v<sub>0</sub>&#178;: se v<sub>0</sub> raddoppia, &#916;s quadruplica.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un’auto viaggia a 72 km/h e frena con a = −4,0 m/s². A 40 m c’è un ostacolo fermo. L’auto lo evita? Se non lo evita, con che velocità lo urta? E se il conducente impiega 0,80 s a reagire?</div>
+<div class="problem">Un&#8217;auto viaggia a 72 km/h e frena con a = &#8722;4,0 m/s&#178;. A 40 m c&#8217;&#232; un ostacolo fermo. L&#8217;auto lo evita? Se non lo evita, con che velocit&#224; lo urta? E se il conducente impiega 0,80 s a reagire?</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede?</summary><div>L’auto frena fino a fermarsi, se riesce, mentre l’ostacolo fermo è a 40 m.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati (con unità coerenti)?</summary><div>Asse nel verso del moto. 72 km/h = 72 / 3,6 = 20 m/s. Dati: v<sub>0</sub> = +20 m/s, a = −4,0 m/s², ostacolo a 40 m.</div></details>
-<details class="step"><summary>3. Quale modello e quale formula?</summary><div>Moto uniformemente accelerato. Il tempo non serve, quindi uso v² = v<sub>0</sub>² + 2 · a · Δs.</div></details>
-<details class="step"><summary>4. Spazio di arresto</summary><div>0 = (20 m/s)² + 2 · (−4,0 m/s²) · Δs, quindi Δs = 400 m²/s² / 8,0 m/s² = <b>50 m</b>.</div></details>
-<details class="step"><summary>5. L’auto evita l’ostacolo?</summary><div>No: lo spazio di arresto (50 m) è maggiore della distanza (40 m).</div></details>
-<details class="step"><summary>6. Con che velocità lo urta?</summary><div>v² = (20 m/s)² + 2 · (−4,0 m/s²) · 40 m = 400 m²/s² − 320 m²/s² = 80 m²/s², quindi v ≈ <b>8,9 m/s</b> (circa 32 km/h).</div></details>
-<details class="step"><summary>7. E con 0,80 s di tempo di reazione?</summary><div>Nei 0,80 s l’auto viaggia a velocità costante (MRU): 20 m/s · 0,80 s = 16 m. Lo spazio totale diventa 16 m + 50 m = <b>66 m</b>: l’ostacolo va visto a più di 66 m.</div></details>
-<details class="step"><summary>8. Il risultato ha senso?</summary><div>50 m per fermarsi da 72 km/h con a = −4,0 m/s² è un ordine di grandezza realistico, e la velocità d’urto (8,9 m/s) è minore di quella iniziale (20 m/s), come deve essere.</div></details>
+<details class="step"><summary>1. Che cosa succede?</summary><div>L&#8217;auto frena fino a fermarsi, se riesce, mentre l&#8217;ostacolo fermo &#232; a 40 m.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati (con unit&#224; coerenti)?</summary><div>Asse nel verso del moto. 72 km/h = 72 / 3,6 = 20 m/s. Dati: v<sub>0</sub> = +20 m/s, a = &#8722;4,0 m/s&#178;, ostacolo a 40 m.</div></details>
+<details class="step"><summary>3. Quale modello e quale formula?</summary><div>Moto uniformemente accelerato. Il tempo non serve, quindi uso v&#178; = v<sub>0</sub>&#178; + 2 &#183; a &#183; &#916;s.</div></details>
+<details class="step"><summary>4. Spazio di arresto</summary><div>0 = (20 m/s)&#178; + 2 &#183; (&#8722;4,0 m/s&#178;) &#183; &#916;s, quindi &#916;s = 400 m&#178;/s&#178; / 8,0 m/s&#178; = <b>50 m</b>.</div></details>
+<details class="step"><summary>5. L&#8217;auto evita l&#8217;ostacolo?</summary><div>No: lo spazio di arresto (50 m) &#232; maggiore della distanza (40 m).</div></details>
+<details class="step"><summary>6. Con che velocit&#224; lo urta?</summary><div>v&#178; = (20 m/s)&#178; + 2 &#183; (&#8722;4,0 m/s&#178;) &#183; 40 m = 400 m&#178;/s&#178; &#8722; 320 m&#178;/s&#178; = 80 m&#178;/s&#178;, quindi v &#8776; <b>8,9 m/s</b> (circa 32 km/h).</div></details>
+<details class="step"><summary>7. E con 0,80 s di tempo di reazione?</summary><div>Nei 0,80 s l&#8217;auto viaggia a velocit&#224; costante (MRU): 20 m/s &#183; 0,80 s = 16 m. Lo spazio totale diventa 16 m + 50 m = <b>66 m</b>: l&#8217;ostacolo va visto a pi&#249; di 66 m.</div></details>
+<details class="step"><summary>8. Il risultato ha senso?</summary><div>50 m per fermarsi da 72 km/h con a = &#8722;4,0 m/s&#178; &#232; un ordine di grandezza realistico, e la velocit&#224; d&#8217;urto (8,9 m/s) &#232; minore di quella iniziale (20 m/s), come deve essere.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: a = −5,0 m/s², v<sub>0</sub> = 50 km/h e 100 km/h (13,9 e 27,8 m/s). Nel problema compare anche il tempo di reazione, che richiama il MRU della verifica precedente: il moto ha due fasi con modelli diversi. Errori tipici: pensare che lo spazio sia proporzionale alla velocità, dimenticare la conversione km/h → m/s, dimenticare la fase di reazione.</p></details>
+<p>Dati della scena: a = &#8722;5,0 m/s&#178;, v<sub>0</sub> = 50 km/h e 100 km/h (13,9 e 27,8 m/s). Nel problema compare anche il tempo di reazione, che richiama il MRU della verifica precedente: il moto ha due fasi con modelli diversi. Errori tipici: pensare che lo spazio sia proporzionale alla velocit&#224;, dimenticare la conversione km/h &#8594; m/s, dimenticare la fase di reazione.</p></details>
 </main>
 <script>
 
 const CFG={H:410,dur:[7,15],keys:['a','b'],again:'Riguarda le frenate',
-verdict:ch=>{const a=ch.a==='2',b=ch.b==='4';return{ok:a&&b,html:'<b>Tempo di frenata: '+(a?'previsione corretta.':'non era così.')+'</b> Raddoppia, da 2,8 s a 5,6 s. <b>Spazio di frenata: '+(b?'previsione corretta.':'non era così.')+'</b> Quadruplica, da 19 m a 77 m.'}},
+verdict:ch=>{const a=ch.a==='2',b=ch.b==='4';return{ok:a&&b,html:'<b>Tempo di frenata: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> Raddoppia, da 2,8 s a 5,6 s. <b>Spazio di frenata: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> Quadruplica, da 19 m a 77 m.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*5.6,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),po=c('--pot'),a=5;
 const C=[{n:'A: 50 km/h',v0:50/3.6,col:bl,y:30},{n:'B: 100 km/h',v0:100/3.6,col:po,y:78}];
@@ -131,7 +131,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

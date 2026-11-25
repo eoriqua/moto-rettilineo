@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>v(t) = v₀ + a·t: il treno che frena</title>
+<title>v(t) = v&#8320; + a&#183;t: il treno che frena</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <style>
 :root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
@@ -51,62 +51,62 @@ details.note summary{cursor:pointer}
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · scheda 4 di 7</p>
-<h1>Un treno viaggia a 30 m/s e frena con a = −2,0 m/s². Dopo 20 s la formula dà v = −10 m/s: il treno torna indietro?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; scheda 4</p>
+<h1>Un treno viaggia a 30 m/s e frena con a = &#8722;2,0 m/s&#178;. Dopo 20 s la formula d&#224; v = &#8722;10 m/s: il treno torna indietro?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Un treno viaggia a 30 m/s lungo un binario rettilineo (asse positivo nel verso del moto). Frena con accelerazione costante a = −2,0 m/s².</p>
-<p class="q">Dopo 20 s la velocità del treno è:</p><div class="choices" role="group" aria-label="Dopo 20 s la velocità del treno è:" data-g="a"><button data-v="-10" aria-pressed="false">−10 m/s (torna indietro)</button><button data-v="0" aria-pressed="false">0 m/s (è fermo)</button><button data-v="10" aria-pressed="false">+10 m/s</button></div>
+<p>Un treno viaggia a 30 m/s lungo un binario rettilineo (asse positivo nel verso del moto). Frena con accelerazione costante a = &#8722;2,0 m/s&#178;.</p>
+<p class="q">Dopo 20 s la velocit&#224; del treno &#232;:</p><div class="choices" role="group" aria-label="Dopo 20 s la velocit&#224; del treno &#232;:" data-g="a"><button data-v="-10" aria-pressed="false">&#8722;10 m/s (torna indietro)</button><button data-v="0" aria-pressed="false">0 m/s (&#232; fermo)</button><button data-v="10" aria-pressed="false">+10 m/s</button></div>
 <p class="q">Il treno si ferma dopo:</p><div class="choices" role="group" aria-label="Il treno si ferma dopo:" data-g="b"><button data-v="10" aria-pressed="false">10 s</button><button data-v="15" aria-pressed="false">15 s</button><button data-v="20" aria-pressed="false">20 s</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Un treno frena da 30 m/s. Il grafico velocità-tempo mostra la retta della formula, che scende sotto zero, e il moto reale, che si ferma a 15 secondi e resta a zero."></canvas>
+<canvas id="scena" role="img" aria-label="Un treno frena da 30 m/s. Il grafico velocit&#224;-tempo mostra la retta della formula, che scende sotto zero, e il moto reale, che si ferma a 15 secondi e resta a zero."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Fai frenare il treno</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 <label><input type="checkbox" id="fk" checked> Mostra cosa darebbe la formula</label>
 </div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La linea tratteggiata è ciò che dà la formula, quella blu è il moto reale.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La linea tratteggiata &#232; ci&#242; che d&#224; la formula, quella blu &#232; il moto reale.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>Il treno si ferma a t = 15 s e resta fermo.</b> Dopo i 15 s la velocità vale 0 m/s, non −10 m/s.</li>
-<li><b>La formula ha un campo di validità.</b> v = v<sub>0</sub> + a · t vale finché l’accelerazione è quella assunta. Dopo l’arresto i freni non agiscono più su un treno fermo: a = 0.</li>
-<li><b>Un risultato negativo va interpretato.</b> Qui −10 m/s direbbe che il treno retrocede, ma frenare non può far invertire il moto.</li>
+<li><b>Il treno si ferma a t = 15 s e resta fermo.</b> Dopo i 15 s la velocit&#224; vale 0 m/s, non &#8722;10 m/s.</li>
+<li><b>La formula ha un campo di validit&#224;.</b> v = v<sub>0</sub> + a &#183; t vale finch&#233; l&#8217;accelerazione &#232; quella assunta. Dopo l&#8217;arresto i freni non agiscono pi&#249; su un treno fermo: a = 0.</li>
+<li><b>Un risultato negativo va interpretato.</b> Qui &#8722;10 m/s direbbe che il treno retrocede, ma frenare non pu&#242; far invertire il moto.</li>
 <li><b>Il motivo.</b> Segue dalla definizione di accelerazione:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>a = Δv / Δt, quindi con a costante v(t) = v<sub>0</sub> + a · t (retta di pendenza a).</li>
-<li>Il treno si ferma quando v = 0: t<sub>stop</sub> = −v<sub>0</sub> / a = −30 / (−2,0) = 15 s.</li>
-<li>Per t &gt; t<sub>stop</sub> la formula darebbe v &lt; 0: a 20 s, v = 30 − 2,0 · 20 = −10 m/s.</li>
-<li>Ma i freni possono solo togliere velocità: per t ≥ 15 s il treno è fermo, con v = 0 e a = 0.</li>
-<li>Quindi, prima di fidarsi di un risultato, bisogna controllare che il modello valga in quell’intervallo di tempo.</li>
+<li>a = &#916;v / &#916;t, quindi con a costante v(t) = v<sub>0</sub> + a &#183; t (retta di pendenza a).</li>
+<li>Il treno si ferma quando v = 0: t<sub>stop</sub> = &#8722;v<sub>0</sub> / a = &#8722;30 / (&#8722;2,0) = 15 s.</li>
+<li>Per t &gt; t<sub>stop</sub> la formula darebbe v &lt; 0: a 20 s, v = 30 &#8722; 2,0 &#183; 20 = &#8722;10 m/s.</li>
+<li>Ma i freni possono solo togliere velocit&#224;: per t &#8805; 15 s il treno &#232; fermo, con v = 0 e a = 0.</li>
+<li>Quindi, prima di fidarsi di un risultato, bisogna controllare che il modello valga in quell&#8217;intervallo di tempo.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un’auto viaggia a 25 m/s (90 km/h) e frena con accelerazione costante a = −5,0 m/s². Calcola la velocità dopo 3,0 s, il tempo di arresto e la velocità dopo 8,0 s.</div>
+<div class="problem">Un&#8217;auto viaggia a 25 m/s (90 km/h) e frena con accelerazione costante a = &#8722;5,0 m/s&#178;. Calcola la velocit&#224; dopo 3,0 s, il tempo di arresto e la velocit&#224; dopo 8,0 s.</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede?</summary><div>L’auto frena fino a fermarsi: il modulo della velocità diminuisce.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto: v<sub>0</sub> = +25 m/s, a = −5,0 m/s² (negativa perché la velocità diminuisce).</div></details>
-<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato: v(t) = v<sub>0</sub> + a · t, finché l’auto si muove.</div></details>
-<details class="step"><summary>4. Velocità dopo 3,0 s</summary><div>v = 25 m/s + (−5,0 m/s²) · 3,0 s = 25 m/s − 15 m/s = <b>10 m/s</b> (36 km/h).</div></details>
-<details class="step"><summary>5. Tempo di arresto</summary><div>v = 0, quindi t = −v<sub>0</sub> / a = −25 m/s / (−5,0 m/s²) = <b>5,0 s</b>.</div></details>
-<details class="step"><summary>6. Velocità dopo 8,0 s</summary><div>La formula darebbe 25 m/s − 5,0 m/s² · 8,0 s = −15 m/s, che non ha senso: dopo 5,0 s l’auto è ferma. Risposta: <b>v = 0 m/s</b>.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>A 3,0 s la velocità (10 m/s) è compresa tra 25 m/s e 0, coerente con il tempo di arresto di 5,0 s, che è maggiore di 3,0 s.</div></details>
+<details class="step"><summary>1. Che cosa succede?</summary><div>L&#8217;auto frena fino a fermarsi: il modulo della velocit&#224; diminuisce.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto: v<sub>0</sub> = +25 m/s, a = &#8722;5,0 m/s&#178; (negativa perch&#233; la velocit&#224; diminuisce).</div></details>
+<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato: v(t) = v<sub>0</sub> + a &#183; t, finch&#233; l&#8217;auto si muove.</div></details>
+<details class="step"><summary>4. Velocit&#224; dopo 3,0 s</summary><div>v = 25 m/s + (&#8722;5,0 m/s&#178;) &#183; 3,0 s = 25 m/s &#8722; 15 m/s = <b>10 m/s</b> (36 km/h).</div></details>
+<details class="step"><summary>5. Tempo di arresto</summary><div>v = 0, quindi t = &#8722;v<sub>0</sub> / a = &#8722;25 m/s / (&#8722;5,0 m/s&#178;) = <b>5,0 s</b>.</div></details>
+<details class="step"><summary>6. Velocit&#224; dopo 8,0 s</summary><div>La formula darebbe 25 m/s &#8722; 5,0 m/s&#178; &#183; 8,0 s = &#8722;15 m/s, che non ha senso: dopo 5,0 s l&#8217;auto &#232; ferma. Risposta: <b>v = 0 m/s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>A 3,0 s la velocit&#224; (10 m/s) &#232; compresa tra 25 m/s e 0, coerente con il tempo di arresto di 5,0 s, che &#232; maggiore di 3,0 s.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: v<sub>0</sub> = 30 m/s, a = −2,0 m/s², t di arresto 15 s, spazio di arresto 225 m. È la scheda sul «campo di validità» di una formula: lo studente deve riconoscere che un risultato aritmeticamente corretto può essere fisicamente impossibile. Errori tipici: applicare v = v<sub>0</sub> + a · t oltre l’arresto, interpretare −10 m/s come retromarcia.</p></details>
+<p>Dati della scena: v<sub>0</sub> = 30 m/s, a = &#8722;2,0 m/s&#178;, t di arresto 15 s, spazio di arresto 225 m. &#200; la scheda sul &#171;campo di validit&#224;&#187; di una formula: lo studente deve riconoscere che un risultato aritmeticamente corretto pu&#242; essere fisicamente impossibile. Errori tipici: applicare v = v<sub>0</sub> + a &#183; t oltre l&#8217;arresto, interpretare &#8722;10 m/s come retromarcia.</p></details>
 </main>
 <script>
 
 const CFG={H:348,dur:[8,16],keys:['a','b'],again:'Riguarda la frenata',
-verdict:ch=>{const a=ch.a==='0',b=ch.b==='15';return{ok:a&&b,html:'<b>Velocità dopo 20 s: '+(a?'previsione corretta.':'non era così.')+'</b> Il treno è fermo (0 m/s), non torna indietro. <b>Tempo di arresto: '+(b?'previsione corretta.':'non era così.')+'</b> Si ferma dopo 15 s.'}},
+verdict:ch=>{const a=ch.a==='0',b=ch.b==='15';return{ok:a&&b,html:'<b>Velocit\u00e0 dopo 20 s: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> Il treno \u00e8 fermo (0 m/s), non torna indietro. <b>Tempo di arresto: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> Si ferma dopo 15 s.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*20,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),fk=U.on('fk'),vF=30-2*t,vR=t<15?30-2*t:0,s=t<15?30*t-t*t:225;
 const tx0=28,tx1=W-40,TX=m=>tx0+m/240*(tx1-tx0);
-ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('Treno: v = '+U.sg(vR,1)+' m/s,  a = '+(t<15?'−2,0':'0,0')+' m/s²',10,18);
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('Treno: v = '+U.sg(vR,1)+' m/s,  a = '+(t<15?'\u22122,0':'0,0')+' m/s\u00b2',10,18);
 if(fk){ctx.font=U.F;ctx.fillStyle=mu;ctx.fillText('La formula darebbe: v = '+U.sg(vF,1)+' m/s',10,36)}
 ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(tx0,84);ctx.lineTo(tx1,84);ctx.stroke();
 ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,100,200].forEach(m=>{ctx.beginPath();ctx.moveTo(TX(m),84);ctx.lineTo(TX(m),89);ctx.stroke();ctx.fillText(m+' m',TX(m),102)});
@@ -118,7 +118,7 @@ ctx.textAlign='center';[0,5,10,15,20].forEach(u=>ctx.fillText(u+'',X(u),Y(-12)+1
 if(fk){ctx.save();ctx.setLineDash([6,4]);ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(X(0),Y(30));ctx.lineTo(X(t),Y(vF));ctx.stroke();ctx.restore();ctx.strokeStyle=ink;ctx.lineWidth=2;ctx.beginPath();ctx.arc(X(t),Y(vF),5,0,7);ctx.stroke()}
 const tm=Math.min(t,15);ctx.strokeStyle=bl;ctx.lineWidth=3.5;ctx.beginPath();ctx.moveTo(X(0),Y(30));ctx.lineTo(X(tm),Y(30-2*tm));if(t>15)ctx.lineTo(X(t),Y(0));ctx.stroke();ctx.fillStyle=bl;ctx.beginPath();ctx.arc(X(t),Y(vR),5,0,7);ctx.fill();
 if(t>=15){ctx.fillStyle=ink;ctx.beginPath();ctx.arc(X(15),Y(0),4,0,7);ctx.fill();ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('15 s: fermo',X(15)+8,Y(0)-8)}
-if(fk&&t>=19.9){ctx.fillStyle=ink;ctx.font=U.F2;ctx.textAlign='right';ctx.fillText('la formula dà −10 m/s',X(20)-8,Y(-10)-8)}}};
+if(fk&&t>=19.9){ctx.fillStyle=ink;ctx.font=U.F2;ctx.textAlign='right';ctx.fillText('la formula d\u00e0 \u221210 m/s',X(20)-8,Y(-10)-8)}}};
 
 
 (()=>{
@@ -127,7 +127,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

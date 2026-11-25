@@ -54,13 +54,13 @@ input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px
 <body>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · grafici · scheda 1</p>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; grafici &#183; scheda 1</p>
 <h1>Il grafico posizione-tempo di una ciclista ha un tratto orizzontale e uno che scende. Che cosa sta facendo in ciascun tratto?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Una ciclista parte da casa (s = 0 m) su una strada rettilinea, con l’asse orientato verso la scuola. Il grafico posizione-tempo ha tre segmenti: da 0 a 20 s sale fino a 60 m; da 20 s a 30 s è orizzontale; da 30 s a 45 s scende fino a 0 m.</p>
-<p class="q">Nel tratto orizzontale (da 20 s a 30 s) la ciclista:</p><div class="choices" role="group" aria-label="Nel tratto orizzontale (da 20 s a 30 s) la ciclista:" data-g="a"><button data-v="fermo" aria-pressed="false">è ferma</button><button data-v="cost" aria-pressed="false">va a velocità costante</button><button data-v="acc" aria-pressed="false">accelera</button></div>
-<p class="q">Nell’ultimo tratto (da 30 s a 45 s) la sua velocità è:</p><div class="choices" role="group" aria-label="Nell’ultimo tratto (da 30 s a 45 s) la sua velocità è:" data-g="b"><button data-v="4" aria-pressed="false">+4 m/s</button><button data-v="-4" aria-pressed="false">−4 m/s</button><button data-v="0" aria-pressed="false">0 m/s</button></div>
+<p>Una ciclista parte da casa (s = 0 m) su una strada rettilinea, con l&#8217;asse orientato verso la scuola. Il grafico posizione-tempo ha tre segmenti: da 0 a 20 s sale fino a 60 m; da 20 s a 30 s &#232; orizzontale; da 30 s a 45 s scende fino a 0 m.</p>
+<p class="q">Nel tratto orizzontale (da 20 s a 30 s) la ciclista:</p><div class="choices" role="group" aria-label="Nel tratto orizzontale (da 20 s a 30 s) la ciclista:" data-g="a"><button data-v="fermo" aria-pressed="false">&#232; ferma</button><button data-v="cost" aria-pressed="false">va a velocit&#224; costante</button><button data-v="acc" aria-pressed="false">accelera</button></div>
+<p class="q">Nell&#8217;ultimo tratto (da 30 s a 45 s) la sua velocit&#224; &#232;:</p><div class="choices" role="group" aria-label="Nell&#8217;ultimo tratto (da 30 s a 45 s) la sua velocit&#224; &#232;:" data-g="b"><button data-v="4" aria-pressed="false">+4 m/s</button><button data-v="-4" aria-pressed="false">&#8722;4 m/s</button><button data-v="0" aria-pressed="false">0 m/s</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
@@ -71,37 +71,37 @@ input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px
 </div>
 <div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La linea blu è il grafico che si costruisce nel tempo.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La linea blu &#232; il grafico che si costruisce nel tempo.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>La pendenza del grafico è la velocità.</b> Più il segmento è inclinato, più la velocità è grande in modulo.</li>
-<li><b>Un tratto orizzontale è una sosta.</b> La posizione non cambia, quindi v = 0 m/s. Non è «velocità costante diversa da zero».</li>
-<li><b>Una pendenza negativa è un ritorno.</b> Se s diminuisce, la velocità è negativa: il segno indica il verso del moto.</li>
-<li><b>Alla fine la ciclista è tornata a s = 0 m</b>: lo spostamento è nullo, anche se ha percorso 120 m.</li>
-<li><b>Il motivo.</b> Dalla definizione di velocità, tratto per tratto:</li>
+<li><b>La pendenza del grafico &#232; la velocit&#224;.</b> Pi&#249; il segmento &#232; inclinato, pi&#249; la velocit&#224; &#232; grande in modulo.</li>
+<li><b>Un tratto orizzontale &#232; una sosta.</b> La posizione non cambia, quindi v = 0 m/s. Non &#232; &#171;velocit&#224; costante diversa da zero&#187;.</li>
+<li><b>Una pendenza negativa &#232; un ritorno.</b> Se s diminuisce, la velocit&#224; &#232; negativa: il segno indica il verso del moto.</li>
+<li><b>Alla fine la ciclista &#232; tornata a s = 0 m</b>: lo spostamento &#232; nullo, anche se ha percorso 120 m.</li>
+<li><b>Il motivo.</b> Dalla definizione di velocit&#224;, tratto per tratto:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>v = Δs / Δt: su un grafico s-t è la pendenza del segmento.</li>
-<li>Tratto 1: v = (60 − 0) / (20 − 0) = 3,0 m/s.</li>
-<li>Tratto 2: Δs = 0, quindi v = 0 m/s.</li>
-<li>Tratto 3: v = (0 − 60) / (45 − 30) = −4,0 m/s. È negativa perché s diminuisce.</li>
-<li>Ogni segmento è un moto rettilineo uniforme con la sua legge oraria: s = s<sub>i</sub> + v · (t − t<sub>i</sub>), dove (t<sub>i</sub>, s<sub>i</sub>) è il punto in cui il tratto inizia.</li>
+<li>v = &#916;s / &#916;t: su un grafico s-t &#232; la pendenza del segmento.</li>
+<li>Tratto 1: v = (60 &#8722; 0) / (20 &#8722; 0) = 3,0 m/s.</li>
+<li>Tratto 2: &#916;s = 0, quindi v = 0 m/s.</li>
+<li>Tratto 3: v = (0 &#8722; 60) / (45 &#8722; 30) = &#8722;4,0 m/s. &#200; negativa perch&#233; s diminuisce.</li>
+<li>Ogni segmento &#232; un moto rettilineo uniforme con la sua legge oraria: s = s<sub>i</sub> + v &#183; (t &#8722; t<sub>i</sub>), dove (t<sub>i</sub>, s<sub>i</sub>) &#232; il punto in cui il tratto inizia.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un ciclista parte da casa. Nel grafico s-t passa per i punti (0 s; 0 m), (8,0 s; 40 m), (12 s; 40 m), (18 s; 10 m), uniti da segmenti. Calcola la velocità in ogni tratto, lo spostamento, lo spazio percorso e le velocità medie.</div>
+<div class="problem">Un ciclista parte da casa. Nel grafico s-t passa per i punti (0 s; 0 m), (8,0 s; 40 m), (12 s; 40 m), (18 s; 10 m), uniti da segmenti. Calcola la velocit&#224; in ogni tratto, lo spostamento, lo spazio percorso e le velocit&#224; medie.</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
 <details class="step"><summary>1. Che cosa succede?</summary><div>Il ciclista si allontana, si ferma e poi torna indietro, ma non fino a casa.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine a casa, asse verso l’allontanamento. Punti: (0 s; 0 m), (8,0 s; 40 m), (12 s; 40 m), (18 s; 10 m).</div></details>
-<details class="step"><summary>3. Quale modello?</summary><div>In ogni segmento il moto è uniforme: v = Δs / Δt, cioè la pendenza.</div></details>
-<details class="step"><summary>4. Velocità nei tre tratti</summary><div>Tratto 1: (40 m − 0 m) / (8,0 s − 0 s) = <b>+5,0 m/s</b>.<br>Tratto 2: <b>0 m/s</b>.<br>Tratto 3: (10 m − 40 m) / (18 s − 12 s) = <b>−5,0 m/s</b>.</div></details>
-<details class="step"><summary>5. Spostamento e spazio percorso</summary><div>Spostamento = 10 m − 0 m = <b>+10 m</b>. Spazio percorso = 40 m + 30 m = <b>70 m</b> (all’andata 40 m, al ritorno 30 m).</div></details>
-<details class="step"><summary>6. Velocità medie</summary><div>Velocità media = Δs / Δt = 10 m / 18 s = <b>0,56 m/s</b>.<br>Velocità scalare media = 70 m / 18 s = <b>3,9 m/s</b>.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>La velocità scalare media (3,9 m/s) è minore della massima (5,0 m/s) perché c’è una sosta. La velocità media è molto più piccola perché il ritorno annulla quasi tutto lo spostamento.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine a casa, asse verso l&#8217;allontanamento. Punti: (0 s; 0 m), (8,0 s; 40 m), (12 s; 40 m), (18 s; 10 m).</div></details>
+<details class="step"><summary>3. Quale modello?</summary><div>In ogni segmento il moto &#232; uniforme: v = &#916;s / &#916;t, cio&#232; la pendenza.</div></details>
+<details class="step"><summary>4. Velocit&#224; nei tre tratti</summary><div>Tratto 1: (40 m &#8722; 0 m) / (8,0 s &#8722; 0 s) = <b>+5,0 m/s</b>.<br>Tratto 2: <b>0 m/s</b>.<br>Tratto 3: (10 m &#8722; 40 m) / (18 s &#8722; 12 s) = <b>&#8722;5,0 m/s</b>.</div></details>
+<details class="step"><summary>5. Spostamento e spazio percorso</summary><div>Spostamento = 10 m &#8722; 0 m = <b>+10 m</b>. Spazio percorso = 40 m + 30 m = <b>70 m</b> (all&#8217;andata 40 m, al ritorno 30 m).</div></details>
+<details class="step"><summary>6. Velocit&#224; medie</summary><div>Velocit&#224; media = &#916;s / &#916;t = 10 m / 18 s = <b>0,56 m/s</b>.<br>Velocit&#224; scalare media = 70 m / 18 s = <b>3,9 m/s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>La velocit&#224; scalare media (3,9 m/s) &#232; minore della massima (5,0 m/s) perch&#233; c&#8217;&#232; una sosta. La velocit&#224; media &#232; molto pi&#249; piccola perch&#233; il ritorno annulla quasi tutto lo spostamento.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: 0–20 s a +3,0 m/s (60 m), 20–30 s fermo, 30–45 s a −4,0 m/s (ritorno a 0 m). Il cursore legge posizione e velocità in ogni istante. Errori tipici: leggere il tratto orizzontale come «velocità costante», leggere il grafico come una traiettoria («la ciclista sale e poi scende una collina»), confondere spostamento e spazio percorso. Il problema ripropone la stessa struttura con numeri diversi.</p></details>
+<p>Dati della scena: 0&#8211;20 s a +3,0 m/s (60 m), 20&#8211;30 s fermo, 30&#8211;45 s a &#8722;4,0 m/s (ritorno a 0 m). Il cursore legge posizione e velocit&#224; in ogni istante. Errori tipici: leggere il tratto orizzontale come &#171;velocit&#224; costante&#187;, leggere il grafico come una traiettoria (&#171;la ciclista sale e poi scende una collina&#187;), confondere spostamento e spazio percorso. Il problema ripropone la stessa struttura con numeri diversi.</p></details>
 </main>
 <script>
 
@@ -119,12 +119,12 @@ function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyl
 function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
 
 const CFG={H:360,dur:[9,18],keys:['a','b'],again:'Riguarda il percorso',
-verdict:ch=>{const a=ch.a==='fermo',b=ch.b==='-4';return{ok:a&&b,html:'<b>Tratto orizzontale: '+(a?'previsione corretta.':'non era così.')+'</b> La posizione non cambia, quindi la ciclista è ferma (v = 0 m/s). <b>Ultimo tratto: '+(b?'previsione corretta.':'non era così.')+'</b> La posizione diminuisce: v = −4,0 m/s.'}},
+verdict:ch=>{const a=ch.a==='fermo',b=ch.b==='-4';return{ok:a&&b,html:'<b>Tratto orizzontale: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> La posizione non cambia, quindi la ciclista \u00e8 ferma (v = 0 m/s). <b>Ultimo tratto: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> La posizione diminuisce: v = \u22124,0 m/s.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*45,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue');
 const s=u=>u<=20?3*u:u<=30?60:60-4*(u-30),v=u=>u<20?3:u<30?0:-4;
 ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s',10,18);
-ctx.font=U.F;ctx.fillText('s = '+U.fm(s(t),0)+' m   ·   v = '+U.sg(v(t),1)+' m/s',10,38);
+ctx.font=U.F;ctx.fillText('s = '+U.fm(s(t),0)+' m   \u00b7   v = '+U.sg(v(t),1)+' m/s',10,38);
 const sx0=34,sx1=W-30,SX=m=>sx0+m/60*(sx1-sx0);
 ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sx0,84);ctx.lineTo(sx1,84);ctx.stroke();
 ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,20,40,60].forEach(m=>{ctx.beginPath();ctx.moveTo(SX(m),84);ctx.lineTo(SX(m),89);ctx.stroke();ctx.fillText(m+' m',SX(m),104)});
@@ -136,14 +136,14 @@ guide(ctx,U,X(t),Y(s(t)),50,318);pt(ctx,X(t),Y(s(t)),bl,6);
 ctx.font=U.FB;ctx.fillStyle=ink;
 if(t>=20){ctx.textAlign='left';ctx.fillText('+3,0 m/s',X(10)+10,Y(30)+14)}
 if(t>=30){ctx.textAlign='center';ctx.fillText('0 m/s',X(25),Y(60)-8)}
-if(t>=45){ctx.textAlign='right';ctx.fillText('−4,0 m/s',X(37.5)-10,Y(30)+4)}}};
+if(t>=45){ctx.textAlign='right';ctx.fillText('\u22124,0 m/s',X(37.5)-10,Y(30)+4)}}};
 (()=>{
 const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),res=$('res'),hint=$('hint');
 const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={};
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

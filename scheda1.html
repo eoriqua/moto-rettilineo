@@ -51,13 +51,13 @@ details.note summary{cursor:pointer}
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · scheda 1 di 7</p>
-<h1>Anna parte subito, Bruno parte 10 s dopo. Dov’è Bruno quando Anna è a 60 m?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; scheda 1</p>
+<h1>Anna parte subito, Bruno parte 10 s dopo. Dov&#8217;&#232; Bruno quando Anna &#232; a 60 m?</h1>
 
 <h2>Prima di guardare, prevedi</h2>
-<p>Anna parte dal punto 0 e corre a 4,0 m/s costanti. Bruno parte dallo stesso punto, nello stesso verso e alla stessa velocità, ma 10 s dopo.</p>
-<p class="q">Quando Anna è a 60 m, Bruno si trova a:</p>
+<p>Anna parte dal punto 0 e corre a 4,0 m/s costanti. Bruno parte dallo stesso punto, nello stesso verso e alla stessa velocit&#224;, ma 10 s dopo.</p>
+<p class="q">Quando Anna &#232; a 60 m, Bruno si trova a:</p>
 <div class="choices" role="group" aria-label="Previsione sulla posizione di Bruno" data-g="a">
 <button data-v="20" aria-pressed="false">20 m</button><button data-v="40" aria-pressed="false">40 m</button><button data-v="60" aria-pressed="false">60 m</button>
 </div>
@@ -68,7 +68,7 @@ details.note summary{cursor:pointer}
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Anna e Bruno corrono alla stessa velocità, Bruno parte 10 secondi dopo. In alto le posizioni sulla pista, in basso il grafico spazio-tempo con due rette parallele, una spostata di 10 secondi verso destra."></canvas>
+<canvas id="scena" role="img" aria-label="Anna e Bruno corrono alla stessa velocit&#224;, Bruno parte 10 secondi dopo. In alto le posizioni sulla pista, in basso il grafico spazio-tempo con due rette parallele, una spostata di 10 secondi verso destra."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Via!</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
@@ -81,33 +81,33 @@ details.note summary{cursor:pointer}
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>Anna è a 60 m quando t = 15 s.</b> In quell’istante Bruno corre da soli 5 s (15 s − 10 s), quindi ha fatto 4,0 m/s · 5 s = 20 m.</li>
-<li><b>Il ritardo si toglie al tempo, non alla posizione.</b> Nella legge oraria di Bruno compare (t − 10 s): è il tempo trascorso dalla sua partenza.</li>
-<li><b>La retta di Bruno è quella di Anna spostata di 10 s verso destra.</b> Stessa velocità, stessa pendenza: le due rette sono parallele, e il ritardo è lo spostamento orizzontale tra le due.</li>
-<li><b>La distanza resta costante: 40 m.</b> È lo spazio che Anna ha già percorso quando Bruno parte (4,0 m/s · 10 s).</li>
-<li><b>Il motivo.</b> Si ricava dalla definizione di velocità:</li>
+<li><b>Anna &#232; a 60 m quando t = 15 s.</b> In quell&#8217;istante Bruno corre da soli 5 s (15 s &#8722; 10 s), quindi ha fatto 4,0 m/s &#183; 5 s = 20 m.</li>
+<li><b>Il ritardo si toglie al tempo, non alla posizione.</b> Nella legge oraria di Bruno compare (t &#8722; 10 s): &#232; il tempo trascorso dalla sua partenza.</li>
+<li><b>La retta di Bruno &#232; quella di Anna spostata di 10 s verso destra.</b> Stessa velocit&#224;, stessa pendenza: le due rette sono parallele, e il ritardo &#232; lo spostamento orizzontale tra le due.</li>
+<li><b>La distanza resta costante: 40 m.</b> &#200; lo spazio che Anna ha gi&#224; percorso quando Bruno parte (4,0 m/s &#183; 10 s).</li>
+<li><b>Il motivo.</b> Si ricava dalla definizione di velocit&#224;:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>Anna parte da 0 a t = 0: s<sub>A</sub>(t) = v · t.</li>
-<li>Bruno resta fermo in 0 fino all’istante t<sub>0</sub>. Poi percorre lo spazio v · (t − t<sub>0</sub>), dove (t − t<sub>0</sub>) è il tempo trascorso dalla sua partenza.</li>
-<li>Per t ≥ t<sub>0</sub>: <b>s<sub>B</sub>(t) = v · (t − t<sub>0</sub>)</b>. Controllo: per t = t<sub>0</sub> si ottiene s<sub>B</sub> = 0, cioè la posizione di partenza.</li>
-<li>Se il corpo parte (o passa) da una posizione s<sub>0</sub> all’istante t<sub>0</sub>: <b>s(t) = s<sub>0</sub> + v · (t − t<sub>0</sub>)</b>, per t ≥ t<sub>0</sub>.</li>
-<li>La distanza tra i due è s<sub>A</sub> − s<sub>B</sub> = v t − v (t − t<sub>0</sub>) = v · t<sub>0</sub>: non dipende da t.</li></ol></div>
+<li>Anna parte da 0 a t = 0: s<sub>A</sub>(t) = v &#183; t.</li>
+<li>Bruno resta fermo in 0 fino all&#8217;istante t<sub>0</sub>. Poi percorre lo spazio v &#183; (t &#8722; t<sub>0</sub>), dove (t &#8722; t<sub>0</sub>) &#232; il tempo trascorso dalla sua partenza.</li>
+<li>Per t &#8805; t<sub>0</sub>: <b>s<sub>B</sub>(t) = v &#183; (t &#8722; t<sub>0</sub>)</b>. Controllo: per t = t<sub>0</sub> si ottiene s<sub>B</sub> = 0, cio&#232; la posizione di partenza.</li>
+<li>Se il corpo parte (o passa) da una posizione s<sub>0</sub> all&#8217;istante t<sub>0</sub>: <b>s(t) = s<sub>0</sub> + v &#183; (t &#8722; t<sub>0</sub>)</b>, per t &#8805; t<sub>0</sub>.</li>
+<li>La distanza tra i due &#232; s<sub>A</sub> &#8722; s<sub>B</sub> = v t &#8722; v (t &#8722; t<sub>0</sub>) = v &#183; t<sub>0</sub>: non dipende da t.</li></ol></div>
 
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un’auto passa davanti al cartello dei 120 m all’istante t<sub>0</sub> = 8,0 s e prosegue a velocità costante di 15 m/s. Scrivi la legge oraria. Dove si trova a t = 20 s? Quando passa davanti al cartello dei 420 m?</div>
+<div class="problem">Un&#8217;auto passa davanti al cartello dei 120 m all&#8217;istante t<sub>0</sub> = 8,0 s e prosegue a velocit&#224; costante di 15 m/s. Scrivi la legge oraria. Dove si trova a t = 20 s? Quando passa davanti al cartello dei 420 m?</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede, e che cos’è l’istante t<sub>0</sub>?</summary><div>L’auto è già in moto. L’istante t<sub>0</sub> = 8,0 s non è quello della partenza: è l’istante in cui passa davanti al cartello dei 120 m.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse lungo la strada, verso positivo nel verso del moto, con i cartelli che misurano la posizione da quell’origine. Dati: s<sub>0</sub> = 120 m, t<sub>0</sub> = 8,0 s, v = 15 m/s costante.</div></details>
-<details class="step"><summary>3. Quale modello scegli, e perché?</summary><div>Moto rettilineo uniforme, perché la velocità è costante. La legge vale solo per t ≥ t<sub>0</sub>.</div></details>
-<details class="step"><summary>4. Scrivi la legge oraria</summary><div>s(t) = s<sub>0</sub> + v · (t − t<sub>0</sub>) = 120 m + 15 m/s · (t − 8,0 s).</div></details>
-<details class="step"><summary>5. Dove si trova a t = 20 s?</summary><div>Il tempo trascorso dal passaggio è 20 s − 8,0 s = 12 s. Quindi s = 120 m + 15 m/s · 12 s = 120 m + 180 m = <b>300 m</b>. Errore da evitare: 120 m + 15 m/s · 20 s = 420 m, che varrebbe se l’auto fosse passata dal cartello a t = 0.</div></details>
-<details class="step"><summary>6. Quando passa davanti al cartello dei 420 m?</summary><div>420 m = 120 m + 15 m/s · (t − 8,0 s), quindi t − 8,0 s = 300 m / 15 m/s = 20 s e <b>t = 28 s</b>.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>15 m/s sono 54 km/h, una velocità plausibile. A 20 s l’auto è davanti al cartello dei 120 m da 12 s e ha percorso 180 m. Verifica finale: all’istante t = 28 s, s = 120 m + 15 m/s · 20 s = 420 m, come richiesto.</div></details>
+<details class="step"><summary>1. Che cosa succede, e che cos&#8217;&#232; l&#8217;istante t<sub>0</sub>?</summary><div>L&#8217;auto &#232; gi&#224; in moto. L&#8217;istante t<sub>0</sub> = 8,0 s non &#232; quello della partenza: &#232; l&#8217;istante in cui passa davanti al cartello dei 120 m.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse lungo la strada, verso positivo nel verso del moto, con i cartelli che misurano la posizione da quell&#8217;origine. Dati: s<sub>0</sub> = 120 m, t<sub>0</sub> = 8,0 s, v = 15 m/s costante.</div></details>
+<details class="step"><summary>3. Quale modello scegli, e perch&#233;?</summary><div>Moto rettilineo uniforme, perch&#233; la velocit&#224; &#232; costante. La legge vale solo per t &#8805; t<sub>0</sub>.</div></details>
+<details class="step"><summary>4. Scrivi la legge oraria</summary><div>s(t) = s<sub>0</sub> + v &#183; (t &#8722; t<sub>0</sub>) = 120 m + 15 m/s &#183; (t &#8722; 8,0 s).</div></details>
+<details class="step"><summary>5. Dove si trova a t = 20 s?</summary><div>Il tempo trascorso dal passaggio &#232; 20 s &#8722; 8,0 s = 12 s. Quindi s = 120 m + 15 m/s &#183; 12 s = 120 m + 180 m = <b>300 m</b>. Errore da evitare: 120 m + 15 m/s &#183; 20 s = 420 m, che varrebbe se l&#8217;auto fosse passata dal cartello a t = 0.</div></details>
+<details class="step"><summary>6. Quando passa davanti al cartello dei 420 m?</summary><div>420 m = 120 m + 15 m/s &#183; (t &#8722; 8,0 s), quindi t &#8722; 8,0 s = 300 m / 15 m/s = 20 s e <b>t = 28 s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>15 m/s sono 54 km/h, una velocit&#224; plausibile. A 20 s l&#8217;auto &#232; davanti al cartello dei 120 m da 12 s e ha percorso 180 m. Verifica finale: all&#8217;istante t = 28 s, s = 120 m + 15 m/s &#183; 20 s = 420 m, come richiesto.</div></details>
 </section>
 
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: v = 4,0 m/s, ritardo 10 s, osservazione a t = 15 s. Il nodo critico è distinguere s<sub>0</sub> (posizione) da t<sub>0</sub> (istante): il grafico mostra che il ritardo sposta la retta orizzontalmente, la posizione iniziale verticalmente. Errori tipici: s = v · t senza ritardo, s = s<sub>0</sub> + v · t<sub>0</sub> + v · t, sottrarre il ritardo alla posizione. Il problema guidato mostra l’ordine del ragionamento: situazione, riferimento, modello, formula, calcolo, controllo.</p></details>
+<p>Dati della scena: v = 4,0 m/s, ritardo 10 s, osservazione a t = 15 s. Il nodo critico &#232; distinguere s<sub>0</sub> (posizione) da t<sub>0</sub> (istante): il grafico mostra che il ritardo sposta la retta orizzontalmente, la posizione iniziale verticalmente. Errori tipici: s = v &#183; t senza ritardo, s = s<sub>0</sub> + v &#183; t<sub>0</sub> + v &#183; t, sottrarre il ritardo alla posizione. Il problema guidato mostra l&#8217;ordine del ragionamento: situazione, riferimento, modello, formula, calcolo, controllo.</p></details>
 </main>
 <script>
 (()=>{
@@ -130,7 +130,7 @@ ctx.fillStyle=mu;ctx.textAlign='center';ctx.font=F2;[0,20,40,60,80].forEach(s=>{
 const a=sA(t),b=sB(t);
 if(gk.checked&&t>=T0){arrow2(TX(b),49,TX(a),49,ink);ctx.fillStyle=ink;ctx.font=FB;ctx.textAlign='center';ctx.fillText(fm(a-b,0)+' m',(TX(a)+TX(b))/2,44)}
 dot(TX(a),26,bl,'A',c,false);dot(TX(b),72,po,'B',c,t<T0);
-if(t<T0){ctx.fillStyle=mu;ctx.font=F2;ctx.textAlign='left';ctx.fillText('Bruno non è ancora partito',TX(0)+18,76)}
+if(t<T0){ctx.fillStyle=mu;ctx.font=F2;ctx.textAlign='left';ctx.fillText('Bruno non \u00e8 ancora partito',TX(0)+18,76)}
 const gx0=54,gx1=W-16,gy0=300,gy1=134,X=s=>gx0+s/TM*(gx1-gx0),Y=m=>gy0-m/80*(gy0-gy1);
 ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(gx0,gy1-8);ctx.lineTo(gx0,gy0);ctx.lineTo(gx1,gy0);ctx.stroke();ctx.font=F2;
 ctx.textAlign='right';[0,20,40,60,80].forEach(m=>ctx.fillText(m+'',gx0-6,Y(m)+4));ctx.textAlign='left';ctx.fillText('s (m)',gx0+6,gy1-10);
@@ -144,7 +144,7 @@ if(gk.checked&&t>=TM-.01){arrow2(X(10),Y(40),X(20),Y(40),ink);ctx.fillStyle=ink;
 ctx.font=F;ctx.textAlign='left';ctx.fillStyle=ink;ctx.fillText('t = '+fm(t,1)+' s',10,330);ctx.fillStyle=bl;ctx.fillRect(86,320,10,10);ctx.fillStyle=ink;ctx.fillText('Anna s = '+fm(a,0)+' m',100,330);ctx.fillStyle=po;ctx.fillRect(210,320,10,10);ctx.fillStyle=ink;ctx.fillText('Bruno s = '+fm(b,0)+' m',224,330)}
 function finish(){running=false;go.textContent='Riguarda la corsa';go.disabled=false;
 const oka=ch.a==='20',okb=ch.b==='C',v=$('verdict');v.className='verdict '+(oka&&okb?'ok':'no');
-v.innerHTML='<b>Posizione di Bruno: '+(oka?'previsione corretta.':'non era così.')+'</b> Quando Anna è a 60 m (t = 15 s), Bruno è a 4,0 · (15 − 10) = 20 m. <b>Distanza: '+(okb?'previsione corretta.':'non era così.')+'</b> Resta costante, 40 m.';
+v.innerHTML='<b>Posizione di Bruno: '+(oka?'previsione corretta.':'non era cos\u00ec.')+'</b> Quando Anna \u00e8 a 60 m (t = 15 s), Bruno \u00e8 a 4,0 \u00b7 (15 \u2212 10) = 20 m. <b>Distanza: '+(okb?'previsione corretta.':'non era cos\u00ec.')+'</b> Resta costante, 40 m.';
 if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
 function run(){if(running||!ch.a||!ch.b)return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));tau=0;
 if(reduce.matches){tau=1;draw();finish();return}

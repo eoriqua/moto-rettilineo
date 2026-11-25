@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Caduta libera: la palla lanciata verso l’alto</title>
+<title>Lancio verso l&#8217;alto: la palla e il punto pi&#249; alto</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <style>
 :root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
@@ -51,58 +51,58 @@ details.note summary{cursor:pointer}
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · scheda 7 di 7</p>
-<h1>Una palla lanciata verso l’alto: nel punto più alto la velocità è zero. E l’accelerazione?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; scheda 7</p>
+<h1>Una palla lanciata verso l&#8217;alto: nel punto pi&#249; alto la velocit&#224; &#232; zero. E l&#8217;accelerazione?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Una palla viene lanciata verticalmente verso l’alto a 14,7 m/s. Si trascura l’aria. L’asse verticale è orientato verso l’alto e g = 9,8 m/s².</p>
-<p class="q">Nel punto più alto l’accelerazione della palla è:</p><div class="choices" role="group" aria-label="Nel punto più alto l’accelerazione della palla è:" data-g="a"><button data-v="0" aria-pressed="false">Zero</button><button data-v="g" aria-pressed="false">−9,8 m/s² (verso il basso)</button><button data-v="x" aria-pressed="false">Dipende dall’altezza</button></div>
-<p class="q">Rispetto al tempo di salita, il tempo di discesa fino al punto di lancio è:</p><div class="choices" role="group" aria-label="Rispetto al tempo di salita, il tempo di discesa fino al punto di lancio è:" data-g="b"><button data-v="m" aria-pressed="false">Minore</button><button data-v="=" aria-pressed="false">Uguale</button><button data-v="M" aria-pressed="false">Maggiore</button></div>
+<p>Una palla viene lanciata verticalmente verso l&#8217;alto a 14,7 m/s. Si trascura l&#8217;aria. L&#8217;asse verticale &#232; orientato verso l&#8217;alto e g = 9,8 m/s&#178;.</p>
+<p class="q">Nel punto pi&#249; alto l&#8217;accelerazione della palla &#232;:</p><div class="choices" role="group" aria-label="Nel punto pi&#249; alto l&#8217;accelerazione della palla &#232;:" data-g="a"><button data-v="0" aria-pressed="false">Zero</button><button data-v="g" aria-pressed="false">&#8722;9,8 m/s&#178; (verso il basso)</button><button data-v="x" aria-pressed="false">Dipende dall&#8217;altezza</button></div>
+<p class="q">Rispetto al tempo di salita, il tempo di discesa fino al punto di lancio &#232;:</p><div class="choices" role="group" aria-label="Rispetto al tempo di salita, il tempo di discesa fino al punto di lancio &#232;:" data-g="b"><button data-v="m" aria-pressed="false">Minore</button><button data-v="=" aria-pressed="false">Uguale</button><button data-v="M" aria-pressed="false">Maggiore</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Una palla lanciata verso l’alto: a sinistra la sua altezza con le frecce di velocità e accelerazione, a destra il grafico velocità-tempo, una retta che scende e attraversa lo zero a 1,5 secondi."></canvas>
+<canvas id="scena" role="img" aria-label="Una palla lanciata verso l&#8217;alto: a sinistra la sua altezza con le frecce di velocit&#224; e accelerazione, a destra il grafico velocit&#224;-tempo, una retta che scende e attraversa lo zero a 1,5 secondi."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Lancia la palla</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 <label><input type="checkbox" id="ak" checked> Mostra le frecce di v e a</label>
 </div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La freccia scura è la velocità, quella verde l’accelerazione.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La freccia scura &#232; la velocit&#224;, quella verde l&#8217;accelerazione.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>L’accelerazione è sempre −9,8 m/s²:</b> in salita, nel punto più alto e in discesa. Nel punto più alto cambia solo il segno di v, non il valore di a.</li>
-<li><b>v = 0 non vuol dire a = 0.</b> La velocità è nulla solo per un istante, e subito dopo diventa negativa.</li>
-<li><b>Salita e discesa durano uguale:</b> 1,5 s più 1,5 s. La palla torna al punto di lancio con velocità −14,7 m/s, uguale in modulo a quella iniziale.</li>
-<li><b>Il motivo.</b> È un moto uniformemente accelerato con a = −g:</li>
+<li><b>L&#8217;accelerazione &#232; sempre &#8722;9,8 m/s&#178;:</b> in salita, nel punto pi&#249; alto e in discesa. Nel punto pi&#249; alto cambia solo il segno di v, non il valore di a.</li>
+<li><b>v = 0 non vuol dire a = 0.</b> La velocit&#224; &#232; nulla solo per un istante, e subito dopo diventa negativa.</li>
+<li><b>Salita e discesa durano uguale:</b> 1,5 s pi&#249; 1,5 s. La palla torna al punto di lancio con velocit&#224; &#8722;14,7 m/s, uguale in modulo a quella iniziale.</li>
+<li><b>Il motivo.</b> &#200; un moto uniformemente accelerato con a = &#8722;g:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>L’unica forza (senza aria) è il peso: a = −g = −9,8 m/s², costante per tutto il moto.</li>
-<li>v(t) = v<sub>0</sub> − g · t: una retta di pendenza −g, che passa per v = 0 a t = v<sub>0</sub> / g = 1,5 s.</li>
-<li>y(t) = v<sub>0</sub> · t − ½ · g · t²: l’altezza massima è v<sub>0</sub>² / (2g) = 11 m.</li>
-<li>Ritorno al punto di lancio: y = 0, quindi t = 2 · v<sub>0</sub> / g = 3,0 s, con v = −v<sub>0</sub>.</li>
-<li>Salita e discesa sono simmetriche: stesso tempo, e stessa velocità in modulo nello stesso punto.</li>
+<li>L&#8217;unica forza (senza aria) &#232; il peso: a = &#8722;g = &#8722;9,8 m/s&#178;, costante per tutto il moto.</li>
+<li>v(t) = v<sub>0</sub> &#8722; g &#183; t: una retta di pendenza &#8722;g, che passa per v = 0 a t = v<sub>0</sub> / g = 1,5 s.</li>
+<li>y(t) = v<sub>0</sub> &#183; t &#8722; &#189; &#183; g &#183; t&#178;: l&#8217;altezza massima &#232; v<sub>0</sub>&#178; / (2g) = 11 m.</li>
+<li>Ritorno al punto di lancio: y = 0, quindi t = 2 &#183; v<sub>0</sub> / g = 3,0 s, con v = &#8722;v<sub>0</sub>.</li>
+<li>Salita e discesa sono simmetriche: stesso tempo, e stessa velocit&#224; in modulo nello stesso punto.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un sasso è lanciato verso l’alto con velocità 10 m/s dal bordo di un balcone alto 15 m. Trascura l’aria. Calcola l’altezza massima rispetto al suolo, la velocità con cui arriva a terra e il tempo totale.</div>
+<div class="problem">Un sasso &#232; lanciato verso l&#8217;alto con velocit&#224; 10 m/s dal bordo di un balcone alto 15 m. Trascura l&#8217;aria. Calcola l&#8217;altezza massima rispetto al suolo, la velocit&#224; con cui arriva a terra e il tempo totale.</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
 <details class="step"><summary>1. Che cosa succede?</summary><div>Il sasso sale, si ferma per un istante, poi scende oltre il balcone fino al suolo.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse y verso l’alto, origine sul suolo: y<sub>0</sub> = 15 m, v<sub>0</sub> = +10 m/s, a = −9,8 m/s² per tutto il moto.</div></details>
-<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato con a = −g: valgono v = v<sub>0</sub> + a · t e v² = v<sub>0</sub>² + 2 · a · Δy.</div></details>
-<details class="step"><summary>4. Altezza massima</summary><div>Nel punto più alto v = 0: 0 = (10 m/s)² + 2 · (−9,8 m/s²) · Δy, quindi Δy = 100 / 19,6 ≈ 5,1 m e y<sub>max</sub> = 15 m + 5,1 m = <b>20,1 m</b>.</div></details>
-<details class="step"><summary>5. Velocità all’arrivo a terra</summary><div>Δy = 0 − 15 m = −15 m. v² = (10 m/s)² + 2 · (−9,8 m/s²) · (−15 m) = 100 + 294 = 394 m²/s², quindi v = <b>−19,8 m/s</b> (negativa: verso il basso).</div></details>
-<details class="step"><summary>6. Tempo totale</summary><div>v = v<sub>0</sub> + a · t, quindi t = (−19,8 m/s − 10 m/s) / (−9,8 m/s²) ≈ <b>3,0 s</b>.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>Salita: 10 / 9,8 ≈ 1,0 s. Discesa da 20,1 m: t = √(2 · 20,1 / 9,8) ≈ 2,0 s. Totale ≈ 3,0 s, coerente. La velocità è negativa perché il sasso scende.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse y verso l&#8217;alto, origine sul suolo: y<sub>0</sub> = 15 m, v<sub>0</sub> = +10 m/s, a = &#8722;9,8 m/s&#178; per tutto il moto.</div></details>
+<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato con a = &#8722;g: valgono v = v<sub>0</sub> + a &#183; t e v&#178; = v<sub>0</sub>&#178; + 2 &#183; a &#183; &#916;y.</div></details>
+<details class="step"><summary>4. Altezza massima</summary><div>Nel punto pi&#249; alto v = 0: 0 = (10 m/s)&#178; + 2 &#183; (&#8722;9,8 m/s&#178;) &#183; &#916;y, quindi &#916;y = 100 / 19,6 &#8776; 5,1 m e y<sub>max</sub> = 15 m + 5,1 m = <b>20,1 m</b>.</div></details>
+<details class="step"><summary>5. Velocit&#224; all&#8217;arrivo a terra</summary><div>&#916;y = 0 &#8722; 15 m = &#8722;15 m. v&#178; = (10 m/s)&#178; + 2 &#183; (&#8722;9,8 m/s&#178;) &#183; (&#8722;15 m) = 100 + 294 = 394 m&#178;/s&#178;, quindi v = <b>&#8722;19,8 m/s</b> (negativa: verso il basso).</div></details>
+<details class="step"><summary>6. Tempo totale</summary><div>v = v<sub>0</sub> + a &#183; t, quindi t = (&#8722;19,8 m/s &#8722; 10 m/s) / (&#8722;9,8 m/s&#178;) &#8776; <b>3,0 s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>Salita: 10 / 9,8 &#8776; 1,0 s. Discesa da 20,1 m: t = &#8730;(2 &#183; 20,1 / 9,8) &#8776; 2,0 s. Totale &#8776; 3,0 s, coerente. La velocit&#224; &#232; negativa perch&#233; il sasso scende.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: v<sub>0</sub> = 14,7 m/s (così il tempo di salita è 1,5 s e l’altezza massima 11 m), g = 9,8 m/s², resistenza dell’aria trascurata. Errori tipici: «nel punto più alto a = 0», «la salita dura più della discesa», dimenticare il segno di v e di g, scegliere male l’origine dell’asse. È la scheda su cui si innesta la prossima verifica: il problema usa le tre formule del MRUA e richiede una scelta esplicita del sistema di riferimento.</p></details>
+<p>Dati della scena: v<sub>0</sub> = 14,7 m/s (cos&#236; il tempo di salita &#232; 1,5 s e l&#8217;altezza massima 11 m), g = 9,8 m/s&#178;, resistenza dell&#8217;aria trascurata. Errori tipici: &#171;nel punto pi&#249; alto a = 0&#187;, &#171;la salita dura pi&#249; della discesa&#187;, dimenticare il segno di v e di g, scegliere male l&#8217;origine dell&#8217;asse. &#200; la scheda su cui si innesta la prossima verifica: il problema usa le tre formule del MRUA e richiede una scelta esplicita del sistema di riferimento.</p></details>
 </main>
 <script>
 
 const CFG={H:344,dur:[6,13],keys:['a','b'],again:'Riguarda il lancio',
-verdict:ch=>{const a=ch.a==='g',b=ch.b==='=';return{ok:a&&b,html:'<b>Accelerazione nel punto più alto: '+(a?'previsione corretta.':'non era così.')+'</b> Vale ancora −9,8 m/s²: è nulla solo la velocità. <b>Tempi: '+(b?'previsione corretta.':'non era così.')+'</b> Salita e discesa durano entrambe 1,5 s.'}},
+verdict:ch=>{const a=ch.a==='g',b=ch.b==='=';return{ok:a&&b,html:'<b>Accelerazione nel punto pi\u00f9 alto: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> Vale ancora \u22129,8 m/s\u00b2: \u00e8 nulla solo la velocit\u00e0. <b>Tempi: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> Salita e discesa durano entrambe 1,5 s.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*3,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),ok=c('--ok'),v0=14.7,g=9.8,y=v0*t-.5*g*t*t,v=v0-g*t,x=62,Yt=m=>270-m*20.8,cy=Yt(y)-8;
 ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x,Yt(12.4));ctx.lineTo(x,270);ctx.stroke();ctx.font=U.F2;ctx.textAlign='right';
@@ -110,12 +110,12 @@ ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo
 ctx.fillStyle=c('--road');ctx.fillRect(10,270,110,6);
 ctx.fillStyle=bl;ctx.beginPath();ctx.arc(x,cy,8,0,7);ctx.fill();
 if(U.on('ak')){U.arrow(x+18,cy,-v*3,ink,true);U.arrow(x+34,cy,g*3.5,ok,true);ctx.font=U.F2;ctx.textAlign='left';ctx.fillStyle=ink;ctx.fillText('v',x+22,cy-14);ctx.fillStyle=ok;ctx.fillText('a',x+38,cy-14)}
-ctx.font=U.F;ctx.textAlign='left';ctx.fillStyle=ink;ctx.fillText('y = '+U.fm(y,1)+' m',10,296);ctx.fillText('v = '+U.sg(v,1)+' m/s',10,312);ctx.fillStyle=ok;ctx.fillText('a = −9,8 m/s²',10,328);
+ctx.font=U.F;ctx.textAlign='left';ctx.fillStyle=ink;ctx.fillText('y = '+U.fm(y,1)+' m',10,296);ctx.fillText('v = '+U.sg(v,1)+' m/s',10,312);ctx.fillStyle=ok;ctx.fillText('a = \u22129,8 m/s\u00b2',10,328);
 const gx0=156,gx1=W-12,Y2=u=>12+(16-u)/32*270,X2=s=>gx0+s/3*(gx1-gx0);
 ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(gx0,4);ctx.lineTo(gx0,282);ctx.stroke();ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(gx0,Y2(0));ctx.lineTo(gx1,Y2(0));ctx.stroke();ctx.setLineDash([]);
 ctx.font=U.F2;ctx.textAlign='right';[15,0,-15].forEach(u=>ctx.fillText(u+'',gx0-6,Y2(u)+4));ctx.textAlign='center';[0,1,2,3].forEach(s=>ctx.fillText(s+'',X2(s),298));ctx.fillText('t (s)',(gx0+gx1)/2,316);ctx.textAlign='left';ctx.fillText('v (m/s)',gx0+6,16);
 ctx.strokeStyle=bl;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(X2(0),Y2(v0));ctx.lineTo(X2(t),Y2(v));ctx.stroke();ctx.fillStyle=bl;ctx.beginPath();ctx.arc(X2(t),Y2(v),5,0,7);ctx.fill();
-if(t>=1.5){ctx.fillStyle=ink;ctx.beginPath();ctx.arc(X2(1.5),Y2(0),4,0,7);ctx.fill();ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('v = 0, a ≠ 0',X2(1.5)+8,Y2(0)-8)}}};
+if(t>=1.5){ctx.fillStyle=ink;ctx.beginPath();ctx.arc(X2(1.5),Y2(0),4,0,7);ctx.fill();ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('v = 0, a \u2260 0',X2(1.5)+8,Y2(0)-8)}}};
 
 
 (()=>{
@@ -124,7 +124,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

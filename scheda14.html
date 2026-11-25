@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Legge spazio-velocit&#224;: quando il tempo non serve</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
+<style>
+:root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0F1720;--surface:#17222D;--ink:#E8EEF3;--muted:#9AA9B5;--line:#2B3A47;--road:#1F2D3A;--blue:#6FA0FF;--on-blue:#0F1720;--blue-soft:#1B2B47;--ok:#5BD49B;--ok-soft:#14352A;--warn:#F0A55E;--warn-soft:#3A2814;--pot:#F0A55E;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:1.0625rem/1.55 "Atkinson Hyperlegible",system-ui,-apple-system,"Segoe UI",sans-serif}
+main{max-width:44rem;margin:0 auto;padding:1.25rem 1.1rem 3rem}
+h1{font-size:clamp(1.5rem,5vw,2.15rem);line-height:1.17;margin:.4rem 0 1.6rem;letter-spacing:-.01em}
+h2{font-size:1.2rem;margin:2.2rem 0 .5rem}
+p{margin:.5rem 0;max-width:62ch}
+.meta{color:var(--muted);font-size:.95rem;margin:0}
+button,summary{font:inherit}
+button{border:2px solid var(--ink);background:var(--surface);color:var(--ink);padding:.6rem 1.1rem;border-radius:8px;cursor:pointer;min-height:44px}
+button.primary{background:var(--blue);border-color:var(--blue);color:var(--on-blue);font-weight:700}
+button[aria-pressed="true"]{background:var(--blue-soft);border-color:var(--blue);color:var(--ink);font-weight:700}
+button:disabled{opacity:.45;cursor:not-allowed}
+:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.q{font-weight:700;margin:1.1rem 0 0}
+.choices{display:flex;gap:.6rem;flex-wrap:wrap;margin:.5rem 0}
+.choices button{min-width:7rem}
+.scene{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.6rem}
+canvas{display:block;width:100%}
+.ctrl{display:flex;gap:1rem;align-items:center;flex-wrap:wrap;margin-top:.6rem}
+.ctrl label{display:flex;gap:.4rem;align-items:center;cursor:pointer}
+.ctrl input{width:1.1rem;height:1.1rem}
+.verdict{padding:.8rem 1rem;border-radius:8px;border-left:5px solid}
+.verdict.ok{background:var(--ok-soft);border-color:var(--ok)}
+.verdict.no{background:var(--warn-soft);border-color:var(--warn)}
+.formula{background:var(--blue-soft);border-radius:8px;padding:.9rem 1rem;margin:1rem 0;font-size:1.1rem}
+.deriv ol{margin:.5rem 0 0;padding-left:1.3rem}.deriv li{margin:.4rem 0}.deriv p{margin:0}
+ul.find{padding-left:1.2rem;max-width:62ch}ul.find li{margin:.5rem 0}
+.problem{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:.9rem 1rem;margin:.8rem 0}
+details.step{border-left:4px solid var(--line);margin:.7rem 0;padding:.1rem 0 .1rem .9rem}
+details.step[open]{border-color:var(--blue)}
+details.step summary{cursor:pointer;font-weight:700;padding:.3rem 0}
+details.step div{padding:.2rem 0 .5rem}
+details.note{margin-top:2.4rem;color:var(--muted);font-size:.97rem}
+details.note summary{cursor:pointer}
+[hidden]{display:none!important}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px}
+.curlab{font-weight:700}
+.back{display:inline-block;margin:0 0 .5rem;padding:.4rem 0;color:var(--blue);font-weight:700;text-decoration:none}.back:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<body>
+<main>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; grafici &#183; scheda 7</p>
+<h1>Un&#8217;auto parte da ferma e accelera su 100 m. Dopo un quarto del percorso, che velocit&#224; ha raggiunto?</h1>
+<h2>Prima di guardare, prevedi</h2>
+<p>Un&#8217;auto parte da ferma su una strada rettilinea e accelera con a = 2,0 m/s&#178; per 100 m. Alla fine la sua velocit&#224; &#232; 20 m/s. Qui non guardiamo il tempo: guardiamo come cambia la velocit&#224; in funzione dello spazio percorso (grafico v-s).</p>
+<p class="q">Dopo 25 m (un quarto del percorso) la velocit&#224; &#232;:</p><div class="choices" role="group" aria-label="Dopo 25 m (un quarto del percorso) la velocit&#224; &#232;:" data-g="a"><button data-v="5" aria-pressed="false">5 m/s</button><button data-v="10" aria-pressed="false">10 m/s</button><button data-v="15" aria-pressed="false">15 m/s</button></div>
+<p class="q">Per arrivare a 40 m/s (il doppio) servirebbero:</p><div class="choices" role="group" aria-label="Per arrivare a 40 m/s (il doppio) servirebbero:" data-g="b"><button data-v="200" aria-pressed="false">200 m</button><button data-v="300" aria-pressed="false">300 m</button><button data-v="400" aria-pressed="false">400 m</button></div>
+
+<h2>Ora verifica</h2>
+<div class="scene">
+<canvas id="scena" role="img" aria-label="Grafico velocit&#224;-spazio: la velocit&#224; sale da 0 a 20 metri al secondo in 100 metri, con una curva che sale in fretta all&#8217;inizio e poi sempre pi&#249; lentamente. Sopra, una striscia mostra l&#8217;auto che avanza."></canvas>
+<div class="ctrl">
+<button id="go" class="primary" disabled>Fai partire l&#8217;auto</button>
+<label><input type="checkbox" id="slow"> Rallenta</label>
+</div>
+<div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
+</div>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La riga sopra il grafico confronta v&#178; con 2 &#183; a &#183; s mentre l&#8217;auto avanza.</p>
+<section id="res" hidden aria-live="polite">
+<h2>Cosa hai visto</h2>
+<p id="verdict" class="verdict"></p>
+<ul class="find">
+<li><b>v&#178; e 2 &#183; a &#183; s sono sempre uguali.</b> Partendo da ferma, v&#178; = 2 &#183; a &#183; s. La legge collega velocit&#224; e spazio senza usare il tempo.</li>
+<li><b>La curva v-s non &#232; una retta.</b> La velocit&#224; cresce in fretta all&#8217;inizio e poi sempre pi&#249; lentamente rispetto allo spazio: dopo 25 m &#232; gi&#224; 10 m/s, la met&#224; di quella finale.</li>
+<li><b>Per raddoppiare la velocit&#224; lo spazio quadruplica.</b> Da 20 a 40 m/s servono 400 m, non 200 m: v compare al quadrato.</li>
+<li><b>La si usa quando il testo non d&#224; il tempo</b> (o non serve): si risparmia un passaggio.</li>
+<li><b>Il motivo.</b> Si ricava eliminando il tempo dalle due leggi del MRUA:</li>
+
+</ul>
+<div class="formula deriv"><ol>
+<li>Dalla legge della velocit&#224;, v = v<sub>0</sub> + a &#183; t, si ricava t = (v &#8722; v<sub>0</sub>) / a.</li>
+<li>Si sostituisce nella legge dello spazio: &#916;s = v<sub>0</sub> &#183; t + &#189; &#183; a &#183; t&#178; = v<sub>0</sub> &#183; (v &#8722; v<sub>0</sub>) / a + (v &#8722; v<sub>0</sub>)&#178; / (2 &#183; a).</li>
+<li>Mettendo tutto sopra 2 &#183; a: &#916;s = (v &#8722; v<sub>0</sub>) &#183; (v + v<sub>0</sub>) / (2 &#183; a) = (v&#178; &#8722; v<sub>0</sub>&#178;) / (2 &#183; a).</li>
+<li>Quindi v&#178; = v<sub>0</sub>&#178; + 2 &#183; a &#183; &#916;s.</li>
+<li>Qui v<sub>0</sub> = 0 e a = 2,0: v&#178; = 4,0 &#183; s. A 25 m: v&#178; = 100, v = 10 m/s. A 100 m: v&#178; = 400, v = 20 m/s. Per v = 40 m/s: 1600 = 4,0 &#183; s, quindi s = 400 m.</li>
+</ol></div>
+<h2>Un problema tipico, passo per passo</h2>
+<div class="problem">Un&#8217;auto viaggia a 25 m/s e frena con accelerazione costante a = &#8722;5,0 m/s&#178;. Calcola la sua velocit&#224; dopo aver percorso 40 m in frenata e lo spazio totale necessario per fermarsi.</div>
+<p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
+<details class="step"><summary>1. Che cosa succede?</summary><div>L&#8217;auto frena: la velocit&#224; diminuisce mentre percorre lo spazio. Il tempo non &#232; dato e non serve.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto. v<sub>0</sub> = +25 m/s, a = &#8722;5,0 m/s&#178; (negativa perch&#233; la velocit&#224; diminuisce), &#916;s = 40 m.</div></details>
+<details class="step"><summary>3. Quale modello?</summary><div>Moto uniformemente accelerato. Manca il tempo, quindi: v&#178; = v<sub>0</sub>&#178; + 2 &#183; a &#183; &#916;s.</div></details>
+<details class="step"><summary>4. Velocit&#224; dopo 40 m</summary><div>v&#178; = (25 m/s)&#178; + 2 &#183; (&#8722;5,0 m/s&#178;) &#183; 40 m = 625 m&#178;/s&#178; &#8722; 400 m&#178;/s&#178; = 225 m&#178;/s&#178;.<br>v = <b>15 m/s</b> (si prende la radice positiva: l&#8217;auto va ancora avanti).</div></details>
+<details class="step"><summary>5. Spazio per fermarsi</summary><div>v = 0, quindi 0 = (25 m/s)&#178; + 2 &#183; (&#8722;5,0 m/s&#178;) &#183; &#916;s.<br>&#916;s = (25 m/s)&#178; / (2 &#183; 5,0 m/s&#178;) = 625 m&#178;/s&#178; / 10 m/s&#178; = <b>62,5 m</b>.</div></details>
+<details class="step"><summary>6. Il risultato ha senso?</summary><div>15 m/s &#232; compresa tra 25 m/s e 0 m/s. Inoltre 40 m &#232; minore di 62,5 m, quindi dopo 40 m l&#8217;auto non si &#232; ancora fermata: coerente con v = 15 m/s.</div></details>
+</section>
+<details class="note"><summary>Note per il docente</summary>
+<p>Dati della scena: da ferma, a = 2,0 m/s&#178;, 100 m, v finale 20 m/s (t = 10 s, usato solo per animare). Il grafico &#232; v in funzione di s (non di t): curva a parabola con asse orizzontale, v = 2 &#8730;s. La riga v&#178; = 2&#183;a&#183;s mostra la legge in azione. Errori tipici: usare v &#8733; s (retta), &#171;doppia velocit&#224; = doppio spazio&#187; (&#232; quadruplo), dimenticare il segno di a nella frenata, non scartare la radice negativa. Complementa la scheda 6 (frenata, raddoppio di v).</p></details>
+</main>
+<script>
+
+function mkG(ctx,U,x0,y0,x1,y1,tm,yb,xt,yt,xl,yl){
+const X=t=>x0+t/tm*(x1-x0),Y=v=>y1-v/yb*(y1-y0),mu=U.c('--muted'),ln=U.c('--line');
+ctx.lineWidth=1;ctx.strokeStyle=ln;ctx.beginPath();
+xt.forEach(t=>{ctx.moveTo(X(t),y0);ctx.lineTo(X(t),y1)});yt.forEach(v=>{ctx.moveTo(x0,Y(v));ctx.lineTo(x1,Y(v))});ctx.stroke();
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x0,y0);ctx.lineTo(x0,y1);ctx.lineTo(x1,y1);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='right';yt.forEach(v=>ctx.fillText(v+'',x0-6,Y(v)+4));
+ctx.textAlign='center';xt.forEach(t=>ctx.fillText(t+'',X(t),y1+15));
+if(xl){ctx.textAlign='right';ctx.fillText(xl,x1,y1+30)}ctx.textAlign='left';ctx.fillText(yl,x0+6,y0-6);
+return{X,Y}}
+function path(ctx,f,t,dt,X,Y){ctx.beginPath();ctx.moveTo(X(0),Y(f(0)));for(let k=1;k*dt<t;k++)ctx.lineTo(X(k*dt),Y(f(k*dt)));ctx.lineTo(X(t),Y(f(t)));ctx.stroke()}
+function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyle=U.c('--muted');ctx.lineWidth=1.2;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x,y1);ctx.moveTo(x,y);ctx.lineTo(x0,y);ctx.stroke();ctx.restore()}
+function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
+
+const CFG={H:400,dur:[10,20],keys:['a','b'],again:'Riguarda l\u2019accelerazione',
+verdict:ch=>{const a=ch.a==='10',b=ch.b==='400';return{ok:a&&b,html:'<b>Dopo 25 m: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> L\u2019auto ha gi\u00e0 10 m/s, la met\u00e0 della velocit\u00e0 finale, con un quarto dello spazio. <b>Per arrivare a 40 m/s: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> Servono 400 m: per raddoppiare la velocit\u00e0 lo spazio quadruplica.'}},
+draw:(ctx,W,tau,U)=>{
+const t=tau*10,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),s=t*t,v=2*t;
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('s = '+U.fm(s,0)+' m   \u00b7   v = '+U.fm(v,1)+' m/s',10,18);
+ctx.font=U.F;ctx.fillText('v\u00b2 = '+U.fm(v*v,0)+'   \u00b7   2 \u00b7 a \u00b7 s = 2 \u00b7 2,0 \u00b7 '+U.fm(s,0)+' = '+U.fm(4*s,0),10,38);
+const sx0=34,sx1=W-30,SX=m=>sx0+m/100*(sx1-sx0);
+ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sx0,84);ctx.lineTo(sx1,84);ctx.stroke();
+ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,25,50,75,100].forEach(m=>{ctx.beginPath();ctx.moveTo(SX(m),84);ctx.lineTo(SX(m),89);ctx.stroke();ctx.fillText(m+' m',SX(m),104)});
+ctx.fillStyle=bl;ctx.beginPath();ctx.roundRect(SX(s)-22,58,44,20,5);ctx.fill();ctx.fillStyle=c('--on-blue');ctx.fillRect(SX(s)-16,62,10,7);ctx.fillRect(SX(s)-2,62,10,7);ctx.fillRect(SX(s)+12,62,6,7);
+const g=mkG(ctx,U,50,140,W-16,335,100,24,[0,25,50,75,100],[0,5,10,15,20],'s (m)','v (m/s)'),X=g.X,Y=g.Y;
+ctx.strokeStyle=bl;ctx.lineWidth=3.5;ctx.beginPath();ctx.moveTo(X(0),Y(0));for(let k=1;k*.1<t;k++){const u=k*.1;ctx.lineTo(X(u*u),Y(2*u))}ctx.lineTo(X(s),Y(v));ctx.stroke();
+guide(ctx,U,X(s),Y(v),50,335);pt(ctx,X(s),Y(v),bl,6);
+ctx.fillStyle=ink;ctx.font=U.FB;
+if(t>=5){pt(ctx,X(25),Y(10),ink,4);ctx.textAlign='left';ctx.fillText('25 m: 10 m/s',X(25)+8,Y(10)+16)}
+if(t>=10){pt(ctx,X(100),Y(20),ink,4);ctx.textAlign='right';ctx.fillText('100 m: 20 m/s',X(100)-8,Y(11))}}};
+(()=>{
+const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),res=$('res'),hint=$('hint');
+const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={};
+let tau=0,running=false;
+const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
+U.fm=(n,d)=>n.toFixed(d).replace('.',',');
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
+U.on=id=>$(id)&&$(id).checked;
+U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
+U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};
+U.dot=(x,y,col,l,dim)=>{ctx.globalAlpha=dim?.4:1;ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,10,0,7);ctx.fill();ctx.globalAlpha=1;ctx.fillStyle=U.c('--on-blue');ctx.font=U.FB;ctx.textAlign='center';ctx.fillText(l,x,y+5)};
+function size(){const d=devicePixelRatio||1,W=cv.clientWidth;cv.style.height=CFG.H+'px';cv.width=W*d;cv.height=CFG.H*d;ctx.setTransform(d,0,0,d,0,0);draw()}
+function draw(){const W=cv.clientWidth,cs=getComputedStyle(document.documentElement);U.c=n=>cs.getPropertyValue(n).trim();ctx.clearRect(0,0,W,CFG.H);ctx.font=U.F;ctx.textAlign='left';CFG.draw(ctx,W,tau,U)}
+function finish(){running=false;$('curbox').hidden=false;$('cur').value=1000;go.textContent=CFG.again;go.disabled=false;const r=CFG.verdict(ch),v=$('verdict');v.className='verdict '+(r.ok?'ok':'no');v.innerHTML=r.html;if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
+function run(){if(running||!CFG.keys.every(k=>ch[k]))return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));$('curbox').hidden=true;tau=0;if(reduce.matches){tau=1;draw();finish();return}running=true;go.disabled=true;let last=performance.now();const step=n=>{tau+=(n-last)/1000/(slow.checked?CFG.dur[1]:CFG.dur[0]);last=n;if(tau>=1){tau=1;draw();finish();return}draw();requestAnimationFrame(step)};requestAnimationFrame(step)}
+groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.onclick=()=>{ch[g.dataset.g]=b.dataset.v;g.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));if(CFG.keys.every(k=>ch[k])){go.disabled=false;hint.textContent='Previsioni registrate. Ora guarda cosa succede.'}}));
+$('cur').oninput=()=>{if(running)return;tau=$('cur').value/1000;draw()};go.onclick=run;document.querySelectorAll('.ctrl input').forEach(i=>i.onchange=draw);addEventListener('resize',size);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',draw);if(document.fonts)document.fonts.ready.then(draw);size();
+})();
+
+
+</script>
+</body>
+</html>

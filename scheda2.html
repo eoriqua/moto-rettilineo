@@ -51,58 +51,58 @@ details.note summary{cursor:pointer}
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · scheda 2 di 7</p>
-<h1>Una moto parte, un’auto più veloce la segue 20 s dopo: la raggiunge? Dove e quando?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; scheda 2</p>
+<h1>Una moto parte, un&#8217;auto pi&#249; veloce la segue 20 s dopo: la raggiunge? Dove e quando?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Una moto parte dal punto 0 e viaggia a 15 m/s costanti. L’auto parte dallo stesso punto, nello stesso verso, 20 s dopo, a 25 m/s costanti. L’orologio parte quando parte la moto.</p>
-<p class="q">A che istante t l’auto raggiunge la moto? (t misurato da quando parte la moto)</p><div class="choices" role="group" aria-label="A che istante t l’auto raggiunge la moto? (t misurato da quando parte la moto)" data-g="a"><button data-v="30" aria-pressed="false">30 s</button><button data-v="50" aria-pressed="false">50 s</button><button data-v="70" aria-pressed="false">70 s</button></div>
-<p class="q">A che distanza dal punto di partenza avviene l’incontro?</p><div class="choices" role="group" aria-label="A che distanza dal punto di partenza avviene l’incontro?" data-g="b"><button data-v="450" aria-pressed="false">450 m</button><button data-v="750" aria-pressed="false">750 m</button><button data-v="1250" aria-pressed="false">1250 m</button></div>
+<p>Una moto parte dal punto 0 e viaggia a 15 m/s costanti. L&#8217;auto parte dallo stesso punto, nello stesso verso, 20 s dopo, a 25 m/s costanti. L&#8217;orologio parte quando parte la moto.</p>
+<p class="q">A che istante t l&#8217;auto raggiunge la moto? (t misurato da quando parte la moto)</p><div class="choices" role="group" aria-label="A che istante t l&#8217;auto raggiunge la moto? (t misurato da quando parte la moto)" data-g="a"><button data-v="30" aria-pressed="false">30 s</button><button data-v="50" aria-pressed="false">50 s</button><button data-v="70" aria-pressed="false">70 s</button></div>
+<p class="q">A che distanza dal punto di partenza avviene l&#8217;incontro?</p><div class="choices" role="group" aria-label="A che distanza dal punto di partenza avviene l&#8217;incontro?" data-g="b"><button data-v="450" aria-pressed="false">450 m</button><button data-v="750" aria-pressed="false">750 m</button><button data-v="1250" aria-pressed="false">1250 m</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Una moto e un’auto più veloce che parte 20 secondi dopo. In alto le posizioni sulla pista, in basso il grafico spazio-tempo con due rette che si incrociano nel punto di incontro."></canvas>
+<canvas id="scena" role="img" aria-label="Una moto e un&#8217;auto pi&#249; veloce che parte 20 secondi dopo. In alto le posizioni sulla pista, in basso il grafico spazio-tempo con due rette che si incrociano nel punto di incontro."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Via!</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 <label><input type="checkbox" id="dk" checked> Mostra la distanza</label>
 </div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Il punto in cui le due rette si incrociano è l’incontro.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Il punto in cui le due rette si incrociano &#232; l&#8217;incontro.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>La raggiunge a t = 50 s, a 750 m.</b> Sono 30 s dopo la partenza dell’auto: per l’auto, il tempo di viaggio è 30 s.</li>
-<li><b>Incontrarsi vuol dire stessa posizione allo stesso istante.</b> Nel grafico s-t è il punto in cui le due rette si incrociano.</li>
-<li><b>Il vantaggio della moto è 300 m.</b> Quando l’auto parte, la moto ha già percorso 15 m/s · 20 s = 300 m. L’auto guadagna 10 m/s, quindi impiega 300 m / 10 m/s = 30 s per recuperare.</li>
+<li><b>La raggiunge a t = 50 s, a 750 m.</b> Sono 30 s dopo la partenza dell&#8217;auto: per l&#8217;auto, il tempo di viaggio &#232; 30 s.</li>
+<li><b>Incontrarsi vuol dire stessa posizione allo stesso istante.</b> Nel grafico s-t &#232; il punto in cui le due rette si incrociano.</li>
+<li><b>Il vantaggio della moto &#232; 300 m.</b> Quando l&#8217;auto parte, la moto ha gi&#224; percorso 15 m/s &#183; 20 s = 300 m. L&#8217;auto guadagna 10 m/s, quindi impiega 300 m / 10 m/s = 30 s per recuperare.</li>
 <li><b>Il motivo.</b> Si ottiene uguagliando le due leggi orarie:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>Moto: s<sub>M</sub>(t) = v<sub>M</sub> · t. Auto: s<sub>A</sub>(t) = v<sub>A</sub> · (t − t<sub>0</sub>), per t ≥ t<sub>0</sub>.</li>
-<li>Incontro: stessa posizione allo stesso istante, cioè s<sub>M</sub>(t) = s<sub>A</sub>(t).</li>
-<li>v<sub>M</sub> · t = v<sub>A</sub> · (t − t<sub>0</sub>), da cui t · (v<sub>A</sub> − v<sub>M</sub>) = v<sub>A</sub> · t<sub>0</sub>.</li>
-<li><b>t = v<sub>A</sub> · t<sub>0</sub> / (v<sub>A</sub> − v<sub>M</sub>)</b> = 25 · 20 / (25 − 15) = 50 s, e s = v<sub>M</sub> · t = 750 m.</li>
-<li>Lettura: vantaggio v<sub>M</sub> · t<sub>0</sub> = 300 m, velocità relativa 10 m/s, tempo di rincorsa 30 s.</li>
+<li>Moto: s<sub>M</sub>(t) = v<sub>M</sub> &#183; t. Auto: s<sub>A</sub>(t) = v<sub>A</sub> &#183; (t &#8722; t<sub>0</sub>), per t &#8805; t<sub>0</sub>.</li>
+<li>Incontro: stessa posizione allo stesso istante, cio&#232; s<sub>M</sub>(t) = s<sub>A</sub>(t).</li>
+<li>v<sub>M</sub> &#183; t = v<sub>A</sub> &#183; (t &#8722; t<sub>0</sub>), da cui t &#183; (v<sub>A</sub> &#8722; v<sub>M</sub>) = v<sub>A</sub> &#183; t<sub>0</sub>.</li>
+<li><b>t = v<sub>A</sub> &#183; t<sub>0</sub> / (v<sub>A</sub> &#8722; v<sub>M</sub>)</b> = 25 &#183; 20 / (25 &#8722; 15) = 50 s, e s = v<sub>M</sub> &#183; t = 750 m.</li>
+<li>Lettura: vantaggio v<sub>M</sub> &#183; t<sub>0</sub> = 300 m, velocit&#224; relativa 10 m/s, tempo di rincorsa 30 s.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
 <div class="problem">Un ciclista parte dal punto A verso il punto B, distante 400 m, a 6,0 m/s costanti. 30 s dopo, dallo stesso punto A parte un motorino, nello stesso verso, a 10 m/s costanti. Il motorino raggiunge il ciclista prima che arrivi a B?</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede e qual è l’istante zero?</summary><div>Il ciclista parte per primo: l’orologio parte con lui (t = 0). Il motorino parte all’istante t<sub>0</sub> = 30 s.</div></details>
+<details class="step"><summary>1. Che cosa succede e qual &#232; l&#8217;istante zero?</summary><div>Il ciclista parte per primo: l&#8217;orologio parte con lui (t = 0). Il motorino parte all&#8217;istante t<sub>0</sub> = 30 s.</div></details>
 <details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse da A verso B, origine in A. v<sub>C</sub> = 6,0 m/s, v<sub>M</sub> = 10 m/s, t<sub>0</sub> = 30 s, distanza AB = 400 m.</div></details>
-<details class="step"><summary>3. Scrivi le leggi orarie</summary><div>Ciclista: s<sub>C</sub>(t) = 6,0 m/s · t. Motorino: s<sub>M</sub>(t) = 10 m/s · (t − 30 s), per t ≥ 30 s.</div></details>
-<details class="step"><summary>4. Come trovi l’incontro?</summary><div>Impongo la stessa posizione allo stesso istante: 6,0 m/s · t = 10 m/s · (t − 30 s), cioè 6,0 t = 10 t − 300, quindi 4,0 m/s · t = 300 m e <b>t = 75 s</b>.</div></details>
-<details class="step"><summary>5. Dove avviene?</summary><div>s = 6,0 m/s · 75 s = <b>450 m</b>.</div></details>
-<details class="step"><summary>6. Ha senso, nel contesto del problema?</summary><div>No: A e B distano 400 m, ma l’incontro sarebbe a 450 m, oltre B. Il ciclista arriva a B dopo 400 m / 6,0 m/s ≈ 67 s, quando il motorino ha percorso 10 m/s · (67 s − 30 s) ≈ 370 m. <b>Non lo ha ancora raggiunto</b>: la risposta è no.</div></details>
-<details class="step"><summary>7. Come verifichi i calcoli?</summary><div>A t = 75 s: ciclista 6,0 m/s · 75 s = 450 m, motorino 10 m/s · (75 s − 30 s) = 450 m. Coincidono, ma solo oltre il tratto AB.</div></details>
+<details class="step"><summary>3. Scrivi le leggi orarie</summary><div>Ciclista: s<sub>C</sub>(t) = 6,0 m/s &#183; t. Motorino: s<sub>M</sub>(t) = 10 m/s &#183; (t &#8722; 30 s), per t &#8805; 30 s.</div></details>
+<details class="step"><summary>4. Come trovi l&#8217;incontro?</summary><div>Impongo la stessa posizione allo stesso istante: 6,0 m/s &#183; t = 10 m/s &#183; (t &#8722; 30 s), cio&#232; 6,0 t = 10 t &#8722; 300, quindi 4,0 m/s &#183; t = 300 m e <b>t = 75 s</b>.</div></details>
+<details class="step"><summary>5. Dove avviene?</summary><div>s = 6,0 m/s &#183; 75 s = <b>450 m</b>.</div></details>
+<details class="step"><summary>6. Ha senso, nel contesto del problema?</summary><div>No: A e B distano 400 m, ma l&#8217;incontro sarebbe a 450 m, oltre B. Il ciclista arriva a B dopo 400 m / 6,0 m/s &#8776; 67 s, quando il motorino ha percorso 10 m/s &#183; (67 s &#8722; 30 s) &#8776; 370 m. <b>Non lo ha ancora raggiunto</b>: la risposta &#232; no.</div></details>
+<details class="step"><summary>7. Come verifichi i calcoli?</summary><div>A t = 75 s: ciclista 6,0 m/s &#183; 75 s = 450 m, motorino 10 m/s &#183; (75 s &#8722; 30 s) = 450 m. Coincidono, ma solo oltre il tratto AB.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: moto 15 m/s, auto 25 m/s con ritardo di 20 s, incontro a 50 s e 750 m. Il nodo critico è l’origine dei tempi: l’auto percorre s = v · (t − t<sub>0</sub>), non v · t. Errori tipici: usare t = 30 s come istante dell’incontro (è il tempo dalla partenza dell’auto), usare s = 25 · 50 = 1250 m (ignorare il ritardo). Nel problema il risultato matematico (450 m) non risponde alla domanda posta: serve leggerlo nel contesto.</p></details>
+<p>Dati della scena: moto 15 m/s, auto 25 m/s con ritardo di 20 s, incontro a 50 s e 750 m. Il nodo critico &#232; l&#8217;origine dei tempi: l&#8217;auto percorre s = v &#183; (t &#8722; t<sub>0</sub>), non v &#183; t. Errori tipici: usare t = 30 s come istante dell&#8217;incontro (&#232; il tempo dalla partenza dell&#8217;auto), usare s = 25 &#183; 50 = 1250 m (ignorare il ritardo). Nel problema il risultato matematico (450 m) non risponde alla domanda posta: serve leggerlo nel contesto.</p></details>
 </main>
 <script>
 
-const CFG={H:372,dur:[7,14],keys:['a','b'],again:'Riguarda l’inseguimento',
-verdict:ch=>{const a=ch.a==='50',b=ch.b==='750';return{ok:a&&b,html:'<b>Istante dell’incontro: '+(a?'previsione corretta.':'non era così.')+'</b> t = 50 s, cioè 30 s dopo la partenza dell’auto. <b>Posizione: '+(b?'previsione corretta.':'non era così.')+'</b> 750 m dalla partenza.'}},
+const CFG={H:372,dur:[7,14],keys:['a','b'],again:'Riguarda l\u2019inseguimento',
+verdict:ch=>{const a=ch.a==='50',b=ch.b==='750';return{ok:a&&b,html:'<b>Istante dell\u2019incontro: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> t = 50 s, cio\u00e8 30 s dopo la partenza dell\u2019auto. <b>Posizione: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> 750 m dalla partenza.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*60,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),po=c('--pot'),vM=15,vA=25,T0=20,sM=vM*t,sA=t<T0?0:vA*(t-T0);
 const tx0=28,tx1=W-28,TX=s=>tx0+s/900*(tx1-tx0);
@@ -111,7 +111,7 @@ ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,300,600,900].forEach(s=
 if(t>=50){ctx.setLineDash([4,4]);ctx.beginPath();ctx.moveTo(TX(750),16);ctx.lineTo(TX(750),98);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='center';ctx.fillText('incontro: 750 m',TX(750),12)}
 if(U.on('dk')&&t>=T0&&sM-sA>8){U.arrow2(TX(sA),56,TX(sM),56,ink);ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='center';ctx.fillText(U.fm(sM-sA,0)+' m',(TX(sA)+TX(sM))/2,51)}
 U.dot(TX(sM),30,bl,'M',false);U.dot(TX(sA),82,po,'A',t<T0);
-if(t<T0){ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='left';ctx.fillText('l’auto non è ancora partita',TX(0)+18,86)}
+if(t<T0){ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='left';ctx.fillText('l\u2019auto non \u00e8 ancora partita',TX(0)+18,86)}
 const gx0=54,gx1=W-16,gy0=300,gy1=140,X=s=>gx0+s/60*(gx1-gx0),Y=m=>gy0-m/900*(gy0-gy1);
 ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(gx0,gy1-8);ctx.lineTo(gx0,gy0);ctx.lineTo(gx1,gy0);ctx.stroke();ctx.font=U.F2;
 ctx.textAlign='right';[0,300,600,900].forEach(m=>ctx.fillText(m+'',gx0-6,Y(m)+4));ctx.textAlign='left';ctx.fillText('s (m)',gx0+6,gy1-10);
@@ -130,7 +130,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

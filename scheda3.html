@@ -51,63 +51,63 @@ details.note summary{cursor:pointer}
 </head>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · scheda 3 di 7</p>
-<h1>Un’auto ha accelerazione negativa: sta rallentando?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; scheda 3</p>
+<h1>Un&#8217;auto ha accelerazione negativa: sta rallentando?</h1>
 
 <h2>Prima di guardare, prevedi</h2>
-<p>Su una strada rettilinea l’asse è orientato verso destra. Due auto hanno la stessa accelerazione, a = −2,0 m/s². L’auto A viaggia verso destra a 6,0 m/s, l’auto B verso sinistra a 6,0 m/s.</p>
-<p class="q">Nei primi istanti l’auto A sta:</p>
-<div class="choices" role="group" aria-label="Previsione sull’auto A" data-g="a">
+<p>Su una strada rettilinea l&#8217;asse &#232; orientato verso destra. Due auto hanno la stessa accelerazione, a = &#8722;2,0 m/s&#178;. L&#8217;auto A viaggia verso destra a 6,0 m/s, l&#8217;auto B verso sinistra a 6,0 m/s.</p>
+<p class="q">Nei primi istanti l&#8217;auto A sta:</p>
+<div class="choices" role="group" aria-label="Previsione sull&#8217;auto A" data-g="a">
 <button data-v="R" aria-pressed="false">Rallentando</button><button data-v="A" aria-pressed="false">Accelerando</button>
 </div>
-<p class="q">Nei primi istanti l’auto B sta:</p>
-<div class="choices" role="group" aria-label="Previsione sull’auto B" data-g="b">
+<p class="q">Nei primi istanti l&#8217;auto B sta:</p>
+<div class="choices" role="group" aria-label="Previsione sull&#8217;auto B" data-g="b">
 <button data-v="R" aria-pressed="false">Rallentando</button><button data-v="A" aria-pressed="false">Accelerando</button>
 </div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Due auto con la stessa accelerazione negativa. L’auto A, che va a destra, rallenta, si ferma e torna indietro; l’auto B, che va a sinistra, accelera. Sotto, il grafico velocità-tempo con due rette parallele."></canvas>
+<canvas id="scena" role="img" aria-label="Due auto con la stessa accelerazione negativa. L&#8217;auto A, che va a destra, rallenta, si ferma e torna indietro; l&#8217;auto B, che va a sinistra, accelera. Sotto, il grafico velocit&#224;-tempo con due rette parallele."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Fai partire le auto</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 <label><input type="checkbox" id="ak" checked> Mostra le frecce di v e a</label>
 </div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La freccia scura è la velocità, quella verde l’accelerazione.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. La freccia scura &#232; la velocit&#224;, quella verde l&#8217;accelerazione.</p>
 
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>Stessa accelerazione, comportamenti opposti.</b> L’auto A rallenta, l’auto B accelera, anche se tutte e due hanno a = −2,0 m/s².</li>
-<li><b>Conta il confronto tra i segni di v e di a.</b> Se hanno segno opposto il modulo della velocità diminuisce (A). Se hanno lo stesso segno aumenta (B).</li>
-<li><b>Stessa pendenza nel grafico v-t.</b> Le due rette sono parallele, con pendenza −2,0 m/s². La retta di A scende verso lo zero, quella di B si allontana dallo zero.</li>
-<li><b>A si ferma e poi torna indietro.</b> A t = 3,0 s la velocità di A è zero, ma l’accelerazione vale ancora −2,0 m/s²: l’accelerazione non è la velocità. Subito dopo anche A accelera, verso sinistra.</li>
+<li><b>Stessa accelerazione, comportamenti opposti.</b> L&#8217;auto A rallenta, l&#8217;auto B accelera, anche se tutte e due hanno a = &#8722;2,0 m/s&#178;.</li>
+<li><b>Conta il confronto tra i segni di v e di a.</b> Se hanno segno opposto il modulo della velocit&#224; diminuisce (A). Se hanno lo stesso segno aumenta (B).</li>
+<li><b>Stessa pendenza nel grafico v-t.</b> Le due rette sono parallele, con pendenza &#8722;2,0 m/s&#178;. La retta di A scende verso lo zero, quella di B si allontana dallo zero.</li>
+<li><b>A si ferma e poi torna indietro.</b> A t = 3,0 s la velocit&#224; di A &#232; zero, ma l&#8217;accelerazione vale ancora &#8722;2,0 m/s&#178;: l&#8217;accelerazione non &#232; la velocit&#224;. Subito dopo anche A accelera, verso sinistra.</li>
 <li><b>Il motivo.</b> Segue dalla definizione di accelerazione:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>Accelerazione: a = Δv / Δt, con il segno. Misura come cambia la velocità, non se il corpo va più o meno veloce.</li>
-<li>Con a costante: v(t) = v<sub>0</sub> + a · t, una retta di pendenza a nel grafico v-t.</li>
-<li>Auto A: v<sub>0</sub> = +6,0 m/s e a = −2,0 m/s². Dopo 1,0 s: v = +4,0 m/s. Il modulo della velocità diminuisce.</li>
-<li>Auto B: v<sub>0</sub> = −6,0 m/s e a = −2,0 m/s². Dopo 1,0 s: v = −8,0 m/s. Il modulo della velocità aumenta.</li>
-<li>Quindi «rallentare» e «a &lt; 0» sono cose diverse: il segno di a indica il verso in cui cambia v, non se |v| cala.</li></ol></div>
+<li>Accelerazione: a = &#916;v / &#916;t, con il segno. Misura come cambia la velocit&#224;, non se il corpo va pi&#249; o meno veloce.</li>
+<li>Con a costante: v(t) = v<sub>0</sub> + a &#183; t, una retta di pendenza a nel grafico v-t.</li>
+<li>Auto A: v<sub>0</sub> = +6,0 m/s e a = &#8722;2,0 m/s&#178;. Dopo 1,0 s: v = +4,0 m/s. Il modulo della velocit&#224; diminuisce.</li>
+<li>Auto B: v<sub>0</sub> = &#8722;6,0 m/s e a = &#8722;2,0 m/s&#178;. Dopo 1,0 s: v = &#8722;8,0 m/s. Il modulo della velocit&#224; aumenta.</li>
+<li>Quindi &#171;rallentare&#187; e &#171;a &lt; 0&#187; sono cose diverse: il segno di a indica il verso in cui cambia v, non se |v| cala.</li></ol></div>
 
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Su una strada rettilinea, con asse positivo verso est, un ciclista viaggia verso ovest a 4,0 m/s. In 8,0 s la sua velocità diventa 12 m/s sempre verso ovest. Calcola l’accelerazione media e dì se sta accelerando o rallentando. Poi rifai il calcolo per un secondo ciclista che va verso est: da 10 m/s a 4,0 m/s in 5,0 s.</div>
+<div class="problem">Su una strada rettilinea, con asse positivo verso est, un ciclista viaggia verso ovest a 4,0 m/s. In 8,0 s la sua velocit&#224; diventa 12 m/s sempre verso ovest. Calcola l&#8217;accelerazione media e d&#236; se sta accelerando o rallentando. Poi rifai il calcolo per un secondo ciclista che va verso est: da 10 m/s a 4,0 m/s in 5,0 s.</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede?</summary><div>Il primo ciclista va verso ovest e il suo modulo di velocità aumenta, da 4,0 m/s a 12 m/s.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Est positivo, quindi ovest negativo. v<sub>i</sub> = −4,0 m/s, v<sub>f</sub> = −12 m/s, Δt = 8,0 s.</div></details>
-<details class="step"><summary>3. Quale grandezza serve?</summary><div>L’accelerazione media: a = Δv / Δt = (v<sub>f</sub> − v<sub>i</sub>) / Δt.</div></details>
-<details class="step"><summary>4. Calcola l’accelerazione del primo ciclista</summary><div>a = (−12 m/s − (−4,0 m/s)) / 8,0 s = −8,0 m/s / 8,0 s = <b>−1,0 m/s²</b>.</div></details>
-<details class="step"><summary>5. Sta accelerando o rallentando?</summary><div>Sia v sia a sono negativi: stesso segno, quindi sta <b>accelerando</b>, anche se a è negativa.</div></details>
-<details class="step"><summary>6. E il secondo ciclista?</summary><div>v<sub>i</sub> = +10 m/s, v<sub>f</sub> = +4,0 m/s, Δt = 5,0 s. a = (4,0 m/s − 10 m/s) / 5,0 s = <b>−1,2 m/s²</b>. Qui v è positiva e a negativa: segni opposti, quindi <b>rallenta</b>.</div></details>
+<details class="step"><summary>1. Che cosa succede?</summary><div>Il primo ciclista va verso ovest e il suo modulo di velocit&#224; aumenta, da 4,0 m/s a 12 m/s.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Est positivo, quindi ovest negativo. v<sub>i</sub> = &#8722;4,0 m/s, v<sub>f</sub> = &#8722;12 m/s, &#916;t = 8,0 s.</div></details>
+<details class="step"><summary>3. Quale grandezza serve?</summary><div>L&#8217;accelerazione media: a = &#916;v / &#916;t = (v<sub>f</sub> &#8722; v<sub>i</sub>) / &#916;t.</div></details>
+<details class="step"><summary>4. Calcola l&#8217;accelerazione del primo ciclista</summary><div>a = (&#8722;12 m/s &#8722; (&#8722;4,0 m/s)) / 8,0 s = &#8722;8,0 m/s / 8,0 s = <b>&#8722;1,0 m/s&#178;</b>.</div></details>
+<details class="step"><summary>5. Sta accelerando o rallentando?</summary><div>Sia v sia a sono negativi: stesso segno, quindi sta <b>accelerando</b>, anche se a &#232; negativa.</div></details>
+<details class="step"><summary>6. E il secondo ciclista?</summary><div>v<sub>i</sub> = +10 m/s, v<sub>f</sub> = +4,0 m/s, &#916;t = 5,0 s. a = (4,0 m/s &#8722; 10 m/s) / 5,0 s = <b>&#8722;1,2 m/s&#178;</b>. Qui v &#232; positiva e a negativa: segni opposti, quindi <b>rallenta</b>.</div></details>
 <details class="step"><summary>7. Il risultato ha senso?</summary><div>Le due accelerazioni hanno lo stesso segno ma i comportamenti sono opposti. Nel primo caso |v| passa da 4,0 a 12 m/s (aumenta), nel secondo da 10 a 4,0 m/s (diminuisce): coerente con la regola dei segni.</div></details>
 </section>
 
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: v<sub>0</sub> = ±6,0 m/s, a = −2,0 m/s², t da 0 a 6 s. Le due piste hanno scale diverse (A tra −6 e 12 m, B tra −90 e 12 m) per tenere tutto visibile; ogni pista ha il suo righello. Errori tipici: «a &lt; 0 vuol dire che rallenta», «a = 0 se v = 0», confondere a con v. L’ultimo punto prepara la caduta libera: nel punto più alto del lancio v = 0 ma a = −g.</p></details>
+<p>Dati della scena: v<sub>0</sub> = &#177;6,0 m/s, a = &#8722;2,0 m/s&#178;, t da 0 a 6 s. Le due piste hanno scale diverse (A tra &#8722;6 e 12 m, B tra &#8722;90 e 12 m) per tenere tutto visibile; ogni pista ha il suo righello. Errori tipici: &#171;a &lt; 0 vuol dire che rallenta&#187;, &#171;a = 0 se v = 0&#187;, confondere a con v. L&#8217;ultimo punto prepara la caduta libera: nel punto pi&#249; alto del lancio v = 0 ma a = &#8722;g.</p></details>
 </main>
 <script>
 (()=>{
@@ -116,7 +116,7 @@ const vf=[t=>V0+A*t,t=>-V0+A*t],sf=[t=>V0*t+.5*A*t*t,t=>-V0*t+.5*A*t*t];
 const $=id=>document.getElementById(id),cv=$('scena'),ctx=cv.getContext('2d'),go=$('go'),slow=$('slow'),ak=$('ak'),res=$('res'),hint=$('hint');
 const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(prefers-reduced-motion: reduce)'),ch={a:null,b:null};
 let tau=0,running=false;
-const fm=(n,d)=>n.toFixed(d).replace('.',','),sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+fm(Math.abs(n),d);
+const fm=(n,d)=>n.toFixed(d).replace('.',','),sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+fm(Math.abs(n),d);
 function size(){const d=devicePixelRatio||1;cv.width=cv.clientWidth*d;cv.height=440*d;ctx.setTransform(d,0,0,d,0,0);draw()}
 function arrow(x,y,len,col){if(Math.abs(len)<3)return;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x+len,y);ctx.stroke();const s=len>0?1:-1;ctx.beginPath();ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5);ctx.closePath();ctx.fill()}
 function draw(){
@@ -124,7 +124,7 @@ const W=cv.clientWidth,cs=getComputedStyle(document.documentElement),c=n=>cs.get
 ctx.clearRect(0,0,W,440);
 const L=[{n:'Auto A',y0:0,col:bl,lo:-6,hi:12,tk:[0,5,10]},{n:'Auto B',y0:112,col:po,lo:-90,hi:12,tk:[-80,-60,-40,-20,0]}],tx0=24,tx1=W-24;
 L.forEach((l,i)=>{const v=vf[i](t),s=sf[i](t),X=m=>tx0+(m-l.lo)/(l.hi-l.lo)*(tx1-tx0),x=X(s),y=l.y0,st=Math.abs(v)<.05?'fermo per un istante':v*A<0?'rallenta':'accelera';
-ctx.textAlign='left';ctx.font=FB;ctx.fillStyle=ink;ctx.fillText(l.n+': '+st,10,y+16);ctx.font=F;ctx.fillText('v = '+sg(v,1)+' m/s     a = '+sg(A,1)+' m/s²',10,y+34);
+ctx.textAlign='left';ctx.font=FB;ctx.fillStyle=ink;ctx.fillText(l.n+': '+st,10,y+16);ctx.font=F;ctx.fillText('v = '+sg(v,1)+' m/s     a = '+sg(A,1)+' m/s\u00b2',10,y+34);
 if(ak.checked){arrow(x,y+52,v*4,ink);arrow(x,y+64,A*14,ok);ctx.font=F2;ctx.fillStyle=ink;ctx.textAlign='right';ctx.fillText('v',tx1,y+55);ctx.fillStyle=ok;ctx.fillText('a',tx1,y+67)}
 ctx.fillStyle=l.col;ctx.beginPath();ctx.roundRect(x-18,y+72,36,16,4);ctx.fill();
 ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(tx0,y+93);ctx.lineTo(tx1,y+93);ctx.stroke();ctx.fillStyle=mu;ctx.font=F2;ctx.textAlign='center';l.tk.forEach(m=>{ctx.beginPath();ctx.moveTo(X(m),y+93);ctx.lineTo(X(m),y+98);ctx.stroke();ctx.fillText(m+' m',X(m),y+110)})});
@@ -133,10 +133,10 @@ ctx.strokeStyle=mu;ctx.fillStyle=mu;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(g
 ctx.font=F2;ctx.textAlign='right';[6,0,-6,-12,-18].forEach(v=>ctx.fillText(v+'',gx0-6,Y(v)+4));ctx.textAlign='left';ctx.fillText('v (m/s)',gx0+6,gy0-10);
 ctx.textAlign='center';[0,1,2,3,4,5,6].forEach(s=>ctx.fillText(s+'',X(s),gy1+16));ctx.fillText('t (s)',(gx0+gx1)/2,gy1+32);
 [[0,bl,'A'],[1,po,'B']].forEach(([i,col,n])=>{ctx.strokeStyle=col;ctx.lineWidth=3;ctx.beginPath();ctx.moveTo(X(0),Y(vf[i](0)));ctx.lineTo(X(t),Y(vf[i](t)));ctx.stroke();ctx.fillStyle=col;ctx.beginPath();ctx.arc(X(t),Y(vf[i](t)),5,0,7);ctx.fill();ctx.fillStyle=ink;ctx.font=FB;ctx.textAlign='left';ctx.fillText(n,X(0)+6,Y(vf[i](0))+(i?16:-6))});
-if(t>=3){ctx.fillStyle=ink;ctx.beginPath();ctx.arc(X(3),Y(0),4,0,7);ctx.fill();ctx.font=F2;ctx.textAlign='left';ctx.fillText('v = 0 ma a ≠ 0',X(3)+8,Y(0)-8)}}
+if(t>=3){ctx.fillStyle=ink;ctx.beginPath();ctx.arc(X(3),Y(0),4,0,7);ctx.fill();ctx.font=F2;ctx.textAlign='left';ctx.fillText('v = 0 ma a \u2260 0',X(3)+8,Y(0)-8)}}
 function finish(){running=false;go.textContent='Riguarda il moto';go.disabled=false;
 const oka=ch.a==='R',okb=ch.b==='A',v=$('verdict');v.className='verdict '+(oka&&okb?'ok':'no');
-v.innerHTML='<b>Auto A: '+(oka?'previsione corretta.':'non era così.')+'</b> Rallenta, perché v è positiva e a negativa. <b>Auto B: '+(okb?'previsione corretta.':'non era così.')+'</b> Accelera, perché v e a sono entrambe negative.';
+v.innerHTML='<b>Auto A: '+(oka?'previsione corretta.':'non era cos\u00ec.')+'</b> Rallenta, perch\u00e9 v \u00e8 positiva e a negativa. <b>Auto B: '+(okb?'previsione corretta.':'non era cos\u00ec.')+'</b> Accelera, perch\u00e9 v e a sono entrambe negative.';
 if(res.hidden){res.hidden=false;res.scrollIntoView({behavior:reduce.matches?'auto':'smooth',block:'nearest'})}}
 function run(){if(running||!ch.a||!ch.b)return;groups.forEach(g=>g.querySelectorAll('button').forEach(b=>b.disabled=true));tau=0;
 if(reduce.matches){tau=1;draw();finish();return}

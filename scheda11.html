@@ -54,54 +54,54 @@ input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px
 <body>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · grafici · scheda 4</p>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; grafici &#183; scheda 4</p>
 <h1>Come si scrive la legge oraria di un moto fatto di tre tratti diversi?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Un treno parte da fermo in s = 0 m e accelera con a = 3,0 m/s² per 4 s. Poi viaggia a velocità costante fino a t = 10 s. Infine frena con a = −2,0 m/s² fino a fermarsi a t = 16 s.</p>
-<p class="q">Nel tratto a velocità costante (da 4 s a 10 s) il grafico posizione-tempo è:</p><div class="choices" role="group" aria-label="Nel tratto a velocità costante (da 4 s a 10 s) il grafico posizione-tempo è:" data-g="a"><button data-v="retta" aria-pressed="false">un segmento inclinato</button><button data-v="parab" aria-pressed="false">un arco di parabola</button><button data-v="oriz" aria-pressed="false">un segmento orizzontale</button></div>
-<p class="q">A t = 7 s la posizione del treno è:</p><div class="choices" role="group" aria-label="A t = 7 s la posizione del treno è:" data-g="b"><button data-v="36" aria-pressed="false">36 m</button><button data-v="60" aria-pressed="false">60 m</button><button data-v="84" aria-pressed="false">84 m</button></div>
+<p>Un treno parte da fermo in s = 0 m e accelera con a = 3,0 m/s&#178; per 4 s. Poi viaggia a velocit&#224; costante fino a t = 10 s. Infine frena con a = &#8722;2,0 m/s&#178; fino a fermarsi a t = 16 s.</p>
+<p class="q">Nel tratto a velocit&#224; costante (da 4 s a 10 s) il grafico posizione-tempo &#232;:</p><div class="choices" role="group" aria-label="Nel tratto a velocit&#224; costante (da 4 s a 10 s) il grafico posizione-tempo &#232;:" data-g="a"><button data-v="retta" aria-pressed="false">un segmento inclinato</button><button data-v="parab" aria-pressed="false">un arco di parabola</button><button data-v="oriz" aria-pressed="false">un segmento orizzontale</button></div>
+<p class="q">A t = 7 s la posizione del treno &#232;:</p><div class="choices" role="group" aria-label="A t = 7 s la posizione del treno &#232;:" data-g="b"><button data-v="36" aria-pressed="false">36 m</button><button data-v="60" aria-pressed="false">60 m</button><button data-v="84" aria-pressed="false">84 m</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Due grafici con lo stesso asse dei tempi. In alto la velocità: sale a 12 metri al secondo in 4 secondi, resta costante fino a 10 secondi e scende a 0 a 16 secondi. In basso la posizione: un arco di parabola, poi un segmento inclinato, poi un arco di parabola che si appiattisce fino a 132 metri."></canvas>
+<canvas id="scena" role="img" aria-label="Due grafici con lo stesso asse dei tempi. In alto la velocit&#224;: sale a 12 metri al secondo in 4 secondi, resta costante fino a 10 secondi e scende a 0 a 16 secondi. In basso la posizione: un arco di parabola, poi un segmento inclinato, poi un arco di parabola che si appiattisce fino a 132 metri."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Fai partire il treno</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 </div>
 <div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Sopra la velocità, sotto la posizione. Una riga dice quale legge oraria vale in quel momento.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Sopra la velocit&#224;, sotto la posizione. Una riga dice quale legge oraria vale in quel momento.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
 <li><b>Ogni tratto ha la sua legge oraria</b>, valida solo nel suo intervallo di tempo: parabola, retta, parabola.</li>
-<li><b>Ogni tratto riparte da dove è arrivato il precedente.</b> Posizione e velocità iniziali di un tratto sono i valori finali del tratto prima (24 m e 12 m/s a 4 s).</li>
-<li><b>Si usa il tempo trascorso dall’inizio del tratto</b>, cioè (t − t<sub>i</sub>). È lo stesso «ritardo» della scheda sulla legge oraria.</li>
-<li><b>Il grafico s-t non ha salti né spigoli.</b> La posizione è continua; anche la pendenza (la velocità) lo è, perché la velocità non salta.</li>
+<li><b>Ogni tratto riparte da dove &#232; arrivato il precedente.</b> Posizione e velocit&#224; iniziali di un tratto sono i valori finali del tratto prima (24 m e 12 m/s a 4 s).</li>
+<li><b>Si usa il tempo trascorso dall&#8217;inizio del tratto</b>, cio&#232; (t &#8722; t<sub>i</sub>). &#200; lo stesso &#171;ritardo&#187; della scheda sulla legge oraria.</li>
+<li><b>Il grafico s-t non ha salti n&#233; spigoli.</b> La posizione &#232; continua; anche la pendenza (la velocit&#224;) lo &#232;, perch&#233; la velocit&#224; non salta.</li>
 <li><b>Il motivo.</b> Si costruisce un tratto alla volta, usando come punto di partenza la fine del tratto prima:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>Tratto 1 (0 ≤ t ≤ 4): parte da fermo, quindi s = ½ · 3,0 · t² = 1,5 · t² e v = 3,0 · t. A t = 4: s = 24 m, v = 12 m/s.</li>
-<li>Tratto 2 (4 ≤ t ≤ 10): moto uniforme da s<sub>i</sub> = 24 con v = 12: s = 24 + 12 · (t − 4). A t = 10: s = 24 + 12 · 6 = 96 m.</li>
-<li>Tratto 3 (10 ≤ t ≤ 16): parte da s<sub>i</sub> = 96 con v<sub>i</sub> = 12 e a = −2,0: s = 96 + 12 · (t − 10) + ½ · (−2,0) · (t − 10)² = 96 + 12 · (t − 10) − (t − 10)².</li>
-<li>Raccordi: la formula del tratto 2 in t = 4 dà 24 (come il tratto 1: 1,5 · 16 = 24); in t = 10 la formula del tratto 3 dà 96 (come il tratto 2).</li>
-<li>Controllo finale: s(16) = 96 + 12 · 6 − 36 = 132 m, uguale all’area sotto il grafico v-t: 24 + 72 + 36 = 132 m.</li>
+<li>Tratto 1 (0 &#8804; t &#8804; 4): parte da fermo, quindi s = &#189; &#183; 3,0 &#183; t&#178; = 1,5 &#183; t&#178; e v = 3,0 &#183; t. A t = 4: s = 24 m, v = 12 m/s.</li>
+<li>Tratto 2 (4 &#8804; t &#8804; 10): moto uniforme da s<sub>i</sub> = 24 con v = 12: s = 24 + 12 &#183; (t &#8722; 4). A t = 10: s = 24 + 12 &#183; 6 = 96 m.</li>
+<li>Tratto 3 (10 &#8804; t &#8804; 16): parte da s<sub>i</sub> = 96 con v<sub>i</sub> = 12 e a = &#8722;2,0: s = 96 + 12 &#183; (t &#8722; 10) + &#189; &#183; (&#8722;2,0) &#183; (t &#8722; 10)&#178; = 96 + 12 &#183; (t &#8722; 10) &#8722; (t &#8722; 10)&#178;.</li>
+<li>Raccordi: la formula del tratto 2 in t = 4 d&#224; 24 (come il tratto 1: 1,5 &#183; 16 = 24); in t = 10 la formula del tratto 3 d&#224; 96 (come il tratto 2).</li>
+<li>Controllo finale: s(16) = 96 + 12 &#183; 6 &#8722; 36 = 132 m, uguale all&#8217;area sotto il grafico v-t: 24 + 72 + 36 = 132 m.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un’auto parte da ferma in s = 0 m e accelera con a = 2,0 m/s² per 5,0 s. Poi mantiene la velocità raggiunta. Scrivi la legge oraria nei due tratti e calcola la posizione a t = 3,0 s e a t = 12 s.</div>
+<div class="problem">Un&#8217;auto parte da ferma in s = 0 m e accelera con a = 2,0 m/s&#178; per 5,0 s. Poi mantiene la velocit&#224; raggiunta. Scrivi la legge oraria nei due tratti e calcola la posizione a t = 3,0 s e a t = 12 s.</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede?</summary><div>Due fasi: moto uniformemente accelerato per 5,0 s, poi moto uniforme. Nell’istante t = 5,0 s si passa da una legge all’altra.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine nel punto di partenza, asse nel verso del moto, t = 0 s alla partenza. v<sub>0</sub> = 0 m/s, a = 2,0 m/s² per 5,0 s.</div></details>
-<details class="step"><summary>3. Tratto 1 (0 ≤ t ≤ 5,0 s)</summary><div>s = ½ · a · t² = 1,0 m/s² · t².<br>Alla fine: v = 2,0 m/s² · 5,0 s = <b>10 m/s</b> e s = 1,0 m/s² · (5,0 s)² = <b>25 m</b>.</div></details>
-<details class="step"><summary>4. Tratto 2 (t ≥ 5,0 s)</summary><div>Moto uniforme che parte dal punto di raccordo: s = 25 m + 10 m/s · (t − 5,0 s).</div></details>
-<details class="step"><summary>5. Posizione a t = 3,0 s</summary><div>3,0 s appartiene al tratto 1: s = 1,0 m/s² · (3,0 s)² = <b>9,0 m</b>.</div></details>
-<details class="step"><summary>6. Posizione a t = 12 s</summary><div>12 s appartiene al tratto 2: s = 25 m + 10 m/s · (12 s − 5,0 s) = 25 m + 70 m = <b>95 m</b>.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>Un errore tipico è s = 10 m/s · 12 s = 120 m, come se l’auto avesse sempre viaggiato a 10 m/s. Ma nei primi 5,0 s è stata più lenta, quindi 95 m &lt; 120 m. Inoltre 95 m &gt; 25 m, la posizione a 5,0 s.</div></details>
+<details class="step"><summary>1. Che cosa succede?</summary><div>Due fasi: moto uniformemente accelerato per 5,0 s, poi moto uniforme. Nell&#8217;istante t = 5,0 s si passa da una legge all&#8217;altra.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine nel punto di partenza, asse nel verso del moto, t = 0 s alla partenza. v<sub>0</sub> = 0 m/s, a = 2,0 m/s&#178; per 5,0 s.</div></details>
+<details class="step"><summary>3. Tratto 1 (0 &#8804; t &#8804; 5,0 s)</summary><div>s = &#189; &#183; a &#183; t&#178; = 1,0 m/s&#178; &#183; t&#178;.<br>Alla fine: v = 2,0 m/s&#178; &#183; 5,0 s = <b>10 m/s</b> e s = 1,0 m/s&#178; &#183; (5,0 s)&#178; = <b>25 m</b>.</div></details>
+<details class="step"><summary>4. Tratto 2 (t &#8805; 5,0 s)</summary><div>Moto uniforme che parte dal punto di raccordo: s = 25 m + 10 m/s &#183; (t &#8722; 5,0 s).</div></details>
+<details class="step"><summary>5. Posizione a t = 3,0 s</summary><div>3,0 s appartiene al tratto 1: s = 1,0 m/s&#178; &#183; (3,0 s)&#178; = <b>9,0 m</b>.</div></details>
+<details class="step"><summary>6. Posizione a t = 12 s</summary><div>12 s appartiene al tratto 2: s = 25 m + 10 m/s &#183; (12 s &#8722; 5,0 s) = 25 m + 70 m = <b>95 m</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>Un errore tipico &#232; s = 10 m/s &#183; 12 s = 120 m, come se l&#8217;auto avesse sempre viaggiato a 10 m/s. Ma nei primi 5,0 s &#232; stata pi&#249; lenta, quindi 95 m &lt; 120 m. Inoltre 95 m &gt; 25 m, la posizione a 5,0 s.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: tratto 1 a = 3,0 m/s² (s = 1,5 t²), tratto 2 v = 12 m/s (s = 24 + 12 (t − 4)), tratto 3 a = −2,0 m/s² (s = 96 + 12 (t − 10) − (t − 10)²); spazio totale 132 m. Distrattori della previsione: 84 m = 12 · 7 (usa la velocità finale su tutto il tempo), 36 m = 12 · 3 (dimentica i 24 m già percorsi). Sono i due errori sul ritardo e sulla legge oraria. Il cursore mostra quale legge vale in ogni istante.</p></details>
+<p>Dati della scena: tratto 1 a = 3,0 m/s&#178; (s = 1,5 t&#178;), tratto 2 v = 12 m/s (s = 24 + 12 (t &#8722; 4)), tratto 3 a = &#8722;2,0 m/s&#178; (s = 96 + 12 (t &#8722; 10) &#8722; (t &#8722; 10)&#178;); spazio totale 132 m. Distrattori della previsione: 84 m = 12 &#183; 7 (usa la velocit&#224; finale su tutto il tempo), 36 m = 12 &#183; 3 (dimentica i 24 m gi&#224; percorsi). Sono i due errori sul ritardo e sulla legge oraria. Il cursore mostra quale legge vale in ogni istante.</p></details>
 </main>
 <script>
 
@@ -119,12 +119,12 @@ function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyl
 function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
 
 const CFG={H:450,dur:[12,24],keys:['a','b'],again:'Riguarda il treno',
-verdict:ch=>{const a=ch.a==='retta',b=ch.b==='60';return{ok:a&&b,html:'<b>Tratto a velocità costante: '+(a?'previsione corretta.':'non era così.')+'</b> Con v costante il grafico s-t è un segmento inclinato. <b>Posizione a 7 s: '+(b?'previsione corretta.':'non era così.')+'</b> s = 24 + 12 · (7 − 4) = 60 m: si parte dai 24 m già percorsi.'}},
+verdict:ch=>{const a=ch.a==='retta',b=ch.b==='60';return{ok:a&&b,html:'<b>Tratto a velocit\u00e0 costante: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> Con v costante il grafico s-t \u00e8 un segmento inclinato. <b>Posizione a 7 s: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> s = 24 + 12 \u00b7 (7 \u2212 4) = 60 m: si parte dai 24 m gi\u00e0 percorsi.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*16,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),or=c('--pot');
 const v=u=>u<4?3*u:u<10?12:12-2*(u-10),s=u=>u<4?1.5*u*u:u<10?24+12*(u-4):96+12*(u-10)-(u-10)*(u-10);
-const law=t<4?['Tratto 1','s = 1,5 · t²']:t<10?['Tratto 2','s = 24 + 12 · (t − 4)']:['Tratto 3','s = 96 + 12 · (t − 10) − (t − 10)²'];
-ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   ·   v = '+U.fm(v(t),1)+' m/s   ·   s = '+U.fm(s(t),0)+' m',10,18);
+const law=t<4?['Tratto 1','s = 1,5 \u00b7 t\u00b2']:t<10?['Tratto 2','s = 24 + 12 \u00b7 (t \u2212 4)']:['Tratto 3','s = 96 + 12 \u00b7 (t \u2212 10) \u2212 (t \u2212 10)\u00b2'];
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   \u00b7   v = '+U.fm(v(t),1)+' m/s   \u00b7   s = '+U.fm(s(t),0)+' m',10,18);
 ctx.font=U.F;ctx.fillText(law[0]+':   '+law[1],10,38);
 const x0=54,x1=W-16,g1=mkG(ctx,U,x0,78,x1,190,16,14,[0,4,10,16],[0,4,8,12],'','v (m/s)'),g2=mkG(ctx,U,x0,250,x1,400,16,140,[0,4,10,16],[0,40,80,120],'t (s)','s (m)');
 ctx.save();ctx.globalAlpha=.22;ctx.fillStyle=bl;ctx.beginPath();ctx.moveTo(g1.X(0),g1.Y(0));for(let k=1;k*.1<t;k++)ctx.lineTo(g1.X(k*.1),g1.Y(v(k*.1)));ctx.lineTo(g1.X(t),g1.Y(v(t)));ctx.lineTo(g1.X(t),g1.Y(0));ctx.closePath();ctx.fill();ctx.restore();
@@ -139,7 +139,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

@@ -41,7 +41,7 @@ details ol{margin:.5rem 0 0;padding-left:1.3rem}details a{color:var(--blue)}
 </head>
 <body>
 <main>
-<p class="meta">Fisica · liceo scientifico, classe seconda</p>
+<p class="meta">Fisica &#183; liceo scientifico, classe seconda</p>
 <h1>Moto rettilineo: la mappa dei concetti</h1>
 <p class="lead">Segui le parole sulle frecce per vedere come si collegano le idee. I riquadri blu numerati sono le schede da aprire.</p>
 <p class="meta" id="count"></p>
@@ -50,42 +50,47 @@ details ol{margin:.5rem 0 0;padding-left:1.3rem}details a{color:var(--blue)}
 <li><a href="scheda1.html" rel="noopener">Legge oraria e ritardo</a></li>
 <li><a href="scheda2.html" rel="noopener">Incontro e inseguimento</a></li>
 <li><a href="scheda3.html" rel="noopener">Accelerazione e segno</a></li>
-<li><a href="scheda4.html" rel="noopener">Velocità nel tempo</a></li>
+<li><a href="scheda4.html" rel="noopener">Velocit&#224; nel tempo</a></li>
 <li><a href="scheda5.html" rel="noopener">Spazio percorso</a></li>
 <li><a href="scheda6.html" rel="noopener">Tempo e spazio di frenata</a></li>
-<li><a href="scheda7.html" rel="noopener">Caduta libera</a></li><li><a href="scheda8.html" rel="noopener">Leggere un grafico s-t a tratti</a></li><li><a href="scheda9.html" rel="noopener">Incontro e sorpasso</a></li><li><a href="scheda10.html" rel="noopener">Pendenza e area nel grafico v-t</a></li><li><a href="scheda11.html" rel="noopener">Legge oraria a tratti</a></li><li><a href="scheda12.html" rel="noopener">La parabola s-t</a></li><li><a href="scheda13.html" rel="noopener">Incontro con un MRUA</a></li></ol></details>
+<li><a href="scheda7.html" rel="noopener">Lancio verso l&#8217;alto</a></li><li><a href="scheda15.html" rel="noopener">Caduta libera</a></li><li><a href="scheda8.html" rel="noopener">Leggere un grafico s-t a tratti</a></li><li><a href="scheda9.html" rel="noopener">Incontro e sorpasso</a></li><li><a href="scheda10.html" rel="noopener">Pendenza e area nel grafico v-t</a></li><li><a href="scheda11.html" rel="noopener">Legge oraria a tratti</a></li><li><a href="scheda12.html" rel="noopener">La parabola s-t</a></li><li><a href="scheda13.html" rel="noopener">Incontro con un MRUA</a></li><li><a href="scheda14.html" rel="noopener">Spazio e velocit&#224;, senza il tempo</a></li></ol></details>
 </main>
 <script>
 (()=>{
 const NS='http://www.w3.org/2000/svg',KEY='mappa-moto-aperte',$=id=>document.getElementById(id),wrap=$('wrap'),cnt=$('count');
-const LINK={1:'scheda1.html',2:'scheda2.html',3:'scheda3.html',4:'scheda4.html',5:'scheda5.html',6:'scheda6.html',7:'scheda7.html',8:'scheda8.html',9:'scheda9.html',10:'scheda10.html',11:'scheda11.html',12:'scheda12.html',13:'scheda13.html'};
+const LINK={1:'scheda1.html',2:'scheda2.html',3:'scheda3.html',4:'scheda4.html',5:'scheda5.html',6:'scheda6.html',7:'scheda7.html',8:'scheda8.html',9:'scheda9.html',10:'scheda10.html',11:'scheda11.html',12:'scheda12.html',13:'scheda13.html',14:'scheda14.html',15:'scheda15.html'};
 const W=460;
-const open={mru:false,st:false,vt:false,sa:false};
+const open={mru:false,st:false,sub:null};const isOpen=k=>k==='vt'||k==='sa'?open.sub===k:open[k];
 function layout(){
 const N=[{k:'root',x:140,y:8,w:160,h:40,t:['Moto rettilineo']},
-{k:'ctx',tog:'mru',x:24,y:100,w:180,h:40,t:['MRU']},{k:'ctx',x:246,y:100,w:180,h:40,t:['MRUA']},
-{k:'l',n:3,x:246,y:196,w:180,h:62,t:['Accelerazione','e segno']}];
-const E=[[[[170,48],[120,100]],'v costante',[145,74]],[[[270,48],[330,100]],'a costante',[300,74]],
-[[[336,140],[336,196]],'si definisce con',[336,168]],[[[246,215],[204,128]],'a = 0',[225,171]]];
+{k:'ctx',tog:'mru',x:24,y:100,w:180,h:40,t:['MRU']},{k:'ctx',x:246,y:100,w:180,h:40,t:['MRUA']}];
+const E=[[[[170,48],[120,100]],'v costante',[145,74]],[[[270,48],[330,100]],'a costante',[300,74]]];
 let lb=140;
 if(open.mru){N.push({k:'l',n:1,x:24,y:196,w:180,h:62,t:['Legge oraria','e ritardo'],tag:'inizia da qui'},{k:'l',n:2,x:24,y:300,w:180,h:62,t:['Incontro e','inseguimento']},{k:'ctx',tog:'st',x:24,y:410,w:180,h:40,t:['s-t']});
 E.push([[[114,140],[114,196]],'si descrive con',[114,168]],[[[24,120],[12,120],[12,331],[24,331]],null],[[[114,410],[114,362]],'incrocio',[114,386]]);lb=450;
 if(open.st){N.push({k:'l',n:8,x:24,y:480,w:180,h:62,t:['Leggere s-t','a tratti']},{k:'l',n:9,x:24,y:570,w:180,h:62,t:['Incontro','e sorpasso']});
 E.push([[[24,430],[12,430],[12,601]],null,null,0],[[[12,511],[24,511]],null],[[[12,601],[24,601]],null]);lb=632}}
-/* colonna MRUA */
-const grp=(key,tog,label,y,kids)=>{N.push({k:'ctx',tog:key,x:246,y,w:180,h:40,t:[label]});let b=y+40;
-if(open[key]){kids.forEach((kd,i)=>N.push(Object.assign({k:'l',x:246,y:y+70+i*90,w:180,h:62},kd)));
-const last=y+70+(kids.length-1)*90+31;E.push([[[426,y+20],[438,y+20],[438,last]],null,null,0]);
-kids.forEach((kd,i)=>{const c=y+70+i*90+31;E.push([[[438,c],[426,c]],null])});b=y+70+(kids.length-1)*90+62}
-return b};
-let vy=300;E.push([[[336,258],[336,vy]],'da cui',[336,279]]);
-let b=grp('vt',0,'v-t',vy,[{n:4,t:['Velocità','nel tempo']},{n:10,t:['v-t','a tratti']}]);
-let sy=b+60;E.push([[[336,b],[336,sy]],'ricavare s',[336,(b+sy)/2]]);
-b=grp('sa',0,'s-t',sy,[{n:5,t:['Spazio','percorso']},{n:12,t:['La parabola','s-t']},{n:11,t:['Legge oraria','a tratti']},{n:13,t:['Incontro','con un MRUA']}]);
-const y6=b+60,y7=y6+90;
-N.push({k:'l',n:6,x:246,y:y6,w:180,h:62,t:['Tempo e spazio','di frenata'],tag:'applicazione'},{k:'l',n:7,x:246,y:y7,w:180,h:62,t:['Caduta','libera'],tag:'applicazione'});
-E.push([[[426,120],[450,120],[450,y6+31]],null,null,0,1],[[[450,y6+31],[426,y6+31]],null,null,undefined,1],[[[450,y6+31],[450,y7+31],[426,y7+31]],null,null,undefined,1]);
-return{N,E,H:Math.max(lb,y7+62)+30}}
+/* sottoalbero MRUA: Accelerazione e Applicazioni allo stesso livello */
+const y0=open.mru?lb+70:196,ty=y0-28;
+E.push([[[336,140],[336,ty]],null,null,0],[[[336,ty],[114,ty],[114,y0]],null],[[[336,ty],[336,y0+11]],null]);
+if(!open.mru)E.push([[[24,y0+31],[6,y0+31],[6,120],[24,120]],null]);
+N.push({k:'l',n:3,x:24,y:y0,w:180,h:62,t:['Accelerazione','e segno']});
+/* rami di accelerazione: v-t -> s-t */
+const y1=y0+110,cy=y1+20;
+N.push({k:'ctx',tog:'vt',sm:1,x:24,y:y1,w:66,h:40,t:['v-t']},{k:'ctx',tog:'sa',sm:1,x:138,y:y1,w:66,h:40,t:['s-t']});
+E.push([[[114,y0+62],[114,y0+86],[57,y0+86],[57,y1]],null],[[[114,y0+86],[171,y0+86],[171,y1]],null],[[[90,cy],[138,cy]],'area',[114,cy]]);
+let lb2=y1+40;
+const kids={vt:[{n:4,t:['Velocit\u00e0','nel tempo']},{n:10,t:['v-t','a tratti']}],sa:[{n:5,t:['Spazio','percorso']},{n:12,t:['La parabola','s-t']},{n:11,t:['Legge oraria','a tratti']},{n:13,t:['Incontro','con un MRUA']},{n:14,t:['Spazio-velocit\u00e0','senza il tempo']}]};
+if(open.sub){const ks=kids[open.sub],top=y1+70;
+ks.forEach((kd,i)=>N.push(Object.assign({k:'l',x:24,y:top+i*90,w:180,h:62},kd)));
+const last=top+(ks.length-1)*90+31;
+if(open.sub==='vt'){E.push([[[24,cy],[12,cy],[12,last]],null,null,0]);ks.forEach((kd,i)=>{const c=top+i*90+31;E.push([[[12,c],[24,c]],null])})}
+else{E.push([[[204,cy],[225,cy],[225,last]],null,null,0]);ks.forEach((kd,i)=>{const c=top+i*90+31;E.push([[[225,c],[204,c]],null])})}
+lb2=top+(ks.length-1)*90+62}
+/* applicazioni */
+N.push({k:'ctx',x:246,y:y0+11,w:180,h:40,t:['Applicazioni']},{k:'l',n:6,x:246,y:y0+70,w:180,h:62,t:['Tempo e spazio','di frenata']},{k:'l',n:15,x:246,y:y0+160,w:180,h:62,t:['Caduta','libera']},{k:'l',n:7,x:246,y:y0+250,w:180,h:62,t:['Lancio','verso l\u2019alto']});
+E.push([[[426,y0+31],[438,y0+31],[438,y0+281]],null,null,0],[[[438,y0+101],[426,y0+101]],null],[[[438,y0+191],[426,y0+191]],null],[[[438,y0+281],[426,y0+281]],null]);
+return{N,E,H:Math.max(lb,lb2,y0+312)+30}}
 let seen={};try{seen=JSON.parse(localStorage.getItem(KEY)||'{}')||{}}catch(e){seen={}}
 const el=(n,a,t)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(t!=null)e.textContent=t;return e};
 function build(){
@@ -93,9 +98,9 @@ const L=layout(),N=L.N,E=L.E,H=L.H;
 const svg=el('svg',{viewBox:'0 0 '+W+' '+H,role:'group','aria-label':'Mappa concettuale del moto rettilineo'});
 const d=el('defs',{}),mk=el('marker',{id:'ah',viewBox:'0 0 10 10',refX:9,refY:5,markerWidth:8,markerHeight:8,orient:'auto'});mk.appendChild(el('path',{d:'M0 0L10 5L0 10z',style:'fill:var(--muted)'}));d.appendChild(mk);svg.appendChild(d);
 E.forEach(([p,t,lp,ar,ds])=>{const o={d:'M'+p.map(q=>q.join(' ')).join('L'),class:'edge'};if(ds)o['stroke-dasharray']='6 4';if(ar!==0)o['marker-end']='url(#ah)';svg.appendChild(el('path',o));if(t)svg.appendChild(el('text',{x:lp[0],y:lp[1],class:'el','text-anchor':'middle','dominant-baseline':'central'},t))});
-N.filter(n=>n.k!=='l').forEach(n=>{const g=el('g',n.tog?{class:'tg',role:'button',tabindex:'0','aria-expanded':String(open[n.tog]),'aria-label':n.t[0]+': '+(open[n.tog]?'nascondi':'mostra')+' le schede'}:{});g.appendChild(el('rect',{x:n.x,y:n.y,width:n.w,height:n.h,rx:n.k==='root'?20:14,class:n.k}));g.appendChild(el('text',{x:n.x+n.w/2-(n.tog?10:0),y:n.y+n.h/2,class:n.k==='root'?'rt':'c','text-anchor':'middle','dominant-baseline':'central'},n.t[0]));
-if(n.tog){g.appendChild(el('circle',{cx:n.x+n.w-24,cy:n.y+n.h/2,r:11,style:'fill:var(--surface);stroke:var(--muted);stroke-width:1.5'}));g.appendChild(el('text',{x:n.x+n.w-24,y:n.y+n.h/2,'text-anchor':'middle','dominant-baseline':'central',style:'fill:var(--ink);font-weight:700;font-size:16px'},open[n.tog]?'−':'+'));
-const f=()=>{open[n.tog]=!open[n.tog];build()};g.addEventListener('click',f);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}})}
+N.filter(n=>n.k!=='l').forEach(n=>{const g=el('g',n.tog?{class:'tg',role:'button',tabindex:'0','aria-expanded':String(isOpen(n.tog)),'aria-label':n.t[0]+': '+(isOpen(n.tog)?'nascondi':'mostra')+' le schede'}:{});g.appendChild(el('rect',{x:n.x,y:n.y,width:n.w,height:n.h,rx:n.k==='root'?20:14,class:n.k}));g.appendChild(el('text',{x:n.x+n.w/2-(n.tog?(n.sm?9:10):0),y:n.y+n.h/2,class:n.k==='root'?'rt':'c','text-anchor':'middle','dominant-baseline':'central'},n.t[0]));
+if(n.tog){g.appendChild(el('circle',{cx:n.x+n.w-(n.sm?15:24),cy:n.y+n.h/2,r:n.sm?9:11,style:'fill:var(--surface);stroke:var(--muted);stroke-width:1.5'}));g.appendChild(el('text',{x:n.x+n.w-(n.sm?15:24),y:n.y+n.h/2,'text-anchor':'middle','dominant-baseline':'central',style:'fill:var(--ink);font-weight:700;font-size:'+(n.sm?'14':'16')+'px'},isOpen(n.tog)?'\u2212':'+'));
+const f=()=>{if(n.tog==='vt'||n.tog==='sa'){open.sub=open.sub===n.tog?null:n.tog}else{open[n.tog]=!open[n.tog]}build()};g.addEventListener('click',f);g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();f()}})}
 svg.appendChild(g)});
 N.filter(n=>n.k==='l').forEach(n=>{const a=el('a',{href:LINK[n.n],rel:'noopener',class:'nd','data-id':n.n,'aria-label':'Scheda '+n.n+': '+n.t.join(' ')});
 a.appendChild(el('rect',{x:n.x,y:n.y,width:n.w,height:n.h,rx:14,class:'box'}));a.appendChild(el('circle',{cx:n.x+24,cy:n.y+n.h/2,r:14,class:'badge'}));a.appendChild(el('text',{x:n.x+24,y:n.y+n.h/2+5,class:'bn','text-anchor':'middle'},String(n.n)));
@@ -105,8 +110,8 @@ a.addEventListener('click',()=>{seen[n.n]=1;try{localStorage.setItem(KEY,JSON.st
 wrap.replaceChildren(svg);
 svg.querySelectorAll('text.el').forEach(t=>{const b=t.getBBox();svg.insertBefore(el('rect',{x:b.x-8,y:b.y-3,width:b.width+16,height:b.height+6,rx:8,class:'elbg'}),t)});
 paint()}
-function paint(){wrap.querySelectorAll('a.nd').forEach(a=>{const s=!!seen[a.dataset.id];a.classList.toggle('seen',s);a.querySelector('.bn').textContent=s?'✓':a.dataset.id});
-cnt.textContent='Schede aperte: '+Object.keys(seen).filter(k=>LINK[k]).length+' su 13'}
+function paint(){wrap.querySelectorAll('a.nd').forEach(a=>{const s=!!seen[a.dataset.id];a.classList.toggle('seen',s);a.querySelector('.bn').textContent=s?'\u2713':a.dataset.id});
+cnt.textContent='Schede aperte: '+Object.keys(seen).filter(k=>LINK[k]).length+' su 15'}
 build();if(document.fonts)document.fonts.ready.then(build);
 })();
 </script>

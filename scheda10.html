@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Grafico velocità-tempo a tratti: accelerazione e spazio</title>
+<title>Grafico velocit&#224;-tempo a tratti: accelerazione e spazio</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <style>
 :root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
@@ -54,54 +54,54 @@ input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px
 <body>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · grafici · scheda 3</p>
-<h1>Un’auto accelera, viaggia a velocità costante e poi frena. Come si leggono accelerazione e strada percorsa nel grafico velocità-tempo?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; grafici &#183; scheda 3</p>
+<h1>Un&#8217;auto accelera, viaggia a velocit&#224; costante e poi frena. Come si leggono accelerazione e strada percorsa nel grafico velocit&#224;-tempo?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Un’auto parte da ferma su una strada rettilinea. Il grafico velocità-tempo ha tre segmenti: da 0 a 6 s la velocità sale fino a 12 m/s; da 6 s a 14 s resta a 12 m/s; da 14 s a 18 s scende fino a 0 m/s.</p>
-<p class="q">Tra 6 s e 14 s l’accelerazione è:</p><div class="choices" role="group" aria-label="Tra 6 s e 14 s l’accelerazione è:" data-g="a"><button data-v="0" aria-pressed="false">0 m/s²</button><button data-v="12" aria-pressed="false">12 m/s²</button><button data-v="2" aria-pressed="false">2 m/s²</button></div>
-<p class="q">Durante la frenata (da 14 s a 18 s) l’auto:</p><div class="choices" role="group" aria-label="Durante la frenata (da 14 s a 18 s) l’auto:" data-g="b"><button data-v="avanti" aria-pressed="false">continua ad andare avanti</button><button data-v="ferma" aria-pressed="false">si ferma subito</button><button data-v="indietro" aria-pressed="false">torna indietro</button></div>
+<p>Un&#8217;auto parte da ferma su una strada rettilinea. Il grafico velocit&#224;-tempo ha tre segmenti: da 0 a 6 s la velocit&#224; sale fino a 12 m/s; da 6 s a 14 s resta a 12 m/s; da 14 s a 18 s scende fino a 0 m/s.</p>
+<p class="q">Tra 6 s e 14 s l&#8217;accelerazione &#232;:</p><div class="choices" role="group" aria-label="Tra 6 s e 14 s l&#8217;accelerazione &#232;:" data-g="a"><button data-v="0" aria-pressed="false">0 m/s&#178;</button><button data-v="12" aria-pressed="false">12 m/s&#178;</button><button data-v="2" aria-pressed="false">2 m/s&#178;</button></div>
+<p class="q">Durante la frenata (da 14 s a 18 s) l&#8217;auto:</p><div class="choices" role="group" aria-label="Durante la frenata (da 14 s a 18 s) l&#8217;auto:" data-g="b"><button data-v="avanti" aria-pressed="false">continua ad andare avanti</button><button data-v="ferma" aria-pressed="false">si ferma subito</button><button data-v="indietro" aria-pressed="false">torna indietro</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Grafico velocità-tempo: la velocità sale da 0 a 12 metri al secondo in 6 secondi, resta a 12 fino a 14 secondi, poi scende a 0 a 18 secondi. L’area sotto la linea si colora man mano. Sopra, una striscia mostra l’auto che avanza."></canvas>
+<canvas id="scena" role="img" aria-label="Grafico velocit&#224;-tempo: la velocit&#224; sale da 0 a 12 metri al secondo in 6 secondi, resta a 12 fino a 14 secondi, poi scende a 0 a 18 secondi. L&#8217;area sotto la linea si colora man mano. Sopra, una striscia mostra l&#8217;auto che avanza."></canvas>
 <div class="ctrl">
-<button id="go" class="primary" disabled>Fai partire l’auto</button>
+<button id="go" class="primary" disabled>Fai partire l&#8217;auto</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 </div>
 <div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. L’area colorata sotto la linea cresce con il tempo.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. L&#8217;area colorata sotto la linea cresce con il tempo.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>La pendenza è l’accelerazione.</b> Nei tre tratti vale +2,0 m/s², 0 m/s² e −3,0 m/s².</li>
-<li><b>Un tratto orizzontale non è una sosta.</b> Qui la velocità è costante e vale 12 m/s: l’auto si muove, ma a = 0 m/s².</li>
-<li><b>Frenare non vuol dire tornare indietro.</b> a è negativa, ma v resta positiva fino a 18 s: l’auto va avanti più lentamente fino a fermarsi.</li>
-<li><b>L’area sotto il grafico è lo spazio percorso.</b> 36 m + 96 m + 24 m = 156 m. Il cursore mostra come cresce.</li>
-<li><b>Il motivo.</b> Si usa la definizione di accelerazione e di velocità, tratto per tratto:</li>
+<li><b>La pendenza &#232; l&#8217;accelerazione.</b> Nei tre tratti vale +2,0 m/s&#178;, 0 m/s&#178; e &#8722;3,0 m/s&#178;.</li>
+<li><b>Un tratto orizzontale non &#232; una sosta.</b> Qui la velocit&#224; &#232; costante e vale 12 m/s: l&#8217;auto si muove, ma a = 0 m/s&#178;.</li>
+<li><b>Frenare non vuol dire tornare indietro.</b> a &#232; negativa, ma v resta positiva fino a 18 s: l&#8217;auto va avanti pi&#249; lentamente fino a fermarsi.</li>
+<li><b>L&#8217;area sotto il grafico &#232; lo spazio percorso.</b> 36 m + 96 m + 24 m = 156 m. Il cursore mostra come cresce.</li>
+<li><b>Il motivo.</b> Si usa la definizione di accelerazione e di velocit&#224;, tratto per tratto:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>a = Δv / Δt = pendenza. Tratto 1: (12 − 0) / (6 − 0) = 2,0. Tratto 2: 0. Tratto 3: (0 − 12) / (18 − 14) = −3,0.</li>
-<li>Con v costante, Δs = v · Δt: è l’area di un rettangolo. Tratto 2: 12 · (14 − 6) = 96 m.</li>
-<li>Con v che varia in modo uniforme, vale la velocità media: Δs = v<sub>media</sub> · Δt, cioè l’area di un triangolo o di un trapezio.</li>
-<li>Tratto 1: ½ · 6 · 12 = 36 m. Tratto 3: ½ · 4 · 12 = 24 m.</li>
+<li>a = &#916;v / &#916;t = pendenza. Tratto 1: (12 &#8722; 0) / (6 &#8722; 0) = 2,0. Tratto 2: 0. Tratto 3: (0 &#8722; 12) / (18 &#8722; 14) = &#8722;3,0.</li>
+<li>Con v costante, &#916;s = v &#183; &#916;t: &#232; l&#8217;area di un rettangolo. Tratto 2: 12 &#183; (14 &#8722; 6) = 96 m.</li>
+<li>Con v che varia in modo uniforme, vale la velocit&#224; media: &#916;s = v<sub>media</sub> &#183; &#916;t, cio&#232; l&#8217;area di un triangolo o di un trapezio.</li>
+<li>Tratto 1: &#189; &#183; 6 &#183; 12 = 36 m. Tratto 3: &#189; &#183; 4 &#183; 12 = 24 m.</li>
 <li>Totale: 36 + 96 + 24 = 156 m.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un ciclista parte da fermo e accelera con a = 1,5 m/s² per 4,0 s. Poi mantiene la velocità raggiunta per 6,0 s e infine frena fino a fermarsi in 3,0 s. Disegna il grafico v-t e calcola la distanza totale e la velocità scalare media.</div>
+<div class="problem">Un ciclista parte da fermo e accelera con a = 1,5 m/s&#178; per 4,0 s. Poi mantiene la velocit&#224; raggiunta per 6,0 s e infine frena fino a fermarsi in 3,0 s. Disegna il grafico v-t e calcola la distanza totale e la velocit&#224; scalare media.</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede?</summary><div>Tre fasi: accelera, va a velocità costante, frena. Non torna mai indietro.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto. v<sub>0</sub> = 0 m/s; a = 1,5 m/s² per 4,0 s; poi 6,0 s a velocità costante; poi frenata in 3,0 s fino a v = 0 m/s.</div></details>
-<details class="step"><summary>3. Valori agli estremi dei tratti</summary><div>Fine tratto 1: v = 1,5 m/s² · 4,0 s = <b>6,0 m/s</b>. Il tratto 2 resta a 6,0 m/s. Il grafico passa per (0 s; 0 m/s), (4,0 s; 6,0 m/s), (10 s; 6,0 m/s), (13 s; 0 m/s).</div></details>
-<details class="step"><summary>4. Spazio in ogni tratto</summary><div>Tratto 1: ½ · 4,0 s · 6,0 m/s = <b>12 m</b>.<br>Tratto 2: 6,0 m/s · 6,0 s = <b>36 m</b>.<br>Tratto 3: ½ · 3,0 s · 6,0 m/s = <b>9,0 m</b>.</div></details>
-<details class="step"><summary>5. Distanza totale</summary><div>12 m + 36 m + 9,0 m = <b>57 m</b>. Controllo con l’area del trapezio: (13 s + 6,0 s) / 2 · 6,0 m/s = 57 m.</div></details>
-<details class="step"><summary>6. Velocità scalare media</summary><div>57 m / 13 s = <b>4,4 m/s</b>.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>4,4 m/s è minore della velocità massima (6,0 m/s) e maggiore di 0 m/s: coerente con un moto che parte e finisce da fermo.</div></details>
+<details class="step"><summary>1. Che cosa succede?</summary><div>Tre fasi: accelera, va a velocit&#224; costante, frena. Non torna mai indietro.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Asse nel verso del moto. v<sub>0</sub> = 0 m/s; a = 1,5 m/s&#178; per 4,0 s; poi 6,0 s a velocit&#224; costante; poi frenata in 3,0 s fino a v = 0 m/s.</div></details>
+<details class="step"><summary>3. Valori agli estremi dei tratti</summary><div>Fine tratto 1: v = 1,5 m/s&#178; &#183; 4,0 s = <b>6,0 m/s</b>. Il tratto 2 resta a 6,0 m/s. Il grafico passa per (0 s; 0 m/s), (4,0 s; 6,0 m/s), (10 s; 6,0 m/s), (13 s; 0 m/s).</div></details>
+<details class="step"><summary>4. Spazio in ogni tratto</summary><div>Tratto 1: &#189; &#183; 4,0 s &#183; 6,0 m/s = <b>12 m</b>.<br>Tratto 2: 6,0 m/s &#183; 6,0 s = <b>36 m</b>.<br>Tratto 3: &#189; &#183; 3,0 s &#183; 6,0 m/s = <b>9,0 m</b>.</div></details>
+<details class="step"><summary>5. Distanza totale</summary><div>12 m + 36 m + 9,0 m = <b>57 m</b>. Controllo con l&#8217;area del trapezio: (13 s + 6,0 s) / 2 &#183; 6,0 m/s = 57 m.</div></details>
+<details class="step"><summary>6. Velocit&#224; scalare media</summary><div>57 m / 13 s = <b>4,4 m/s</b>.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>4,4 m/s &#232; minore della velocit&#224; massima (6,0 m/s) e maggiore di 0 m/s: coerente con un moto che parte e finisce da fermo.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: a = +2,0 m/s² per 6 s, v = 12 m/s per 8 s, a = −3,0 m/s² per 4 s; spazio 36 + 96 + 24 = 156 m. Gli studenti conoscono già le velocità a tratti con accelerazione costante: qui si lavora sulla lettura. Errori tipici: orizzontale = fermo, a negativa = retromarcia, confondere pendenza e area. Il cursore rende leggibile la crescita dello spazio.</p></details>
+<p>Dati della scena: a = +2,0 m/s&#178; per 6 s, v = 12 m/s per 8 s, a = &#8722;3,0 m/s&#178; per 4 s; spazio 36 + 96 + 24 = 156 m. Gli studenti conoscono gi&#224; le velocit&#224; a tratti con accelerazione costante: qui si lavora sulla lettura. Errori tipici: orizzontale = fermo, a negativa = retromarcia, confondere pendenza e area. Il cursore rende leggibile la crescita dello spazio.</p></details>
 </main>
 <script>
 
@@ -119,12 +119,12 @@ function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyl
 function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
 
 const CFG={H:390,dur:[10,20],keys:['a','b'],again:'Riguarda la corsa',
-verdict:ch=>{const a=ch.a==='0',b=ch.b==='avanti';return{ok:a&&b,html:'<b>Tra 6 s e 14 s: '+(a?'previsione corretta.':'non era così.')+'</b> La velocità è costante, quindi a = 0 m/s². <b>In frenata: '+(b?'previsione corretta.':'non era così.')+'</b> La velocità diminuisce ma resta positiva: l’auto va ancora avanti fino a fermarsi.'}},
+verdict:ch=>{const a=ch.a==='0',b=ch.b==='avanti';return{ok:a&&b,html:'<b>Tra 6 s e 14 s: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> La velocit\u00e0 \u00e8 costante, quindi a = 0 m/s\u00b2. <b>In frenata: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> La velocit\u00e0 diminuisce ma resta positiva: l\u2019auto va ancora avanti fino a fermarsi.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*18,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue');
 const v=u=>u<6?2*u:u<14?12:12-3*(u-14),a=u=>u<6?2:u<14?0:-3,s=u=>u<6?u*u:u<14?36+12*(u-6):132+12*(u-14)-1.5*(u-14)*(u-14);
-ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   ·   v = '+U.fm(v(t),1)+' m/s',10,18);
-ctx.font=U.F;ctx.fillText('a = '+U.sg(a(t),1)+' m/s²   ·   spazio percorso = '+U.fm(s(t),0)+' m',10,38);
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   \u00b7   v = '+U.fm(v(t),1)+' m/s',10,18);
+ctx.font=U.F;ctx.fillText('a = '+U.sg(a(t),1)+' m/s\u00b2   \u00b7   spazio percorso = '+U.fm(s(t),0)+' m',10,38);
 const sx0=40,sx1=W-30,SX=m=>sx0+m/160*(sx1-sx0);
 ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sx0,84);ctx.lineTo(sx1,84);ctx.stroke();
 ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,40,80,120,160].forEach(m=>{ctx.beginPath();ctx.moveTo(SX(m),84);ctx.lineTo(SX(m),89);ctx.stroke();ctx.fillText(m+' m',SX(m),104)});
@@ -141,7 +141,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};

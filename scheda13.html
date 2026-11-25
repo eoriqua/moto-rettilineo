@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Incontro tra un’auto che parte da ferma e un ciclista</title>
+<title>Incontro tra un&#8217;auto che parte da ferma e un ciclista</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&display=swap">
 <style>
 :root{--bg:#F3F6F8;--surface:#fff;--ink:#15202B;--muted:#55646F;--line:#D3DCE3;--road:#E6ECF1;--blue:#1F5FD0;--on-blue:#fff;--blue-soft:#E3ECFB;--ok:#17794D;--ok-soft:#DFF3E9;--warn:#9A4A08;--warn-soft:#FBEBD9;--pot:#B45F06;
@@ -54,54 +54,54 @@ input[type=range]{width:min(100%,26rem);accent-color:var(--blue);min-height:44px
 <body>
 <body>
 <main>
-<a class="back" href="index.html">← Torna alla mappa</a>
-<p class="meta">Moto rettilineo · grafici · scheda 6</p>
-<h1>Un’auto parte da ferma e accelera; un ciclista parte insieme a lei a velocità costante. Chi è davanti, e quando si ritrovano appaiati?</h1>
+<a class="back" href="index.html">&#8592; Torna alla mappa</a>
+<p class="meta">Moto rettilineo &#183; grafici &#183; scheda 6</p>
+<h1>Un&#8217;auto parte da ferma e accelera; un ciclista parte insieme a lei a velocit&#224; costante. Chi &#232; davanti, e quando si ritrovano appaiati?</h1>
 <h2>Prima di guardare, prevedi</h2>
-<p>Su una strada rettilinea l’auto (A) e il ciclista (C) partono insieme dallo stesso punto, a t = 0 s. L’auto parte da ferma con a = 2,0 m/s². Il ciclista va a velocità costante di 6,0 m/s.</p>
-<p class="q">L’auto e il ciclista si ritrovano appaiati a:</p><div class="choices" role="group" aria-label="L’auto e il ciclista si ritrovano appaiati a:" data-g="a"><button data-v="3" aria-pressed="false">t = 3 s</button><button data-v="6" aria-pressed="false">t = 6 s</button><button data-v="mai" aria-pressed="false">mai</button></div>
-<p class="q">Subito dopo la partenza è davanti:</p><div class="choices" role="group" aria-label="Subito dopo la partenza è davanti:" data-g="b"><button data-v="aut" aria-pressed="false">l’auto</button><button data-v="cic" aria-pressed="false">il ciclista</button><button data-v="ins" aria-pressed="false">nessuno dei due</button></div>
+<p>Su una strada rettilinea l&#8217;auto (A) e il ciclista (C) partono insieme dallo stesso punto, a t = 0 s. L&#8217;auto parte da ferma con a = 2,0 m/s&#178;. Il ciclista va a velocit&#224; costante di 6,0 m/s.</p>
+<p class="q">L&#8217;auto e il ciclista si ritrovano appaiati a:</p><div class="choices" role="group" aria-label="L&#8217;auto e il ciclista si ritrovano appaiati a:" data-g="a"><button data-v="3" aria-pressed="false">t = 3 s</button><button data-v="6" aria-pressed="false">t = 6 s</button><button data-v="mai" aria-pressed="false">mai</button></div>
+<p class="q">Subito dopo la partenza &#232; davanti:</p><div class="choices" role="group" aria-label="Subito dopo la partenza &#232; davanti:" data-g="b"><button data-v="aut" aria-pressed="false">l&#8217;auto</button><button data-v="cic" aria-pressed="false">il ciclista</button><button data-v="ins" aria-pressed="false">nessuno dei due</button></div>
 
 <h2>Ora verifica</h2>
 <div class="scene">
-<canvas id="scena" role="img" aria-label="Grafico posizione-tempo con una retta e una parabola. Il ciclista, in arancione, è una retta di pendenza 6. L’auto, in blu, è una parabola che parte piatta. Le due linee si incrociano a 6 secondi, a 36 metri. Sopra, una striscia mostra auto e ciclista sulla strada."></canvas>
+<canvas id="scena" role="img" aria-label="Grafico posizione-tempo con una retta e una parabola. Il ciclista, in arancione, &#232; una retta di pendenza 6. L&#8217;auto, in blu, &#232; una parabola che parte piatta. Le due linee si incrociano a 6 secondi, a 36 metri. Sopra, una striscia mostra auto e ciclista sulla strada."></canvas>
 <div class="ctrl">
 <button id="go" class="primary" disabled>Fai partire i due</button>
 <label><input type="checkbox" id="slow"> Rallenta</label>
 </div>
 <div class="ctrl" id="curbox" hidden><label for="cur" class="curlab">Sposta il cursore nel tempo e leggi i valori:</label><input type="range" id="cur" min="0" max="1000" value="1000"></div>
 </div>
-<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Linea blu: auto. Linea arancione: ciclista. Il cursore legge distanza e chi è davanti.</p>
+<p class="meta" id="hint">Fai tutte e due le previsioni per sbloccare la scena. Linea blu: auto. Linea arancione: ciclista. Il cursore legge distanza e chi &#232; davanti.</p>
 <section id="res" hidden aria-live="polite">
 <h2>Cosa hai visto</h2>
 <p id="verdict" class="verdict"></p>
 <ul class="find">
-<li><b>Una retta e una parabola si incrociano.</b> L’incontro è il punto in cui hanno la stessa posizione nello stesso istante: qui t = 6 s, s = 36 m.</li>
-<li><b>All’inizio è davanti il ciclista.</b> L’auto accelera, ma parte da ferma: nei primi secondi è più lenta e la sua curva è sotto la retta.</li>
-<li><b>Dopo l’incontro l’auto passa davanti.</b> A 6 s l’auto va a 12 m/s e il ciclista a 6,0 m/s: è un sorpasso.</li>
-<li><b>Il distacco è massimo quando le velocità sono uguali.</b> Succede a t = 3 s, con 9 m di vantaggio per il ciclista. Poi l’auto recupera.</li>
+<li><b>Una retta e una parabola si incrociano.</b> L&#8217;incontro &#232; il punto in cui hanno la stessa posizione nello stesso istante: qui t = 6 s, s = 36 m.</li>
+<li><b>All&#8217;inizio &#232; davanti il ciclista.</b> L&#8217;auto accelera, ma parte da ferma: nei primi secondi &#232; pi&#249; lenta e la sua curva &#232; sotto la retta.</li>
+<li><b>Dopo l&#8217;incontro l&#8217;auto passa davanti.</b> A 6 s l&#8217;auto va a 12 m/s e il ciclista a 6,0 m/s: &#232; un sorpasso.</li>
+<li><b>Il distacco &#232; massimo quando le velocit&#224; sono uguali.</b> Succede a t = 3 s, con 9 m di vantaggio per il ciclista. Poi l&#8217;auto recupera.</li>
 <li><b>Il motivo.</b> Si scrivono le due leggi orarie e si impone la stessa posizione:</li>
 </ul>
 <div class="formula deriv"><ol>
-<li>Auto da ferma: s<sub>A</sub> = ½ · 2,0 · t² = 1,0 · t². Ciclista: s<sub>C</sub> = 6,0 · t.</li>
-<li>Incontro: s<sub>A</sub> = s<sub>C</sub>, quindi t² = 6,0 · t, cioè t² − 6,0 · t = 0, cioè t · (t − 6,0) = 0.</li>
+<li>Auto da ferma: s<sub>A</sub> = &#189; &#183; 2,0 &#183; t&#178; = 1,0 &#183; t&#178;. Ciclista: s<sub>C</sub> = 6,0 &#183; t.</li>
+<li>Incontro: s<sub>A</sub> = s<sub>C</sub>, quindi t&#178; = 6,0 &#183; t, cio&#232; t&#178; &#8722; 6,0 &#183; t = 0, cio&#232; t &#183; (t &#8722; 6,0) = 0.</li>
 <li>Le soluzioni sono due: t = 0 (la partenza, stesso punto) e t = 6,0 s. Le due soluzioni sono le due intersezioni del grafico.</li>
-<li>A t = 6,0 s: s = 6,0 · 6,0 = 36 m. Controllo con l’auto: 1,0 · 6,0² = 36 m.</li>
-<li>Velocità in quell’istante: auto 2,0 · 6,0 = 12 m/s, ciclista 6,0 m/s. L’auto è più veloce, quindi passa davanti.</li>
+<li>A t = 6,0 s: s = 6,0 &#183; 6,0 = 36 m. Controllo con l&#8217;auto: 1,0 &#183; 6,0&#178; = 36 m.</li>
+<li>Velocit&#224; in quell&#8217;istante: auto 2,0 &#183; 6,0 = 12 m/s, ciclista 6,0 m/s. L&#8217;auto &#232; pi&#249; veloce, quindi passa davanti.</li>
 </ol></div>
 <h2>Un problema tipico, passo per passo</h2>
-<div class="problem">Un’auto parte da ferma con a = 2,0 m/s² dal punto s = 0 m. Nello stesso istante un camion, 24 m più avanti, viaggia nello stesso verso a 10 m/s. Quando e dove l’auto raggiunge il camion?</div>
+<div class="problem">Un&#8217;auto parte da ferma con a = 2,0 m/s&#178; dal punto s = 0 m. Nello stesso istante un camion, 24 m pi&#249; avanti, viaggia nello stesso verso a 10 m/s. Quando e dove l&#8217;auto raggiunge il camion?</div>
 <p>Per ogni passo, prova prima a rispondere sul quaderno, poi apri.</p>
-<details class="step"><summary>1. Che cosa succede?</summary><div>L’auto parte da ferma e accelera. Il camion ha 24 m di vantaggio e va a velocità costante. L’auto lo raggiunge quando hanno la stessa posizione.</div></details>
-<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine nel punto di partenza dell’auto, asse nel verso del moto, t = 0 s alla partenza. Auto: s<sub>0</sub> = 0 m, v<sub>0</sub> = 0 m/s, a = 2,0 m/s². Camion: s<sub>0</sub> = 24 m, v = 10 m/s.</div></details>
-<details class="step"><summary>3. Leggi orarie</summary><div>Auto: s<sub>A</sub> = ½ · 2,0 m/s² · t² = 1,0 m/s² · t².<br>Camion: s<sub>C</sub> = 24 m + 10 m/s · t.</div></details>
-<details class="step"><summary>4. Condizione di incontro</summary><div>s<sub>A</sub> = s<sub>C</sub>: t² = 24 + 10 · t (con t in secondi, s in metri), cioè t² − 10 · t − 24 = 0.</div></details>
-<details class="step"><summary>5. Soluzioni dell’equazione</summary><div>t = (10 ± √(100 + 96)) / 2 = (10 ± 14) / 2. Quindi t = 12 s oppure t = −2 s.<br>Il valore negativo è prima della partenza e non ha senso: <b>t = 12 s</b>.</div></details>
-<details class="step"><summary>6. Posizione dell’incontro</summary><div>s = 1,0 m/s² · (12 s)² = <b>144 m</b>. Controllo con il camion: 24 m + 10 m/s · 12 s = 144 m.</div></details>
-<details class="step"><summary>7. Il risultato ha senso?</summary><div>A 12 s l’auto va a 2,0 m/s² · 12 s = 24 m/s, più del camion (10 m/s): lo raggiunge e lo supera. Nel grafico s-t una parabola che parte da zero taglia la retta del camion una sola volta nei tempi positivi.</div></details>
+<details class="step"><summary>1. Che cosa succede?</summary><div>L&#8217;auto parte da ferma e accelera. Il camion ha 24 m di vantaggio e va a velocit&#224; costante. L&#8217;auto lo raggiunge quando hanno la stessa posizione.</div></details>
+<details class="step"><summary>2. Quali sono il sistema di riferimento e i dati?</summary><div>Origine nel punto di partenza dell&#8217;auto, asse nel verso del moto, t = 0 s alla partenza. Auto: s<sub>0</sub> = 0 m, v<sub>0</sub> = 0 m/s, a = 2,0 m/s&#178;. Camion: s<sub>0</sub> = 24 m, v = 10 m/s.</div></details>
+<details class="step"><summary>3. Leggi orarie</summary><div>Auto: s<sub>A</sub> = &#189; &#183; 2,0 m/s&#178; &#183; t&#178; = 1,0 m/s&#178; &#183; t&#178;.<br>Camion: s<sub>C</sub> = 24 m + 10 m/s &#183; t.</div></details>
+<details class="step"><summary>4. Condizione di incontro</summary><div>s<sub>A</sub> = s<sub>C</sub>: t&#178; = 24 + 10 &#183; t (con t in secondi, s in metri), cio&#232; t&#178; &#8722; 10 &#183; t &#8722; 24 = 0.</div></details>
+<details class="step"><summary>5. Soluzioni dell&#8217;equazione</summary><div>t = (10 &#177; &#8730;(100 + 96)) / 2 = (10 &#177; 14) / 2. Quindi t = 12 s oppure t = &#8722;2 s.<br>Il valore negativo &#232; prima della partenza e non ha senso: <b>t = 12 s</b>.</div></details>
+<details class="step"><summary>6. Posizione dell&#8217;incontro</summary><div>s = 1,0 m/s&#178; &#183; (12 s)&#178; = <b>144 m</b>. Controllo con il camion: 24 m + 10 m/s &#183; 12 s = 144 m.</div></details>
+<details class="step"><summary>7. Il risultato ha senso?</summary><div>A 12 s l&#8217;auto va a 2,0 m/s&#178; &#183; 12 s = 24 m/s, pi&#249; del camion (10 m/s): lo raggiunge e lo supera. Nel grafico s-t una parabola che parte da zero taglia la retta del camion una sola volta nei tempi positivi.</div></details>
 </section>
 <details class="note"><summary>Note per il docente</summary>
-<p>Dati della scena: auto s = t² (a = 2,0 m/s² da ferma), ciclista s = 6,0 t; incontri a t = 0 e t = 6 s (36 m). Estende la scheda 9 con un moto accelerato. Errori tipici: pensare che l’auto sia subito davanti perché accelera, scartare la soluzione t = 0, accettare t negativo nel problema. Il distacco massimo a t = 3 s (stessa velocità) è solo una lettura da fare con il cursore, senza derivate.</p></details>
+<p>Dati della scena: auto s = t&#178; (a = 2,0 m/s&#178; da ferma), ciclista s = 6,0 t; incontri a t = 0 e t = 6 s (36 m). Estende la scheda 9 con un moto accelerato. Errori tipici: pensare che l&#8217;auto sia subito davanti perch&#233; accelera, scartare la soluzione t = 0, accettare t negativo nel problema. Il distacco massimo a t = 3 s (stessa velocit&#224;) &#232; solo una lettura da fare con il cursore, senza derivate.</p></details>
 </main>
 <script>
 
@@ -119,12 +119,12 @@ function guide(ctx,U,x,y,x0,y1){ctx.save();ctx.setLineDash([4,4]);ctx.strokeStyl
 function pt(ctx,x,y,col,r){ctx.fillStyle=col;ctx.beginPath();ctx.arc(x,y,r||5,0,7);ctx.fill()}
 
 const CFG={H:400,dur:[10,20],keys:['a','b'],again:'Riguarda la corsa',
-verdict:ch=>{const a=ch.a==='6',b=ch.b==='cic';return{ok:a&&b,html:'<b>Quando si ritrovano appaiati: '+(a?'previsione corretta.':'non era così.')+'</b> A t = 6 s, a 36 m dalla partenza. <b>Chi è davanti all’inizio: '+(b?'previsione corretta.':'non era così.')+'</b> Il ciclista: l’auto parte da ferma e all’inizio è più lenta.'}},
+verdict:ch=>{const a=ch.a==='6',b=ch.b==='cic';return{ok:a&&b,html:'<b>Quando si ritrovano appaiati: '+(a?'previsione corretta.':'non era cos\u00ec.')+'</b> A t = 6 s, a 36 m dalla partenza. <b>Chi \u00e8 davanti all\u2019inizio: '+(b?'previsione corretta.':'non era cos\u00ec.')+'</b> Il ciclista: l\u2019auto parte da ferma e all\u2019inizio \u00e8 pi\u00f9 lenta.'}},
 draw:(ctx,W,tau,U)=>{
 const t=tau*8,c=U.c,ink=c('--ink'),mu=c('--muted'),bl=c('--blue'),or=c('--pot');
 const A=u=>u*u,C=u=>6*u,d=C(t)-A(t);
-ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   ·   distanza: '+U.fm(Math.abs(d),0)+' m',10,18);
-ctx.font=U.F;ctx.fillText(Math.abs(d)<.5?'sono appaiati':d>0?'davanti: il ciclista':'davanti: l’auto',10,38);
+ctx.fillStyle=ink;ctx.font=U.FB;ctx.textAlign='left';ctx.fillText('t = '+U.fm(t,1)+' s   \u00b7   distanza: '+U.fm(Math.abs(d),0)+' m',10,18);
+ctx.font=U.F;ctx.fillText(Math.abs(d)<.5?'sono appaiati':d>0?'davanti: il ciclista':'davanti: l\u2019auto',10,38);
 const sx0=34,sx1=W-30,SX=m=>sx0+m/70*(sx1-sx0);
 ctx.strokeStyle=mu;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(sx0,80);ctx.lineTo(sx1,80);ctx.stroke();
 ctx.fillStyle=mu;ctx.font=U.F2;ctx.textAlign='center';[0,20,40,60].forEach(m=>{ctx.beginPath();ctx.moveTo(SX(m),80);ctx.lineTo(SX(m),85);ctx.stroke();ctx.fillText(m+' m',SX(m),126)});
@@ -139,7 +139,7 @@ const groups=[...document.querySelectorAll('.choices')],reduce=matchMedia('(pref
 let tau=0,running=false;
 const U={F:'13px "Atkinson Hyperlegible",system-ui,sans-serif',FB:'bold 13px "Atkinson Hyperlegible",system-ui,sans-serif',F2:'12px "Atkinson Hyperlegible",system-ui,sans-serif'};
 U.fm=(n,d)=>n.toFixed(d).replace('.',',');
-U.sg=(n,d)=>(n>.005?'+':n<-.005?'−':'')+U.fm(Math.abs(n),d);
+U.sg=(n,d)=>(n>.005?'+':n<-.005?'\u2212':'')+U.fm(Math.abs(n),d);
 U.on=id=>$(id)&&$(id).checked;
 U.arrow=(x,y,len,col,vert)=>{if(Math.abs(len)<3)return;const s=len>0?1:-1;ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=2.5;ctx.beginPath();ctx.moveTo(x,y);vert?ctx.lineTo(x,y+len):ctx.lineTo(x+len,y);ctx.stroke();ctx.beginPath();if(vert){ctx.moveTo(x,y+len);ctx.lineTo(x-5,y+len-s*8);ctx.lineTo(x+5,y+len-s*8)}else{ctx.moveTo(x+len,y);ctx.lineTo(x+len-s*8,y-5);ctx.lineTo(x+len-s*8,y+5)}ctx.closePath();ctx.fill()};
 U.arrow2=(x1,y1,x2,y2,col)=>{ctx.strokeStyle=col;ctx.fillStyle=col;ctx.lineWidth=1.5;ctx.beginPath();ctx.moveTo(x1,y1);ctx.lineTo(x2,y2);ctx.stroke();const a=Math.atan2(y2-y1,x2-x1);[[x2,y2,a],[x1,y1,a+Math.PI]].forEach(([x,y,b])=>{ctx.beginPath();ctx.moveTo(x,y);ctx.lineTo(x-8*Math.cos(b-.4),y-8*Math.sin(b-.4));ctx.lineTo(x-8*Math.cos(b+.4),y-8*Math.sin(b+.4));ctx.closePath();ctx.fill()})};
